@@ -1,0 +1,2 @@
+# LeetCodeSolutions
+Personal solution, Java
