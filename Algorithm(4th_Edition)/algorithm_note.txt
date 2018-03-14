@@ -15,3 +15,39 @@
 3.计算调和级数（Harmonic series）：
 	1.证明其为发散数列。
 	实现：ca.mcmaster.chapter.one.MyMath.harmonicSeries(int)
+	
+4.Java值传递：
+	class Test{
+		String name;
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+	}
+	private static void call(Test t){
+		Test tnew = new Test();
+		t.setName("abc");
+		System.out.println(t);	//ca.mcmaster.chapter.one.Test@2a8b83e3
+		tnew.setName("111");
+		t = tnew;
+		System.out.println(t);	//ca.mcmaster.chapter.one.Test@2d7fc1e7
+	}
+	public static void main(String[] args) {		
+		//Java pass value test
+		Test t = new Test();
+		System.out.println(t);	//ca.mcmaster.chapter.one.Test@2a8b83e3
+		call(t);
+		System.out.println(t);	//ca.mcmaster.chapter.one.Test@2a8b83e3
+	}
+	1.基本数据类型都是值传递。
+	2.引用类型传递是引用的拷贝，既不是引用本身，更不是对象。
+		***因为java本身不存在地址，传参时相当于复制了当前地址的引用，并将复制的引用进行传递。
+		
+5. 二分法查找：
+	1.查找的数组是顺序的。
+	2.通过递归的方法不断调用，传入需要比较的上界和下界。
+	3.比较中间位置的值和查找值的大小，相同结束回归，不相同修改上界和下界。
+	实现：ca.mcmaster.chapter.one.Recursive.rank(int, int[])
+		

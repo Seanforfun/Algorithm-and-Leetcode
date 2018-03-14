@@ -26,10 +26,35 @@ public class MyMath {
 		}
 		return sum;
 	}
+	
+	private static void call(Test t){
+		Test tnew = new Test();
+		t.setName("abc");
+		System.out.println(t);
+		tnew.setName("111");
+		t = tnew;
+		System.out.println(t);
+	}
 
 	public static void main(String[] args) {
 		// System.out.println(isPrime(13));
 //		System.out.println(sqrt(2D));
-		System.out.println(harmonicSeries(1000));
+//		System.out.println(harmonicSeries(1000));
+		
+		//Java pass value test
+		Test t = new Test();
+		System.out.println(t);
+		call(t);
+		System.out.println(t);
+	}
+}
+
+class Test{
+	String name;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 }
