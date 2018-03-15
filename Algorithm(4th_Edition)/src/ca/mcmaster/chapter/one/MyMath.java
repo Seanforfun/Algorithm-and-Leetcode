@@ -12,6 +12,7 @@ public class MyMath {
 	}
 
 	public static Double sqrt(Double C) {
+		if(C < 0) return Double.NaN;
 		Double result = C;
 		Double error = 1e-15;
 		while (Math.abs(result - C / result) > error * result)

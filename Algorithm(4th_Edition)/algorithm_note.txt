@@ -16,7 +16,7 @@
 	1.证明其为发散数列。
 	实现：ca.mcmaster.chapter.one.MyMath.harmonicSeries(int)
 	
-4.Java值传递：
+4.Java值传递***：
 	class Test{
 		String name;
 		public String getName() {
@@ -44,10 +44,122 @@
 	1.基本数据类型都是值传递。
 	2.引用类型传递是引用的拷贝，既不是引用本身，更不是对象。
 		***因为java本身不存在地址，传参时相当于复制了当前地址的引用，并将复制的引用进行传递。
+		***所谓的值传递：
+			1.基本数据类型，传递的是值，所以作为形参传递的基本数据类型可以被读取，但是无法修改原值。
+			2.引用类型
+			->传递的是复制出来的引用。引用指向的是一块内存区域，所以可以修改该内存区域内部的值，说明原对象的只可以被改变。
+			->无法改变原始的引用，就是说line34，并没有改变obj对2a8b83e3的引用。
+			3.数组也是对象。
 		
 5. 二分法查找：
 	1.查找的数组是顺序的。
 	2.通过递归的方法不断调用，传入需要比较的上界和下界。
 	3.比较中间位置的值和查找值的大小，相同结束回归，不相同修改上界和下界。
 	实现：ca.mcmaster.chapter.one.Recursive.rank(int, int[])
+	
+6. 判断回文：
+	实现：ca.mcmaster.chapter.one.MyString.isPalindrome(String)
+	
+7. 判断字符串数组是否已经排序：
+	错误实例：
+	public static Boolean isSorted(String[] s){
+		for(int i = 1; i < s.length; i++){
+			String pre = s[i];
+			String next = s[i++];			//在此处从1开始遍历，不应该用i=i+1，而且i++此处将迭代器增加了，跳过了一些元素
+			//i++仍然取了i原值，在取完以后再++
+			System.out.println("pre is: " + pre + "; next is: " + next);
+			if(pre.compareTo(next) > 0)
+				return false;
+		}
+		return true;
+	}
+	错误结果：
+	System.out.println(isSorted(new String[]{"a","e","c","d","e","f"}));
+	pre is: e; next is: e
+	pre is: d; next is: d
+	pre is: f; next is: f
+	true
+	
+	实现：ca.mcmaster.chapter.one.MyString.isSorted(String[])
+	
+8. 内存管理**：
+	实例：
+	Date a = new Date(1,1,2018);
+	Date b = new Date(13,3, 2018);
+	a = b;
+	分析：
+		1.a在堆上开辟了一块空间，用于存储2018-1-1.
+		2.b在堆上开辟了一块空间，用于存储2018-3-13.
+		3.a指向b所对应的空间，此时2018-1-1对应的空间则没有任何的引用成为孤儿对象，则会被JVM的垃圾回收机制(Garbage Collection,GC)回收。
+	
+9. 背包***：
+	接口：ca.mcmaster.chapter.one.bag.Bag<T>
+	1.背包无法从数据结构中删除数据。
+	2.用于帮助用例收集元素并遍历所有收集到的元素。
+	public interface Bag<T> extends Iterable<T> {
+		void add(T t);
+		Boolean isEmpty();
+		Integer size();
+	}
+	
+10. FIFO队列：
+	接口：ca.mcmaster.chapter.one.FIFO.FifoQueue<T>
+	public interface FifoQueue<T> extends Iterable<T> {
+		void enqueue(T t);
+		T dequeue();
+		Boolean isEmpty();
+		Integer size();
+	}
+	
+11. 栈 LIFO队列：
+	接口：ca.mcmaster.chapter.one.stuck.Stack<T>
+	public interface Stack<T> extends Iterable<T> {
+		void push(T t);
+		T pop();
+		Boolean isEmpty();
+		Integer size();
+	}
+	
+12. 装箱拆箱：
+	1.基本数据类型和封装数据类型之间的转换。
+	自动装箱(AutoBoxing):从基本数据类型转化成封装数据类型。int->Integer
+	自动拆箱(Unboxing):从封装数据类型转化成基本数据类型。 Integer->int
+	
+	
+13. 通过两个栈来实现简单的四则运算：
+	1.实现两个下压栈，操作数栈和运算符栈。
+	算法原则：
+		->操作数压入操作数栈。
+		->运算符压入运算符栈。
+		->忽略左括号。
+		->遇到右括号，弹出相应的操作数和操作符，并将结果加入操作数栈。
+	实现：ca.mcmaster.chapter.one.Evaluate
+	public class Evaluate {
+		public static void main(String[] args){
+			String s = "( 1 + ( ( 2 + 3 ) * ( 4 * 5 ) ) )";
+			Stack<String> ops = new Stack<String>();
+			Stack<Double> value = new Stack<Double>();
+			String[] tokens = s.split(" ");
+			
+			//Put all useful values into stack.
+			for(String t:tokens){
+				if(t.equals("(")) continue;
+				else if(t.equals("+")) ops.push(t);
+				else if(t.equals("-")) ops.push(t);
+				else if(t.equals("*")) ops.push(t);
+				else if(t.equals("/")) ops.push(t);
+				else if(t.equals(")")){
+					String op = ops.pop();
+					Double v = value.pop();
+					if(op.equals("+")) v = value.pop() + v;
+					if(op.equals("-")) v = value.pop() - v;
+					if(op.equals("*")) v = value.pop() * v;
+					if(op.equals("/")) v = value.pop() / v;
+					value.push(v);
+				}else
+					value.push(Double.parseDouble(t));
+			}
+			System.out.println(value.pop());
+		}
+	}
 		
