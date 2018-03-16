@@ -1,6 +1,6 @@
 package ca.mcmaster.chapter.one;
 
-public class Recursive {
+public class BinarySearch {
 	private static int rank(int key, int[] a){
 		return rank(key, a, 0, a.length - 1);
 	}

@@ -91,6 +91,8 @@
 		1.a在堆上开辟了一块空间，用于存储2018-1-1.
 		2.b在堆上开辟了一块空间，用于存储2018-3-13.
 		3.a指向b所对应的空间，此时2018-1-1对应的空间则没有任何的引用成为孤儿对象，则会被JVM的垃圾回收机制(Garbage Collection,GC)回收。
+			->垃圾回收的时间是难以预估的。
+			->没有引用的对象（或者说没有办法访问到的对象），被JVM视为孤儿对象，将会被GC回收。
 	
 9. 背包***：
 	接口：ca.mcmaster.chapter.one.bag.Bag<T>
@@ -100,6 +102,40 @@
 		void add(T t);
 		Boolean isEmpty();
 		Integer size();
+	}
+	
+	->链表实现背包：
+	实现：ca.mcmaster.chapter.one.bag.ListBag<T>
+	public class ListBag<T> implements Bag<T>{
+		private Node first;
+		private Integer size = 0;
+		private class Node{
+			T t;
+			Node next;
+		}
+		public void add(T t) {
+			Node oldFirst  = first;
+			first = new Node();
+			first.t = t;
+			first.next = oldFirst;
+			size++;
+		}
+		public Boolean isEmpty() { return size.equals(0); };
+		public Integer size() { return size; }
+		public Iterator<T> iterator() {
+			return new ListIterator();
+		}
+		private class ListIterator implements Iterator<T>{
+			private Node current = first;
+			public boolean hasNext() { return current != null; }
+			public T next() {
+				if(!hasNext()) throw new IndexOutOfBoundsException();
+				T t = current.t;
+				current = current.next;
+				return t;
+			}
+			public void remove() {}
+		}				
 	}
 	
 10. FIFO队列：
@@ -259,4 +295,23 @@
 			System.out.println(value.pop());
 		}
 	}
+	
+14.	算法分析：
+	增长数量级函数（大到小）
+	指数级别 > 立方级别 > 平方级别 || > 线性对数（NlogN）> 线性级别 > || 对数级别 > 常数级别
+	
+15. Sum问题：
+	给定一组不同数组，找其中为和为0的组合的个数：
+	->TwoSum:
+	1.BrutalTwoSum:O(N^2)
+	2.FastTwoSum:O(NlogN)
+		实现：ca.mcmaster.chapter.one.sum.SumProblems#twoSumFast(Integer[])
+		1.对数组进行排序。
+		2.对于所有元素进行遍历O(N)
+		3.通过二分法寻找相反数，如果相反数对应的位置大于当前的index则说明一对TwoSum存在。
+	->ThreeSum:
+		实现：ca.mcmaster.chapter.one.sum.SumProblems#threeSumFast(Integer[])
+		1.对数组进行排序。
+		2.对数组进行二维遍历O(N^2)。
+		3.通过二分法寻找a[i]+a[j]相反数，如果相反数对应的位置大于当前的index则说明一对ThreeSum存在。
 		
