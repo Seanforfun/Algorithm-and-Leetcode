@@ -315,3 +315,130 @@
 		2.对数组进行二维遍历O(N^2)。
 		3.通过二分法寻找a[i]+a[j]相反数，如果相反数对应的位置大于当前的index则说明一对ThreeSum存在。
 		
+16. Union-find 并查集
+	接口：ca.mcmaster.chapter.one.unionfind.UnionFind
+	public interface UnionFind {
+		public void union(int p,int q);				//得到了p, q两个节点，将这两个节点之间做出连接
+		public int find(int p);						//p节点所对应的分量的标识
+		public Boolean connected(int p, int q);		//判断p, q两个节点之间是否属于同一个分量
+		public int count();							//当前分量的数量
+	}
+	抽象类：ca.mcmaster.chapter.one.unionfind.UnionfindAbstract
+	
+	->QuickFind:O(n^2)
+	实现：ca.mcmaster.chapter.one.unionfind.QuickUnionFind
+	查找的速度很快
+	public class QuickUnionFind extends UnionfindAbstract {
+		public QuickUnionFind(int N) {
+			super(N);
+		}
+		public void union(int p, int q) {		
+			int pId = a[p];							//读出p, q两个节点所对应的分量的值
+			int qId = a[q];
+			if(pId == qId) return;
+			for(int i = 0; i < a.length; i++)		//如果两个节点暂时不在一个分量，将其中一个一组的所有节点修改成其中一个分量。
+				if(pId == a[i])	a[i] = qId;
+			count--;
+		}
+		public int find(int p) {
+			return a[p];
+		}	
+	}
+	
+	->QuickUnion:最坏情况仍然是O(n^2)
+	实现：ca.mcmaster.chapter.one.unionfind.QuickUnion
+	public class QuickUnion extends UnionfindAbstract{
+		public QuickUnion(int N) {
+			super(N);
+		}
+		public void union(int p, int q) {
+			int pRoot = find(p);
+			int qRoot = find(q);
+			if(qRoot == pRoot) return;
+			a[pRoot] = qRoot;
+			count--;
+		}
+		public int find(int p) {
+			while( p != a[p])	p = a[p];	//**构造了树的结构，如果当前触点的父类不是本身，则说明当前触点不是根节点
+			return p;						//**那么就挪动到上一个节点再进行分析。
+		}	
+	}
+	
+	->WeightedUnionFind 加权并查集：O(lgN)
+	实现：ca.mcmaster.chapter.one.unionfind.WeightedUnionFind
+	给每个根节点维护了一个数的大小，总体含义就是让连接更多节点的根节点作为新的根节点，减少树的深度。
+	public class WeightedUnionFind extends UnionfindAbstract {
+		private int[] size;
+		public WeightedUnionFind(int N) {
+			super(N);
+			size = new int[N];
+			for(int i = 0; i < N; i++)
+				size[i] = 1;
+		}
+		public void union(int p, int q) {
+			int pRoot = find(p);
+			int qRoot = find(q);
+			if(pRoot == qRoot) return;
+			if(size[pRoot] > size[qRoot]){
+				a[qRoot] = pRoot;
+				size[pRoot] += size[qRoot];
+			}
+			else{
+				a[pRoot] = qRoot;
+				size[qRoot] += size[pRoot];
+			}
+			count--;
+		}
+		public int find(int p) {
+			while(p != a[p]) p = a[p];
+			return p;
+		}	
+	}
+	
+17. 树Tree：
+	1.一棵树的大小是他节点的数量。
+	2.一个节点的深度是他到根节点的连接数。
+	3.一棵树的高度是所有节点的最大深度。
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
