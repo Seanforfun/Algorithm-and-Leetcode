@@ -111,6 +111,37 @@
 		Integer size();
 	}
 	
+	->FIFO队列，通过单向链表实现，新的节点从链表的尾部插入，从链表的头部移出。
+	实现：ca.mcmaster.chapter.one.FIFO.ListFIFOQueue<T>
+	public class ListFIFOQueue<T> implements FifoQueue<T> {
+		private Node first;
+		private Node last;
+		private Integer size = 0;
+		private class Node{
+			T t;
+			Node next;
+		}
+		public void enqueue(T t) {
+			Node oldLast = last;
+			last = new Node();
+			last.t = t;
+			last.next = null;
+			if(isEmpty()) first = last;
+			else oldLast.next = last;
+			size ++;
+		}
+		public T dequeue() {
+			if(isEmpty())	throw new IndexOutOfBoundsException();
+			T t = first.t;
+			first = first.next;
+			size--;
+			if(size.equals(0))	last = null;
+			return t;
+		}
+		public Boolean isEmpty() { return size.equals(0); }
+		public Integer size() { return size; }				
+	}
+	
 11. 栈 LIFO队列：
 	接口：ca.mcmaster.chapter.one.stuck.Stack<T>
 	public interface MyStack<T>{
@@ -120,11 +151,12 @@
 		Integer size();
 	}
 	
-	->定容字符串栈：
-	public class FixedCapacityStackOfString<T> implements MyStack<T> {
+	->LIFO栈 可动态调整数组大小栈：
+	实现：ca.mcmaster.chapter.one.stack.ResizingArrayStack<T>
+	public class ResizingArrayStack<T> implements MyStack<T> {
 		private T[] a;
 		private int size;
-		public FixedCapacityStackOfString(int capacity){ a = (T[])new Object[capacity]; }	//无法泛型数组，所以创建一个Object类，再转型为泛型类。
+		public ResizingArrayStack(int capacity){ a = (T[])new Object[capacity]; }	//无法泛型数组，所以创建一个Object类，再转型为泛型类。
 		public void push(T t) {
 			if(size == a.length)
 				this.resize(a.length * 2);
@@ -142,7 +174,47 @@
 			for(int i = 0; i < size; i++)
 				temp[i] = a[i];
 			a = temp;
-		}		
+		}
+		private class ReverseArrayIterator implements Iterator<T>{
+			public boolean hasNext() { return size > 0; }
+			public T next() { return a[--size]; }
+			public void remove() {}
+		}
+		
+		public Iterator<T> iterator() {
+			return new ReverseArrayIterator();
+		}
+	}
+	*内部类：
+		->当前的ReverseArrayIterator就是一个内部类，该类拥有所有对外部类的field的操作权限，并且可以在外部类内部被调用。
+		->如果外部需要该内部类对象，可以构造一个public的访问器。
+		->**如果因为内部类和泛型的问题不知道怎么接收到参数，可以考虑使用多态，利用接口接受参数。
+	
+	->通过单向链表实现的LIFO栈：
+	实现：ca.mcmaster.chapter.one.stack.ListStack<T>
+	public class ListStack<T> implements MyStack<T> {
+		private Node first;
+		private Integer size = 0;
+		private class Node{
+			T t;
+			Node next;
+		}
+		public void push(T t) {
+			Node oldFirst  = first;
+			first = new Node();
+			first.t = t;
+			first.next = oldFirst;
+			size++;
+		}
+		public T pop() {
+			if(size.equals(0)) throw new IndexOutOfBoundsException();
+			T t = first.t;
+			first = first.next; 
+			size--;
+			return t;
+		}
+		public Boolean isEmpty() { return size.equals(0); };
+		public Integer size() { return size; }				
 	}
 	
 12. 装箱拆箱：
