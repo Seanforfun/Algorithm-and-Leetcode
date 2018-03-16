@@ -1,6 +1,6 @@
 package ca.mcmaster.chapter.one.stack;
 
-public interface Stack<T> extends Iterable<T> {
+public interface MyStack<T>{
 	void push(T t);
 	T pop();
 	Boolean isEmpty();

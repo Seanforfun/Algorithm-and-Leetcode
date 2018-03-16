@@ -113,11 +113,36 @@
 	
 11. 栈 LIFO队列：
 	接口：ca.mcmaster.chapter.one.stuck.Stack<T>
-	public interface Stack<T> extends Iterable<T> {
+	public interface MyStack<T>{
 		void push(T t);
 		T pop();
 		Boolean isEmpty();
 		Integer size();
+	}
+	
+	->定容字符串栈：
+	public class FixedCapacityStackOfString<T> implements MyStack<T> {
+		private T[] a;
+		private int size;
+		public FixedCapacityStackOfString(int capacity){ a = (T[])new Object[capacity]; }	//无法泛型数组，所以创建一个Object类，再转型为泛型类。
+		public void push(T t) {
+			if(size == a.length)
+				this.resize(a.length * 2);
+			a[size++]  = t;
+		}
+		public T pop() {
+			if(size > 0 && size < a.length/4 )	this.resize(a.length / 2);
+			return (T)a[--size];
+		}
+		public Boolean isEmpty() { return size == 0;}
+		public Integer size() {	return size;}
+		public void resize(int capacity){
+			if(capacity < size) return;
+			T[] temp = (T[])new Object[capacity];
+			for(int i = 0; i < size; i++)
+				temp[i] = a[i];
+			a = temp;
+		}		
 	}
 	
 12. 装箱拆箱：
