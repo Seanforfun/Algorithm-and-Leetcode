@@ -379,7 +379,7 @@
 			int pRoot = find(p);
 			int qRoot = find(q);
 			if(pRoot == qRoot) return;
-			if(size[pRoot] > size[qRoot]){
+			if(size[pRoot] > size[qRoot]){		//比较根节点中，大小更大的，将小树连接到大树上。
 				a[qRoot] = pRoot;
 				size[pRoot] += size[qRoot];
 			}
@@ -401,6 +401,88 @@
 	3.一棵树的高度是所有节点的最大深度。
 		
 		
+-------------------------------------------------------------------------------------------------------------------------
+---------------------------------------Chapter Two-----------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------		
+1. 接口中内容的定义：
+	1.JDK8.0以前的接口中：
+		->变量默认是public, static, final的。
+		->方法默认是public, abstract的。
+		public interface JDK8BeforeInterface {  
+			public static final int field1 = 0;  		  
+			int field2 = 0;  		  
+			public abstract void method1(int a) throws Exception;  		  
+			void method2(int a) throws Exception;  
+		}
+	2.JDK8.0及以后：
+		->允许我们在接口中定义static方法和default方法。
+		->静态方法，只能通过接口名调用，不可以通过实现类的类名或者实现类的对象调用
+		->default方法，只能通过接口实现类的对象来调用。
+		    public interface JDK8Interface {        
+				// static修饰符定义静态方法  
+				static void staticMethod() {  
+					System.out.println("接口中的静态方法");  
+				}  			  
+				// default修饰符定义默认方法  
+				default void defaultMethod() {  
+					System.out.println("接口中的默认方法");  
+				}  
+			}  
+		
+2. Sort的通用方法：
+	实现：ca.mcmaster.chapter.two.Sort.Sort
+	public class Sort {
+		@SuppressWarnings("rawtypes")
+		public static void selectSort(Comparable[] a){}；
+		public static Boolean less(Comparable a, Comparable b){
+			return a.compareTo(b) < 0;
+		}
+		public static void swap(Comparable[] a, int i, int j){
+			Comparable temp = a[i];
+			a[i] = a[j];
+			a[j] = temp;
+		}
+		public static void show(Comparable[] a){
+			for(int i = 0; i < a.length; i++){
+				System.out.print(a[i] + " ");
+			}
+			System.out.println();
+		}
+		public static Boolean isSorted(Comparable[] a){
+			for(int i = 1; i < a.length; i++)
+				if(less(a[i], a[i-1])) return false;
+			return true;
+		}		
+	}
+
+3. 选择排序SelectionSort：O(n^2)
+	实现：ca.mcmaster.chapter.two.Sort.Sort#selectionSort(Comparable[])
+	从数组头开始遍历数组，找到剩余数组中的最小元素，将最小元素和当前元素交换位置。
+	和输入数据的情况没有关系，数据已有的排序度对算法时间没有影响。
+	public static void selectionSort(Comparable[] a){
+		int length = a.length;
+		for(int i = 0; i < length; i++){
+			int min = i;
+			for(int j = i + 1; j < length; j++)
+				if(less(a[j], a[min])) min = j;
+			swap(a, i, min);						//交换元素的操作在集合之外，保证了对于外层遍历中的每个元素，交换只进行一次。
+		}
+	}
+	
+4. 插入排序InsertSort：O(n^2)
+	实现：ca.mcmaster.chapter.two.Sort.Sort#insertSort(Comparable[])
+	从第二个元素遍历整个数组，判断当前元素和之前所有元素的大小，插入正确的位置。
+	输入数据排序度更高，运行时间越短。
+	public static void insertSort(Comparable[] a){
+		int length = a.length;
+		for(int i = 1; i < length; i ++){						//遍历数组中的所有元素a[i]。
+			for(int j = i; j > 0 && less(a[j], a[j-1]); j--)	//从当前遍历到的位置开始，往前遍历，两个元素比较大小，如果小可以将当前a[i]向前移动。
+				swap(a, j, j-1);								//虽然看上去是在对a[j]进行遍历，实际上是如果a[i]和前一元素相比更小，就将a[i]向前移动。
+		}
+	}
+	
+		
+
 		
 		
 		
@@ -417,20 +499,7 @@
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 		
 		
 		
