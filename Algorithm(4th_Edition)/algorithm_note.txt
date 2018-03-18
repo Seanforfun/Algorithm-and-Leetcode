@@ -481,11 +481,52 @@
 		}
 	}
 	
-		
+5. 希尔排序ShellSort:
+	实现：ca.mcmaster.chapter.two.Sort.Sort#ShellSort(Comparable[])
+	通过保证在每个间隔h上均是有序的，再缩小h的值直到h的值为1。具体实现通过看代码注释深入理解。
+	public static void ShellSort(Comparable[] a){
+		int length = a.length;
+		int h = 1;
+		while(h < length/3)	h = 3*h + 1;								//先将数组进行三分，得到最初始的h值。
+		while(h >= 1){
+			for(int i = h; i < length; i++){							//在当前h间隔上通过InsertSort进行排序。再缩小h的值直到1。
+				for(int j = i; j >= h && less(a[j], a[j-h]); j -= h)
+					swap(a, j, j-h);
+			}
+			h /= 3;
+		}
+	}
 
+6. 并归排序MergeSort:
+	并归实现：ca.mcmaster.chapter.two.Sort.Sort#merge(Comparable[], int, int, int)
+	并归排序的实现是基于当前每个子列均是顺序排列。
+	public static void merge(Comparable[] a, int lo, int mid, int hi){
+		int i = lo, j = mid + 1;													//将a[lo-mid] 和a[mid+1-hi]并归
+		Comparable[] aux = new Comparable[a.length];
+		for (int k = lo; k < aux.length; k++) 										//复制一份原列表的值
+			aux[k] = a[k];
+		for(int k = lo; k < a.length; k++){		
+			if(i > mid)								a[k] = aux[j++];				//若果两个列中的那哪一个已经出完了，就完全使用另一个列
+			else if(j > hi) 							a[k] = aux[i++];
+			else if(less(aux[i], aux[j]))	a[k] = aux[i++];						//未出完的情况下比较大小，出小的。
+			else											a[k] = aux[j++];
+		}
+	}
 		
-		
-		
+	并归排序实现：ca.mcmaster.chapter.two.Sort.Sort#mergeSort(Comparable[])	
+	并归排序利用了分治的思想。将大的数组拆成两个数进行归并，在对2-2进行归并，对4-4进行归并直到所有的数均被涵盖。
+	public static void mergeSort(Comparable[] a){
+		aux = new Comparable[a.length];											//因为不可避免的要进行数组的复制，所以在最外层进行复制以节约空间。
+		mergeSortIn(a, 0, a.length - 1);
+	}
+	
+	public static void mergeSortIn(Comparable[] a, int lo, int hi){
+		if(lo >= hi) return;
+		int mid = (hi - lo) / 2 + lo;
+		mergeSortIn(a, lo, mid);
+		mergeSortIn(a, mid + 1, hi);
+		merge(a, lo, mid, hi);
+	}
 		
 		
 		
