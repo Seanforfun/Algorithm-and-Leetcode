@@ -628,10 +628,66 @@
 				quickSort3Way(a, lo, lt - 1);
 				quickSort3Way(a, gt + 1, hi);
 			}
-		
-		
-		
-		
+			
+8. 优先队列(PriorityQueue):
+	1.并不需要将所有的数组排序，只需要提取出所有数组中优先级最高的元素。
+	2.优先队列最重要的操作就是删除最大元素和插入元素。
+	
+	->通过二叉堆实现优先队列：
+		1.二叉堆表示法binary heap：
+			每个中间元素都需要三个指针，指向父节点和两个子节点。
+			在一个二叉堆中，位置k的节点父结点的位置为[k/2]， 而它的两个子节点的位置分别为2k和2k+1.
+						1
+					 /	   \
+					2		3
+				 /	|		|  \
+				4	5		6	7
+			 /	|	|	\
+			8	9	10 	 11
+			一棵大小为N的完全二叉树的高度为[lgN]。
+			堆的操作会首先进行一些简单的改动，打破堆的状态，然后再遍历堆并按照要求将堆的状态恢复(reheapifying)。
+		实现：ca.mcmaster.chapter.two.queue.MaxPriorityQueueBinaryStack<T>
+		public class MaxPriorityQueueBinaryStack<T extends Comparable<T>> implements MaxPriorityQueue<T> {
+			private T[] pq;
+			private int N = 0;
+			public MaxPriorityQueueBinaryStack(int maxN){
+				pq = (T[]) new Comparable[maxN + 1];						//构建一个存储数量+1长度的数组。
+			}
+			public void insert(T t) {
+				pq[++N] = t;												//将最新的数据插入尾部，再听过上分将数据放在正确的位置。
+				swim(N);
+			}
+			public T max() {
+				return pq[1];
+			}
+			public T delMax() {
+				T max = pq[1];												//将最上方的文件保存，作为输出值。
+				swap(1, N--);												//将最后一个值和最开头的值进行交换，再让最开始的值进行下沉，使树有序。
+				pq[N + 1] = null;
+				sink(1);
+				return max;
+			}
+			public Boolean isEmpty() {	 return N == 0;	}
+			public int size() {	return N;		}
+			private Boolean less(int i, int j){	return pq[i].compareTo(pq[j]) < 0;	}
+			private void swap(int i, int j){	T temp = pq[i]; pq[i] = pq[j]; pq[j] = temp;	}
+			private void swim(int k){										//数据上浮，当前节点和父节点进行比较，如果大于父节点则和父节点进行交换
+				while(k > 1 && less(k/2, k)){								//遍历知道首结点停止。
+					swap(k, k/2);
+					k = k/2;
+				}
+			}
+			private void sink(int k){										//数据下沉，让上部的非有序数字下沉至正确位置。
+				while(2 * k <= N){
+					int j = 2 * k;											//先将数字下沉一层
+					if(j < N && less(j, j+1))	j++;						//判断是否超过了树的总容量， 再比较a[j]和a[j++]的大小，要比大的那个小即可
+					if(!less(k, j))	break;									//如果当前值比大的那个还要大，已经可以退出循环了。
+					swap(k, j);												//如果小于下一层的大值，则和该值进行交换。
+					k = j;
+				}
+			}	
+		}	
+			
 		
 		
 		
