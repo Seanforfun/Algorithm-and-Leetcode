@@ -101,23 +101,43 @@ public class Sort {
 		return j;
 	}
 	
+	public static int M = 5;
 	public static void quickSort(Comparable[] a, int lo, int hi){
-		if(lo >= hi) return;
+//		if(lo >= hi) return;
+		if(lo + M >= hi)  {
+			insertSort(a);
+			return;
+		}
 		int j = partition(a, lo, hi);
 		quickSort(a, lo, j-1);
 		quickSort(a, j+1, hi);
 	}
 	
+	public static void quickSort3Way(Comparable[] a, int lo, int hi){
+		if(lo >= hi) return;
+		int lt = lo, i = lo + 1, gt = hi;
+		Comparable v = a[lo];
+		while(i <= gt){
+			int cmp = a[i].compareTo(v);
+			if(cmp < 0)				swap(a, lt++, i++);
+			else if(cmp > 0)		swap(a, i, gt--);
+			else							i++;
+		}
+		quickSort3Way(a, lo, lt - 1);
+		quickSort3Way(a, gt + 1, hi);
+	}
+	
 	public static void main(String[] args) {
-//		Integer[] a = new Integer[]{18,27,33,55,6,3,23,2,3,5,2,45,1,4,2,5,7,3,7,432,96,7,23,8};
+		Integer[] a = new Integer[]{18,27,33,55,6,3,23,2,3,5,2,45,1,4,2,5,7,3,7,432,96,7,23,8};
 //		Integer[] a = new Integer[]{1,3,5,9,2,5,6,7};
-		Integer[] a = new Integer[]{2,1,3,4,5,6,7,8,9};
+//		Integer[] a = new Integer[]{2,1,3,4,5,6,7,8,9};
 //		selectionSort(a);
 //		insertSort(a);
 //		ShellSort(a);
 //		merge(a, 0, 3, 7);
 //		mergeSortBU(a);
-		quickSort(a, 0, a.length -1);
+//		quickSort(a, 0, a.length -1);
+		quickSort3Way(a, 0, a.length - 1);
 		show(a);
 	}
 }

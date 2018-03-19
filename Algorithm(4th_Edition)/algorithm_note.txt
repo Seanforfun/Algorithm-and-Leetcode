@@ -585,11 +585,49 @@
 	1 2 2 2 3 3 3 4 5 5 6 7 7 7 8 18 45 23 27 23 33 96 432 55 
 	1 2 2 2 3 3 3 4 5 5 6 7 7 7 8 18 23 23 27 33 45 96 55 432 
 	1 2 2 2 3 3 3 4 5 5 6 7 7 7 8 18 23 23 27 33 45 55 96 432 
+	分析：
+	1.快速排序的最好情况是每次都能将数组对半分。
+	2.在切分不平衡的时候这个程序会极其低效，若果数组本身就是顺序的，每次只会提取出一个元素，相当于遍历了整个数组。
 	
+	->算法改进：
+		1.在数组大小比较小的时候，切换到插入排序，因为快速排序本身需要用到递归，即使很小的数组也要用到递归。		
+		实现：
+			public static int M = 5;
+			public static void quickSort(Comparable[] a, int lo, int hi){
+		//		if(lo >= hi) return;
+				if(lo + M >= hi)  {											//首先lo + M >= hi是lo >= hi的子集。
+					insertSort(a);											//对于小数组就使用插入排序，跳过快速排序。
+					return;
+				}
+				int j = partition(a, lo, hi);
+				quickSort(a, lo, j-1);
+				quickSort(a, j+1, hi);
+			}
 		
-		
-		
-		
+		2.三取样切分：
+			->因为快速排序的最优情况是每次取出的数都是在数组的最中间，所以可以考虑中位数，但是计算中位数是额外的开销。
+			->取前几个数的中位数而不是选整个数组的中位数。
+			  
+		3.熵最优的排序：					
+			->针对于含有大量重复数据的情况，使用快速排序仍然会进行切分并进行递归调用，效率低下。我们可以维护成三取样，小于当前切分元素的部分，等于当前切分元素的部分，大于当前切分元素的部分。
+			  对于小于，大于两部分再进行递归调用。
+			->a[i]小于v,将a[lt]和a[i]交换，将lt和i加一；
+			  a[i]大于v,将a[gt]和a[i]交换，将gt减一；
+			  a[i]等于v，将i加一。			  
+			实现：ca.mcmaster.chapter.two.Sort.Sort#quickSort3Way(Comparable[], int, int)
+			public static void quickSort3Way(Comparable[] a, int lo, int hi){
+				if(lo >= hi) return;
+				int lt = lo, i = lo + 1, gt = hi;							//初始化三个指针，lt指向第一个大于等于v的数字，i是一个中间变量，指向第一个大于v的数字，gt从结束开始遍历，向前迭代，指向第一个不大于v的数字。
+				Comparable v = a[lo];
+				while(i <= gt){
+					int cmp = a[i].compareTo(v);
+					if(cmp < 0)				swap(a, lt++, i++);
+					else if(cmp > 0)		swap(a, i, gt--);
+					else							i++;
+				}
+				quickSort3Way(a, lo, lt - 1);
+				quickSort3Way(a, gt + 1, hi);
+			}
 		
 		
 		
