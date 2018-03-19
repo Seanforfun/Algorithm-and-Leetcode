@@ -497,23 +497,23 @@
 		}
 	}
 
-6. 并归排序MergeSort:
+6. 并归排序MergeSort:(NlgN)
 	并归实现：ca.mcmaster.chapter.two.Sort.Sort#merge(Comparable[], int, int, int)
 	并归排序的实现是基于当前每个子列均是顺序排列。
 	public static void merge(Comparable[] a, int lo, int mid, int hi){
-		int i = lo, j = mid + 1;													//将a[lo-mid] 和a[mid+1-hi]并归
-		Comparable[] aux = new Comparable[a.length];
-		for (int k = lo; k < aux.length; k++) 										//复制一份原列表的值
+		int i = lo, j = mid + 1;
+		if(less(a[mid], a[mid+1])) return;			//如果前一半的最后一个元素已经小于后一半的第一个元素，说明需要归并的两半已经是增序的。
+		for (int k = lo; k < aux.length; k++) 
 			aux[k] = a[k];
-		for(int k = lo; k < a.length; k++){		
-			if(i > mid)								a[k] = aux[j++];				//若果两个列中的那哪一个已经出完了，就完全使用另一个列
-			else if(j > hi) 							a[k] = aux[i++];
-			else if(less(aux[i], aux[j]))	a[k] = aux[i++];						//未出完的情况下比较大小，出小的。
-			else											a[k] = aux[j++];
+		for(int k = lo; k < a.length; k++){
+			if(i > mid)			a[k] = aux[j++];
+			else if(j > hi) 		a[k] = aux[i++];
+			else if(less(aux[i], aux[j]))	a[k] = aux[i++];
+			else				a[k] = aux[j++];
 		}
 	}
 		
-	并归排序实现：ca.mcmaster.chapter.two.Sort.Sort#mergeSort(Comparable[])	
+	自顶向下并归排序实现：ca.mcmaster.chapter.two.Sort.Sort#mergeSort(Comparable[])	
 	并归排序利用了分治的思想。将大的数组拆成两个数进行归并，在对2-2进行归并，对4-4进行归并直到所有的数均被涵盖。
 	public static void mergeSort(Comparable[] a){
 		aux = new Comparable[a.length];											//因为不可避免的要进行数组的复制，所以在最外层进行复制以节约空间。
@@ -527,6 +527,65 @@
 		mergeSortIn(a, mid + 1, hi);
 		merge(a, lo, mid, hi);
 	}
+	
+	自底向上并归排序实现：ca.mcmaster.chapter.two.Sort.Sort#mergeSortBU(Comparable[])
+	public static void mergeSortBU(Comparable[] a){
+		int length = a.length;
+		aux = new Comparable[length];
+		for(int sz = 1; sz < length; sz *= 2){
+			for(int lo = 0; lo < length - sz; lo += sz * 2)
+				merge(a, lo, lo+sz-1, Math.min(lo+sz+sz-1, length-1));			//要做一个取小的操作，因为数组的总量不一定是偶数。
+		}
+	}
+	
+7. 快速排序QuickSort:
+	实现：ca.mcmaster.chapter.two.Sort.Sort#quickSort(Comparable[], int, int)
+	1.随意取出数组中的一个元素(一般都取当前需要sort的第一个元素)。
+	如果取的是第一个元素：
+	2.我们从第二个元素开始向右进行遍历，再从右向左进行遍历，如果左边的数字大于该数字，右边的数字小于该数字，则两个数字换位置。
+	3.再针对左边的数字进行排序，再针对右边的数组进行排序。
+	public static void quickSort(Comparable[] a, int lo, int hi){
+		if(lo >= hi) return;
+		int j = partition(a, lo, hi);										
+		quickSort(a, lo, j-1);
+		quickSort(a, j+1, hi);
+	}
+	public static int partition(Comparable[] a, int lo, int hi){
+		int i = lo, j = hi + 1;
+		Comparable v = a[lo];
+		while(true){
+			while(less(a[++i], v)) if(i == hi) break;						//找到左边第一个小于该元素的数字。
+			while(less(v, a[--j])) if(j == lo) break;						//找到右边第一个大于钙元素的数字。
+			if(i >= j) break;												//退出外部while循环的条件
+			swap(a, i, j);
+			//show(a);
+		}
+		swap(a, lo, j);														//将lo插入左右两个数组之间，使左边的均不大于lo，右边的均不小于hi。
+		return j;
+	}
+	
+	结果：
+	原数组：18,27,33,55,6,3,23,2,3,5,2,45,1,4,2,5,7,3,7,432,96,7,23,8
+	每次结果以及最终结果：
+	18 8 33 55 6 3 23 2 3 5 2 45 1 4 2 5 7 3 7 432 96 7 23 27 
+	18 8 7 55 6 3 23 2 3 5 2 45 1 4 2 5 7 3 7 432 96 33 23 27 
+	18 8 7 7 6 3 23 2 3 5 2 45 1 4 2 5 7 3 55 432 96 33 23 27 
+	18 8 7 7 6 3 3 2 3 5 2 45 1 4 2 5 7 23 55 432 96 33 23 27 
+	18 8 7 7 6 3 3 2 3 5 2 7 1 4 2 5 45 23 55 432 96 33 23 27 
+	5 2 7 7 6 3 3 2 3 5 2 7 1 4 8 18 45 23 55 432 96 33 23 27 
+	5 2 4 7 6 3 3 2 3 5 2 7 1 7 8 18 45 23 55 432 96 33 23 27 
+	5 2 4 1 6 3 3 2 3 5 2 7 7 7 8 18 45 23 55 432 96 33 23 27 
+	5 2 4 1 2 3 3 2 3 5 6 7 7 7 8 18 45 23 55 432 96 33 23 27 
+	3 2 2 1 2 3 3 4 5 5 6 7 7 7 8 18 45 23 55 432 96 33 23 27 
+	3 2 2 1 2 3 3 4 5 5 6 7 7 7 8 18 45 23 55 432 96 33 23 27 
+	2 1 2 2 3 3 3 4 5 5 6 7 7 7 8 18 45 23 55 432 96 33 23 27 
+	1 2 2 2 3 3 3 4 5 5 6 7 7 7 8 18 45 23 55 432 96 33 23 27 
+	1 2 2 2 3 3 3 4 5 5 6 7 7 7 8 18 45 23 27 432 96 33 23 55 
+	1 2 2 2 3 3 3 4 5 5 6 7 7 7 8 18 45 23 27 23 96 33 432 55 
+	1 2 2 2 3 3 3 4 5 5 6 7 7 7 8 18 45 23 27 23 33 96 432 55 
+	1 2 2 2 3 3 3 4 5 5 6 7 7 7 8 18 23 23 27 33 45 96 55 432 
+	1 2 2 2 3 3 3 4 5 5 6 7 7 7 8 18 23 23 27 33 45 55 96 432 
+	
 		
 		
 		

@@ -47,6 +47,15 @@ public class Sort {
 		merge(a, lo, mid, hi);
 	}
 	
+	public static void mergeSortBU(Comparable[] a){
+		int length = a.length;
+		aux = new Comparable[length];
+		for(int sz = 1; sz < length; sz *= 2){
+			for(int lo = 0; lo < length - sz; lo += sz * 2)
+				merge(a, lo, lo+sz-1, Math.min(lo+sz+sz-1, length-1));
+		}
+	}
+	
 	public static Boolean less(Comparable a, Comparable b){
 		return a.compareTo(b) < 0;
 	}
@@ -68,6 +77,7 @@ public class Sort {
 	}
 	public static void merge(Comparable[] a, int lo, int mid, int hi){
 		int i = lo, j = mid + 1;
+		if(less(a[mid], a[mid+1])) return;
 		for (int k = lo; k < aux.length; k++) 
 			aux[k] = a[k];
 		for(int k = lo; k < a.length; k++){
@@ -78,14 +88,36 @@ public class Sort {
 		}
 	}
 	
+	public static int partition(Comparable[] a, int lo, int hi){
+		int i = lo, j = hi + 1;
+		Comparable v = a[lo];
+		while(true){
+			while(less(a[++i], v)) if(i == hi) break;
+			while(less(v, a[--j])) if(j == lo) break;
+			if(i >= j) break;
+			swap(a, i, j);
+		}
+		swap(a, lo, j);
+		return j;
+	}
+	
+	public static void quickSort(Comparable[] a, int lo, int hi){
+		if(lo >= hi) return;
+		int j = partition(a, lo, hi);
+		quickSort(a, lo, j-1);
+		quickSort(a, j+1, hi);
+	}
+	
 	public static void main(String[] args) {
-		Integer[] a = new Integer[]{2,3,5,2,45,1,4,2,5,7,3,7,432,96,7,23,8};
+//		Integer[] a = new Integer[]{18,27,33,55,6,3,23,2,3,5,2,45,1,4,2,5,7,3,7,432,96,7,23,8};
 //		Integer[] a = new Integer[]{1,3,5,9,2,5,6,7};
+		Integer[] a = new Integer[]{2,1,3,4,5,6,7,8,9};
 //		selectionSort(a);
 //		insertSort(a);
 //		ShellSort(a);
 //		merge(a, 0, 3, 7);
-		mergeSort(a);
+//		mergeSortBU(a);
+		quickSort(a, 0, a.length -1);
 		show(a);
 	}
 }
