@@ -719,8 +719,57 @@
 			}						
 		}
 			
+-------------------------------------------------------------------------------------------------------------------------
+---------------------------------------Chapter Three---------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------			
+1. 符号表Symbol Table:
+	符号表的主要目的就是将一个键和一个值联系起来。
+	->重复的键：
+		1.每个键都对应一个值。
+		2.存入的键值对和已有的键起冲突时会覆盖旧的值。
+	->空键：
+		1.键不能为空。
+	->空值：
+		1.值不能为空。
+		2.可以通过get()方法返回值是不是null,来判断值是不是已经被删除。
+		3.put()空值用于删除。
 		
+2. 通过链表实现的符号表：
+	实现：ca.mcmaster.chapter.three.SequentialSearchST<K, V>
+	这种符号表是无序的，属于随机命中。
+	public class SequentialSearchST<K, V> {
+		private class Node{
+			K k;
+			V v;
+			Node next;
+			public Node(K k, V v, Node next){
+				this.k = k;
+				this.v = v;
+				this.next = next;
+			}
+		}
+		private Node first;
+		public V get(K k){
+			Node current = first;
+			while(current != null){
+				if(current.k.equals(k))	return current.v;
+				current = current.next;
+			}
+			return null;
+		}
 		
+		public void put(K k, V v){
+			Node current = first;
+			while(current != null){
+				if(current.k.equals(k)){
+					current.v = v;
+					return;
+				}
+				current = current.next;
+			}
+			first = new Node(k, v, first);
+		}				
+	}
 		
 		
 		
