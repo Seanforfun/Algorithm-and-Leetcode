@@ -905,9 +905,85 @@
 	退出循环的条件：
 	1. 遍历的lo已经大于hi,可以退出循环，说明没有找到该元素。
 	2. 得到当前mid值已经和所查找的key相同，当前mid元素就是要查找的值。
+	
+4. 二叉查找树(BST):
+	二叉树由结点组成，结点包含的链接可以指向空或者其他结点。除了根节点以外，只能有一个父结点指向自己。
+	BST：
+	->每个结点都含有一个键，一个值，一条左链接，一条右链接和一个节点计数器。
+	->左链接指向一棵由小于该节点的所有键组成的二叉查找树。
+	->右链接指向一棵由大于该节点的所有键组成的二叉查找树。
+	->size(x) = size(x.left) + size(x.right) + 1
+	->***对于某一个结点，左边的结点小于父结点的值，右结点大于父结点的值，所以将所有的结点映射在一条线上，所有的数据是顺序排列的。
+	
+	二叉树的抽象类：
+	实现：ca.mcmaster.chapter.three.bitree.BinaryTreeSymbolTableAbstract<K, V>
+	public abstract class BinaryTreeSymbolTableAbstract<K extends Comparable<K>, V> {
+		protected class Node{
+			protected K k;
+			protected V v;
+			protected Node left, right;
+			protected int N;
+			public Node(K k, V v, int n) {
+				this.k = k;	this.v = v;	N = n;
+			}
+		}
+		protected Node root;
+		public int size(Node x){
+			if(x == null) return 0;
+			else				return x.N;
+		}
+		public int size(){	return size(root);	}
+		public abstract V get(K k);
+		public abstract void put(K k, V v);
+	}
+	Node是树上的某个结点，一个结点有如下的特征：
+	->K,键：用于确定该结点在树中的位置。
+	->V,值：某个结点存储的值。
+	->left, right:某个父结点所拥有的左子节点和右子结点。
+	->N：当前节点(包括当前节点)的子结点的个数。
+	
+	实现：ca.mcmaster.chapter.three.bitree.BinaryTreeSymbolTable<K, V>
+	public class BinaryTreeSymbolTable<K extends Comparable<K>, V> extends
+		BinaryTreeSymbolTableAbstract<K, V> {
+		public V get(K k) {		return get(root, k);	}
+		public V get(Node node, K k){									//以当前结点为根结点，往下遍历子结点找到键值并返回对应的value
+			if(node == null) return null;								//对于每一次的结点遍历，只比较当前结点，左子结点，右子结点。
+			int cmp = k.compareTo(node.k);								//比较键的大小，如果小于该键开始遍历左子结点，右子结点。
+			if(cmp > 0)	return get(node.right, k);
+			else if(cmp < 0) return get(node.left, k);
+			else 	return node.v;
+		}
+		public void put(K k, V v) {
+			root = put(root, k, v);
+		}
+		public Node put(Node node, K k, V v){							//将某一个键值对放入树中。
+			if(node == null)	return new Node(k, v, 1);				//如果已经遍历到了树的底部，创建一个新的结点并返回
+			int cmp = k.compareTo(node.k);
+			if(cmp < 0)	node.left = put(node.left, k, v);				//如果键小于左边，将左子键当作父结点，递归调用。
+			else if(cmp > 0) node.right = put(node.right, k, v);		//如果键小于右边，将右子键当作父结点，递归调用。
+			else	node.v = v;
+			node.N = size(node.left) + size(node.right) + 1;
+			return node;
+		}		
+	}
+	
 		
 		
 	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
