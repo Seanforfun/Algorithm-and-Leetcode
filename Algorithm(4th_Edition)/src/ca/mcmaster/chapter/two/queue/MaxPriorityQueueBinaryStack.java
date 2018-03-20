@@ -39,6 +39,7 @@ public class MaxPriorityQueueBinaryStack<T extends Comparable<T>> implements Max
 			k = j;
 		}
 	}
+	
 	public static void main(String[] args) {
 		MaxPriorityQueueBinaryStack<Integer> stack = new MaxPriorityQueueBinaryStack<>(100);
 		stack.insert(1);
