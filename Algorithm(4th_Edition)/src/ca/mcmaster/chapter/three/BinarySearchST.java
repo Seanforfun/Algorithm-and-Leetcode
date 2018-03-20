@@ -33,7 +33,7 @@ public class BinarySearchST<K extends Comparable<K>, V> extends SearchSTAbstract
 		System.out.println(table.get("d"));
 		table.delete("d");
 		System.out.println(table.get("d"));
-		Iterable<String> queue = table.keys(0, 3);
+		Iterable<String> queue = table.keys(0, 2);
 		Iterator<String> it = queue.iterator();
 		while (it.hasNext()) {
 			System.out.println(it.next());

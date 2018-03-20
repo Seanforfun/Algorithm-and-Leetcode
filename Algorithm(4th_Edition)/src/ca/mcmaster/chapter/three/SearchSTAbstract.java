@@ -53,6 +53,7 @@ public abstract class SearchSTAbstract<K extends Comparable<K>, V> {
 	}
 	public Iterable<K> keys(int lo, int hi){
 		if(lo > hi)		return null;
+		if(hi >= N	)	throw new ArrayIndexOutOfBoundsException();
 		ListFIFOQueue<K> queue = new ListFIFOQueue<>();
 		for(int i = binarySearch(keys[lo]); i < binarySearch(keys[hi]); i++){
 			queue.enqueue(keys[i]);
