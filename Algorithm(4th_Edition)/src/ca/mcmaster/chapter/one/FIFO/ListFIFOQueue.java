@@ -1,5 +1,7 @@
 package ca.mcmaster.chapter.one.FIFO;
 
+import java.util.Iterator;
+
 public class ListFIFOQueue<T> implements FifoQueue<T> {
 	private Node first;
 	private Node last;
@@ -27,7 +29,16 @@ public class ListFIFOQueue<T> implements FifoQueue<T> {
 	}
 	public Boolean isEmpty() { return size.equals(0); }
 	public Integer size() { return size; }
+	public Iterator<T> iterator() {
+		return new ListFIFOQueueIterator<T>();
+	}
 	
+	private class ListFIFOQueueIterator<T> implements Iterator<T>{
+		public boolean hasNext() {	return size > 0;	}
+		public T next() {		return (T) dequeue();	}
+		public void remove() {
+		}
+	}
 	public static void main(String[] args){
 		ListFIFOQueue<Integer> queue = new ListFIFOQueue<>();
 		for (int i = 0; i < 10; i++) {

@@ -46,5 +46,6 @@ public class SequentialSearchST<K, V> {
 		table.put("a", "1111");
 		System.out.println(table.get("a"));
 		System.out.println(table.get("p"));
+		
 	}
 }
