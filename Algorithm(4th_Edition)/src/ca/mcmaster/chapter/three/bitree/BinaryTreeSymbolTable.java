@@ -28,13 +28,13 @@ public class BinaryTreeSymbolTable<K extends Comparable<K>, V> extends
 		table.put(1, "a");
 		table.put(2, "b");
 		table.put(3, "c");
-		table.put(4, "d");
+		table.put(8, "d");
 		table.put(5, "e");
 		table.put(6, "f");
 		table.put(7, "g");
-		for (int i = 0; i < 7; i++) {
-			System.out.println(table.get(i+1));
-		}
-		System.out.println();
+//		for (int i = 0; i < 7; i++) {
+//			System.out.println(table.get(8));
+//		}
+		System.out.println(table.select(1));
 	}
 }

@@ -906,7 +906,7 @@
 	1. 遍历的lo已经大于hi,可以退出循环，说明没有找到该元素。
 	2. 得到当前mid值已经和所查找的key相同，当前mid元素就是要查找的值。
 	
-4. 二叉查找树(BST):
+4. 二叉查找树(BST):lgN
 	二叉树由结点组成，结点包含的链接可以指向空或者其他结点。除了根节点以外，只能有一个父结点指向自己。
 	BST：
 	->每个结点都含有一个键，一个值，一条左链接，一条右链接和一个节点计数器。
@@ -935,6 +935,43 @@
 		public int size(){	return size(root);	}
 		public abstract V get(K k);
 		public abstract void put(K k, V v);
+		public K min(){	return min(root).k;	}
+		public Node min(Node node){
+			if(node.left == null)	return node;
+			return min(node.left);
+		}
+		public K floor(K k){											//返回小于等于当前键值的最大值
+			Node node = floor(root, k);
+			if(node == null) return null;
+			return node.k;
+		}
+		public Node floor(Node node, K k){
+			if(null == node) return null;
+			int cmp = k.compareTo(node.k);
+			if(cmp == 0) 	return node;								//如果当前所需要的键值和父节点的键值一样，说明当前的结点就是小于当前结点的最大结点。
+			else if(cmp < 0)		return floor(node.left, k);			//如果当前的键小于父结点，我们再递归调用左子结点，说明floor结点一定在左子树中。
+			Node temp =  floor(node.right, k);							//如果大于当前的键值，我们再针对右边的树进行floor查找
+			if(temp != null) return temp;								//如果返回的为空，那父结点即为floor结点
+			else						return node;					//不然在子节点中存在floor结点。
+		}
+		public K select(int k){
+			return select(root, k).k;
+		}
+		public Node select(Node node, int k){							//选取某个结点作为父结点，选取排名为K的值的键值，排名从0开始
+			if(node == null)		return null;
+			int t = size(node.left);									
+			if(t > k)			return select(node.left, k);			//如果要求的rank值大于左子结点
+			else if(t < k)	return select(node.right, k - t - 1);		//k(要求的rank值), t左子结点的所有节点个数， 1：父结点
+			else					return node;
+		}
+		public Integer rank(K k){	return rank(root, k);	}
+		public Integer rank(Node node, K k){
+			if(node == null)	return 0;
+			int cmp = k.compareTo(node.k);
+			if(cmp < 0)				return rank(node.left, k);
+			else if(cmp > 0) 		return 1 + size(node.left) + rank(node.right, k);
+			else							return size(node.left);
+		}
 	}
 	Node是树上的某个结点，一个结点有如下的特征：
 	->K,键：用于确定该结点在树中的位置。
@@ -966,6 +1003,9 @@
 			return node;
 		}		
 	}
+	
+	如果二叉树是平衡的，即每个结点都有左子结点和右子结点，这个二叉树是平衡二叉树，算法的复杂度为lgN.
+	**二叉树越不平衡，算法复杂度越高。
 	
 		
 		
