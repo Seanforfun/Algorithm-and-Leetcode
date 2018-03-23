@@ -23,6 +23,11 @@ public abstract class BinaryTreeSymbolTableAbstract<K extends Comparable<K>, V> 
 		if(node.left == null)	return node;
 		return min(node.left);
 	}
+	public K max(){	return max(root).k;	}
+	public Node max(Node node){
+		if(node.right == null)		return node;
+		return max(node.right);
+	}
 	public K floor(K k){								//返回小于等于当前键值的最大值
 		Node node = floor(root, k);
 		if(node == null) return null;
@@ -54,5 +59,29 @@ public abstract class BinaryTreeSymbolTableAbstract<K extends Comparable<K>, V> 
 		if(cmp < 0)				return rank(node.left, k);
 		else if(cmp > 0) 		return 1 + size(node.left) + rank(node.right, k);
 		else							return size(node.left) + 1;
+	}
+	public void delMin(){	root = delMin(root);	}
+	public Node delMin(Node node){
+		if(node.left == null)	return node.right;		//当前节点就是最小的
+		node.left = delMin(node.left);
+		node.N = size(node.left) + size(node.right) + 1;
+		return node;
+	}
+	public void delete(K k){	root = delete(root,k);	}
+	public Node delete(Node node, K k){
+		if(node == null)		return null;
+		int cmp = k.compareTo(node.k);
+		if(cmp > 0)				node.right = delete(node.right, k);
+		else if(cmp < 0)		node.left =  delete(node.left, k);
+		else{
+			if(node.right == null)		return node.left;
+			if(node.left == null)		return node.right;
+			Node temp = node;
+			node = min(node.right);
+			node.left = temp.left;
+			node.right = delMin(temp.right);
+		}
+		node.N = size(node.left) + size(node.right) + 1;
+		return node;
 	}
 }

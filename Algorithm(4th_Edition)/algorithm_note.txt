@@ -945,7 +945,7 @@
 			if(node == null) return null;
 			return node.k;
 		}
-		public Node floor(Node node, K k){
+		public Node floor(Node node, K k){								//对于树的遍历，我们可以考虑递归调用，只需要考虑当前情况针对父结点和两个子结点
 			if(null == node) return null;
 			int cmp = k.compareTo(node.k);
 			if(cmp == 0) 	return node;								//如果当前所需要的键值和父节点的键值一样，说明当前的结点就是小于当前结点的最大结点。
@@ -971,6 +971,30 @@
 			if(cmp < 0)				return rank(node.left, k);
 			else if(cmp > 0) 		return 1 + size(node.left) + rank(node.right, k);
 			else							return size(node.left);
+		}
+		public void delMin(){	root = delMin(root);	}				
+		public Node delMin(Node node){									//删除以当前结点为父节点中最小的结点。
+			if(node.left == null)	return node.right;					//当前结点的左子结点为空，说明当前节点就是在三个结点中最小的。将右结点返回最为新的结点。
+			node.left = delMin(node.left);								//左子结点不为空，递归调用
+			node.N = size(node.left) + size(node.right) + 1;			//更新当前节点的size
+			return node;												//返回值是更新后的新的父结点。
+		}
+		public void delete(K k){	root = delete(root,k);	}
+		public Node delete(Node node, K k){
+			if(node == null)		return null;
+			int cmp = k.compareTo(node.k);
+			if(cmp > 0)				node.right = delete(node.right, k);
+			else if(cmp < 0)		node.left =  delete(node.left, k);
+			else{
+				if(node.right == null)		return node.left;			//如果当前结点只有一个子结点，则用当前的子结点顶替原来子结点的位置。
+				if(node.left == null)		return node.right;
+				Node temp = node;										//如果有两个子结点，可以替换当前结点的新结点在右子结点及其子结点中。
+				node = min(node.right);									//找到可以替换当前结点的新的结点
+				node.left = temp.left;									//将原来的子左结点替换
+				node.right = delMin(temp.right);						//将最小值删除并且并将父结点绑定
+			}
+			node.N = size(node.left) + size(node.right) + 1;
+			return node;
 		}
 	}
 	Node是树上的某个结点，一个结点有如下的特征：
@@ -1007,7 +1031,27 @@
 	如果二叉树是平衡的，即每个结点都有左子结点和右子结点，这个二叉树是平衡二叉树，算法的复杂度为lgN.
 	**二叉树越不平衡，算法复杂度越高。
 	
-		
+5. 范围查找：
+	将二叉树中的所有的键按照顺序打印出来。
+	->中序遍历：
+		1.我们应该先打印出根结点的左子树中的所有键。
+		2.打印根结点的键。
+		3.打印出右结点的键。
+	实现：ca.mcmaster.chapter.three.bitree.BinaryTreeSymbolTable#keys()
+	public Iterable<K> keys(){	return keys(min(), max());	}				
+	public Iterable<K> keys(K lo, K hi){									//返回键在下限和上限之间的键所组成的队列。(包括边界)
+		ListFIFOQueue<K> queue = new ListFIFOQueue<>();						//创建一个先入先出的队列
+		keys(root, queue, lo, hi);
+		return queue;
+	}
+	public void keys(Node node, ListFIFOQueue<K> queue, K lo, K hi){
+		if(null == node) 		return;
+		int cmplo = lo.compareTo(node.k);							
+		int cmphi = hi.compareTo(node.k);
+		if(cmplo < 0)	keys(node.left, queue, lo, hi);						//从当前结点开始向左遍历，直到接触到lo对应的结点，加入队列。[lo-current]
+		if(cmplo <= 0 && cmphi >= 0)		queue.enqueue(node.k);
+		if(cmphi > 0)	keys(node.right, queue, lo, hi);					//从当前结点开始向右遍历，直到接触到hi对应的结点，将所有之间的结点加入队列。[current-hi]
+	}
 		
 	
 		
