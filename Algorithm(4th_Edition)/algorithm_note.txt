@@ -1090,7 +1090,7 @@
 		->没有任何一个结点同时和两条红链接相连。
 		->该树是完美黑色平衡的，即任意空链接到根结点的路径上的黑链接数量相同。
 	实现：ca.mcmaster.chapter.three.rbtree.RedBlackBST<K, V>
-	public class RedBlackBST<K, V> {
+	public class RedBlackBST<K extends Comparable<K>, V> {
 		private Node root;
 		public static final Boolean RED = true;
 		public static final Boolean BLACK = false;
@@ -1113,8 +1113,8 @@
 			return 						node.color == RED;
 		}
 		
-		public Node rotateLeft(Node node){								//将右侧的红链接与左链接(黑链接)交换
-			Node temp = node.right;										//思考：如果将原父结点作为temp需要4条赋值语句，所以通过将右结点作为中间变量可以减少开销。
+		public Node rotateLeft(Node node){
+			Node temp = node.right;
 			node.right = temp.left;
 			temp.left = node;
 			temp.color = node.color;
@@ -1123,8 +1123,8 @@
 			node.N = 1 + size(node.left) + size(node.right);
 			return temp;
 		}
-		public Node rotateRight(Node node){								//将左侧的红链接与右链接(黑链接)交换
-			Node temp = node.left;				
+		public Node rotateRight(Node node){
+			Node temp = node.left;
 			node.left = temp.right;
 			temp.right = node;
 			temp.color = node.color;
@@ -1137,12 +1137,50 @@
 			if(null == node)		return 0;
 			return 						node.N;
 		}
+		public void filpColor(Node node){
+			node.color = RED;
+			node.left.color = BLACK;
+			node.right.color = BLACK;
+		}
+		public void put(K k, V v){
+			root = put(root, k, v);
+			root.color = BLACK;
+		}
+		public Node put(Node node, K k, V v){
+			if(node == null){		return new Node(k, v, 1, RED)	;	}
+			int cmp = k.compareTo(node.k);
+			if(cmp < 0)				return put(node.left, k, v);
+			else if(cmp > 0)		return put(node.right, k, v);
+			else							node.v = v;
+			if(isRed(node.right) && !isRed(node.left))		node = rotateLeft(node);
+			if(isRed(node.left) && isRed(node.left.left))	node = rotateRight(node);
+			if(isRed(node.left) && isRed(node.left.left))	filpColor(node);
+			node.N = size(node.left) + size(node.right) + 1;
+			return node;
+		}
 	}
 	
 	4.颜色转换：
 		->两个子链接都是红链接，那么我们可以将父结点向上的链接变成红链接，将两个子链接变成黑链接。
 		实现：ca.mcmaster.chapter.three.rbtree.RedBlackBST#filpColor(Node)
 		->根节点总是黑色的，根据上一条，我们总是会将根节点设置为红链接，但是我们要将父结点设置成黑链接，每次由红色变成黑色树的黑链接高度增加1.
+	
+	5.将红链接在树中向上传递：
+		->如果右结点是红色而左子结点是黑色，进行左旋转。
+		->如果左子结点是红色而且他的左子结点也是红色的，进行右旋转。
+		->如果左右子结点均是红色，颜色转换。
+		public Node put(Node node, K k, V v){
+			if(node == null){		return new Node(k, v, 1, RED)	;	}
+			int cmp = k.compareTo(node.k);													//对键向左右子结点进行比较，向左向右递归调用，直到找到了合适的结点。
+			if(cmp < 0)				return put(node.left, k, v);
+			else if(cmp > 0)		return put(node.right, k, v);
+			else					node.v = v;
+			if(isRed(node.right) && !isRed(node.left))		node = rotateLeft(node);		//如果右结点是红色而左子结点是黑色，进行左旋转。
+			if(isRed(node.left) && isRed(node.left.left))	node = rotateRight(node);		//如果左子结点是红色而且他的左子结点也是红色的，进行右旋转。
+			if(isRed(node.left) && isRed(node.left.left))	filpColor(node);				//如果左右子结点均是红色，颜色转换。
+			node.N = size(node.left) + size(node.right) + 1;
+			return node;
+		}
 		
 	
 		

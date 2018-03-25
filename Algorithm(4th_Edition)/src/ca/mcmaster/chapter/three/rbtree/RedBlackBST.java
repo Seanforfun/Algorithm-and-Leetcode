@@ -1,6 +1,6 @@
 package ca.mcmaster.chapter.three.rbtree;
 
-public class RedBlackBST<K, V> {
+public class RedBlackBST<K extends Comparable<K>, V> {
 	private Node root;
 	public static final Boolean RED = true;
 	public static final Boolean BLACK = false;
@@ -51,5 +51,21 @@ public class RedBlackBST<K, V> {
 		node.color = RED;
 		node.left.color = BLACK;
 		node.right.color = BLACK;
+	}
+	public void put(K k, V v){
+		root = put(root, k, v);
+		root.color = BLACK;
+	}
+	public Node put(Node node, K k, V v){
+		if(node == null){		return new Node(k, v, 1, RED)	;	}
+		int cmp = k.compareTo(node.k);
+		if(cmp < 0)				return put(node.left, k, v);
+		else if(cmp > 0)		return put(node.right, k, v);
+		else							node.v = v;
+		if(isRed(node.right) && !isRed(node.left))		node = rotateLeft(node);
+		if(isRed(node.left) && isRed(node.left.left))	node = rotateRight(node);
+		if(isRed(node.left) && isRed(node.left.left))	filpColor(node);
+		node.N = size(node.left) + size(node.right) + 1;
+		return node;
 	}
 }
