@@ -1,0 +1,15 @@
+---------------------------------Exception and Error--------------------------------------------
+Throwable 是所有 Java 程序中错误处理的父类 ，有两种子类： Error 和 Exception 。
+
+Error ：表示由 JVM 所侦测到的无法预期的错误，由于这是属于 JVM 层次的严重错误 ，导致 JVM 无法继续执行，因此，这是不可捕捉到的，无法采取任何恢复的操作，顶多只能显示错误信息。
+
+Exception ：表示可恢复的例外，这是可捕捉到的。
+Java 提供了两类主要的异常 :runtime exception 和 checked exception 。 checked 异常也就是我们经常遇到的 IO 异常，以及 SQL 异常都是这种异常。 对于这种异常， JAVA 编译器强制要求我们必需对出现的这些异常进行 catch 。所以，面对这种异常不管我们是否愿意，只能自己去写一大堆 catch 块去处理可能的异常。
+但是另外一种异常： runtime exception ，也称运行时异常，我们可以不处理。当出现这样的异常时，总是由虚拟机 接管。比如：我们从来没有人去处理过 NullPointerException 异常，它就是运行时异常，并且这种异常还是最常见的异常之一。
+
+---------------------------------Throw and throws--------------------------------------------
+Throw:程序员自己抛出异常的语句：
+	throw new RuntimeException();
+Throws:声明方法需要抛出异常的定义：
+	public void test() throws Exception{
+	}

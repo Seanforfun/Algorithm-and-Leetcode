@@ -68,4 +68,7 @@ public class RedBlackBST<K extends Comparable<K>, V> {
 		node.N = size(node.left) + size(node.right) + 1;
 		return node;
 	}
+	private Node moveRedLeft(Node node){
+		
+	}
 }
