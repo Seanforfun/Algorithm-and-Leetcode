@@ -101,9 +101,58 @@ Throws:声明方法需要抛出异常的定义：
 			Object proxy = ProxyFactory.getProxy(ProxyTestInterface.class);
 			((ProxyTestInterface)proxy).test();
 		}
+	总结：
+		1.必须要通过接口实现实现类，否则无法使用代理。
+		2.相较静态代理更加灵活。
+		
+	2.通过Cglib实现代理，不需要代理类实现任何接口。
+	public class ProxyFactory implements MethodInterceptor{
+		//维护目标对象
+		private Object target;
 
+		public ProxyFactory(Object target) {
+			this.target = target;
+		}
 
+		//给目标对象创建一个代理对象获取方法
+		public Object getProxyInstance(){
+			//1.工具类，通过这个类实现一个增强器
+			Enhancer en = new Enhancer();
+			//2.设置父类
+			en.setSuperclass(target.getClass());
+			//3.设置回调函数
+			//这个回调允许你去回答调用的方法。但是你要小心使用这个回调，因为这个代理对象的所有的方法调用都会使用InvocationHandler#invoke方法，这样的话可能导致死循环。
+			en.setCallback(this);
+			//4.创建子类(代理对象)
+			return en.create();
+		}
 
+		@Override
+		//对目标方法的增强
+		public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
+			System.out.println("开始事务...");
+			//执行目标对象的方法
+			Object returnValue = method.invoke(target, args);
+			System.out.println("提交事务...");
+			return returnValue;
+		}
+	}
+	3.调用目标对象并执行方法：
+	public class App {
+		@Test
+		public void test(){
+			//目标对象
+			UserDao target = new UserDao();
+			//代理对象
+			UserDao proxy = (UserDao)new ProxyFactory(target).getProxyInstance();
+			//执行代理对象的方法
+			proxy.save();
+		}
+	}
+	
+在Spring的AOP编程中:
+	如果加入容器的目标对象有实现接口,用JDK代理。
+	如果目标对象没有实现接口,用Cglib代理。
 
 
 
