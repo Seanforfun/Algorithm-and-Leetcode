@@ -13,3 +13,120 @@ Throw:程序员自己抛出异常的语句：
 Throws:声明方法需要抛出异常的定义：
 	public void test() throws Exception{
 	}
+	
+---------------------------------Proxy--------------------------------------------
+代理是一种面向切面编程的实现AOP，我们可以通过代理对方法进行增强。分为静态代理和动态代理，而动态代理又分为API（java.lang.reflect）中的Proxy和Cglib，后两种用于Spring。
+1.静态代理：
+静态代理在使用时,需要定义接口或者父类,被代理对象与代理对象一起实现相同的接口或者是继承相同父类.
+	1.定义一个要实现方法的接口：	
+	public interface IUserDao {
+
+		void save();
+	}
+	2.定义一个目标对象：
+	public class UserDao implements IUserDao {
+		public void save() {
+			System.out.println("----已经保存数据!----");
+		}
+	}
+	3.定义一个代理对象，在构造函数中接收第二步生成的目标对象，并在代理类中调用目标对象实现方法，并且实现增强。
+	public class UserDaoProxy implements IUserDao{
+		//接收保存目标对象
+		private IUserDao target;
+		public UserDaoProxy(IUserDao target){
+			this.target=target;
+		}
+
+		public void save() {
+			System.out.println("开始事务...");
+			target.save();//执行目标对象的方法
+			System.out.println("提交事务...");
+		}
+	}
+	4.在调用方法时不直接调用对象，而是通过静态代理类调用方法。
+	public class App {
+		public static void main(String[] args) {
+			//目标对象
+			UserDao target = new UserDao();
+
+			//代理对象,把目标对象传给代理对象,建立代理关系
+			UserDaoProxy proxy = new UserDaoProxy(target);
+
+			proxy.save();//执行的是代理的方法
+		}
+	}
+总结：
+	1.可以实现方法的横向增强。
+	2.要维护很多实现类。
+
+2.动态代理：
+	1.java.lang.reflect实现：
+	这种方法通过调用java.lang.reflect中的Proxy方法实现：
+		1.定义一个接口：
+		public interface ProxyTestInterface {
+			public void test() throws Exception;
+		}
+		2.定义该接口的实现类：
+		public class ProxyTestImpl implements ProxyTestInterface {
+			@Override
+			public void test() throws Exception {
+				System.out.println("test");
+			}
+		}
+		3.通过Proxy中的newProxyInstance方法创建一个proxy对象：
+		public class ProxyFactory {
+			private static ProxyTestInterface instance = new ProxyTestImpl();								//在invoke方法中需要一个实现类对象，所以通过新建，或是接收参数的方法传入一个实现类对象。
+			@SuppressWarnings("rawtypes")
+			public static ProxyTestInterface getProxy(Class iterface){
+				// 	newProxyInstance(ClassLoader loader, Class<?>[] interfaces, InvocationHandler h)
+				//	loader:生成当前代理的类的加载器。
+				//	interfaces：生成的代理类的接口的数组。
+				//	h:对代理类调用的Handler
+				return (ProxyTestInterface)Proxy.newProxyInstance(ProxyFactory.class.getClassLoader(), new Class[]{iterface}, new InvocationHandler() {
+							
+							@Override
+							public Object invoke(Object proxy, Method method, Object[] args)
+									throws Throwable {
+								if(method.getName().contains("test")){										//选择Jointpoint
+									System.out.println("before advice");									//对代理实现了增强
+									return method.invoke(instance, args);									//通过反射实现需要增强的方法。
+								}
+								return method.invoke(instance, args);										//不需要增强的方法放行（不一定，根据业务逻辑放行或是拦截。）				
+							}
+						});
+			}
+		}
+		4.调用代理类：
+		public static void main(String[] args) throws Exception {
+			Object proxy = ProxyFactory.getProxy(ProxyTestInterface.class);
+			((ProxyTestInterface)proxy).test();
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
