@@ -171,6 +171,43 @@ Throws:声明方法需要抛出异常的定义：
 在Spring的AOP编程中:
 	如果加入容器的目标对象有实现接口,用JDK代理。
 	如果目标对象没有实现接口,用Cglib代理。
+---------------------------------Generic---------------------------------------------------------------
+1.泛型类Generic Class
+	public class Pair<T>				//在类名后面定义类型变量T，可以指明局部变量，方法返回值，以及传参的类型。
+	E:集合的元素类型		List<E> list
+	K,V：键值对
+	T，U, S：任意的类型
+2.泛型方法：
+	1.普通类中定义泛型方法：
+	class Test{ 
+		public static <T> T test(T...t){			//返回值是T类型，参数是T类型。<T>是变量限定，参见第三条，<T> T 缺一不可。
+		}
+	}
+	错误调用：
+	double ret = Test.test(1, 1.2334, 0);		//1, 1.2334 and 0 are not the same type, compiler might find their mutual parent class and find Number and Comparable interface. and they are both Generic class, cause problem.
+	correct:
+	Double ret = Test.test(1D, 1.2334D, 0D);
+3.泛型方法的变量限定：
+	在方法中使用<T>:
+	public static T test(T...t){			//返回值是T类型，参数是T类型。
+	}
+	<T extends Comparable&Serializable> ->限定了T必须是Comparable和Serializable的子类。
+4.泛型代码和虚拟机：
+	1.类型擦除
+		无论何时定义一个泛型类型，都提供了一个相应的原始类型（raw type）。个人理解，就是将原本泛型的占位符全部替换成相应的类型，无限定变量用Object来替换。
+	2.翻译泛型表达式：
+		1.对于原始类型进行调用。（大多是在使用Object类型）
+		2.类型强转。将Object强转成对应的数据类型。
+5.约束和局限性：
+	1.不能使用基本数据类型。
+		WRONG:
+		Pair<double> 		//擦除后会转换成Pair<Object>,而Object是类，无法存储基本数据类型，此处不会自动装箱。
+	2.不能创建参数化类型的数组。
+		个人认为数组是通过地址访问的，而不同的参数类型所占用字节数不同，无法实现index访问。
+		ArrayStoreException印证我的观点。
+		可以声明通配类型的数组然后进行类型强转。
+		
+
 
 
 
