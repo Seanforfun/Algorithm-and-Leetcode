@@ -1,5 +1,3 @@
-package ca.mcmaster.chapter.three.bitree;
-
 public class BinaryTree<K extends Comparable<K>, V> {
 	protected class Node{
 		protected Node left, right;
