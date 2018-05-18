@@ -1,32 +1,20 @@
-# 二叉树 Binary Tree
+package ca.mcmaster.chapter.three.bitree;
 
-## 二叉树的优势
->在实际使用时会根据链表和有序数组等数据结构的不同优势进行选择。有序数组的优势在于二分查找，链表的优势在于数据项的插入和数据项的删除。但是在有序数组中插入数据就会很慢，同样在链表中查找数据项效率就很低。综合以上情况，二叉树可以利用链表和有序数组的优势，同时可以合并有序数组和链表的优势，二叉树也是一种常用的数据结构。
-
-## 二叉树的增删改查
-* 构成树的基本元素是结点， 一个结点存储了两个指针left, right, 键（用于定位node的位置）， 值。
-```Java
+public class BinaryTree<K extends Comparable<K>, V> {
 	protected class Node{
+		protected Node left, right;
 		protected K k;
 		protected V v;
-		protected Node left, right;
-		protected int N;		//当前节点，以及其子结点的所有的节点的个数。
-		public Node(K k, V v, int n) {
-			this.k = k;	this.v = v;	N = n;
-		}
+		protected Integer N;
+		public Node(K k, V v, Integer n){this.k = k; this.v = v; this.N = n;}
 	}
-```
-* 检查当前节点以及其子结点的个数。
-```Java
+	
 	public Integer size(Node n){
 		if(null == n) return 0;
 		return n.N;
 	}
-```
-
-* 向二叉树中插入元素, 通过递归向二叉树中插入元素。
-```Java
-	protected Node root;	//对一个二叉树类维护了一个root节点
+	
+	protected Node root;
 	private Node put(Node node, K k, V v){
 		if(null == node) return new Node(k, v, 1);
 		if(k.compareTo(node.k) < 0)	node.left = put(node.left, k, v);
@@ -38,10 +26,7 @@
 	public void put(K k, V v){
 		root = put(root, k, v);
 	}
-```
-
-* 从二叉树中获取元素
-```Java
+	
 	private V get(Node node, K k){
 		if(null == node) return null;
 		if(k.compareTo(node.k) < 0) return get(node.left, k);
@@ -51,12 +36,7 @@
 	public V get(K k){
 		return get(root, k);
 	}
-```
-
-* 从二叉树中删除元素
-1. 删除最小的元素
->一直遍历直到左结点为空结点，然后将指向该结点的链接指向该结点的右结点。
-```Java
+	
 	public void deleteMin(){
 		root = deleteMin(root);
 	}
@@ -67,9 +47,7 @@
 		node.N = size(node.left) + size(node.right) - 1;
 		return node;
 	}
-```
-2.删除某个结点
-```Java    
+	
 	public Node min(Node n){
 		if(n.left == null) return n;
 		return min(n.left);
@@ -90,14 +68,11 @@
 		}
 		return n;
 	}
-```
-
-## 遍历树
->二叉树的遍历分三种情况，中序遍历，前序遍历以及后序遍历。中序遍历是一种常见的遍历方式。遍历过程采用递归实现，递归的终止条件是判断节点是否为null，分别对左子节点和右子节点进行遍历。
-
-1. 前序遍历
->按照“根节点-左孩子-右孩子”的顺序进行访问。
-```Java
+	public void delete(K k){
+		root = delete(root, k);
+	}
+	
+	
 	/**
 	 * @Description: 前序遍历，访问当前节点，继而访问左结点，最后访问右结点
 	 * @param n
@@ -111,11 +86,7 @@
 	public void preOrderTraversal(){
 		preOrderTraversal(root);
 	}
-```
-
-2. 中序遍历
->按照“左孩子-根节点-右孩子”的顺序进行访问。
-```Java
+	
 	/**
 	 * @Description: 中序遍历，先访问左结点，后访问当前节点，最后访问右结点。
 	 * @param n
@@ -129,11 +100,7 @@
 	public void inOrderTraversal(){
 		inOrderTraversal(root);
 	}
-```
-
-3. 右序遍历
-> 按照“左孩子-右孩子-根节点”的顺序进行访问。
-```Java
+	
 	/**
 	 * @Description: 右序遍历，先访问左结点，后访问右结点，最后访问当前节点
 	 * @param n
@@ -147,17 +114,20 @@
 	public void postOrderTraversal(){
 		postOrderTraversal(root);
 	}
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
+	public static void main(String[] args) {
+		BinaryTree<Integer, Integer> binaryTree = new BinaryTree<>();
+		binaryTree.put(11, 11);
+		binaryTree.put(8, 8);
+		binaryTree.put(16, 16);
+		binaryTree.put(4, 4);
+		binaryTree.put(9, 9);
+		binaryTree.put(14, 14);
+		binaryTree.put(18, 18);
+		binaryTree.preOrderTraversal();
+		System.out.println("=====================");
+		binaryTree.inOrderTraversal();
+		System.out.println("=====================");
+		binaryTree.postOrderTraversal();
+	}
+}
