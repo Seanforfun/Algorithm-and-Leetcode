@@ -1,0 +1,1220 @@
+-------------------------------------------------------------------------------------------------------------------------
+---------------------------------------Chapter One-----------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------
+
+1.判断一个数N是质数：
+	1.小于2的均不是质数。
+	2.大于2的i从2开始，遍历二次方大于N，如果N可以被i整除，该数不是质数。
+	3.不满足上述情况的为质数。
+	实现：ca.mcmaster.chapter.one.MyMath.isPrime(int)
+	
+2.计算平方根：
+	1.利用牛顿开方法，通过切线进行逼近。
+	实现：ca.mcmaster.chapter.one.MyMath.sqrt(Double)
+	
+3.计算调和级数（Harmonic series）：
+	1.证明其为发散数列。
+	实现：ca.mcmaster.chapter.one.MyMath.harmonicSeries(int)
+	
+4.Java值传递***：
+	class Test{
+		String name;
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+	}
+	private static void call(Test t){
+		Test tnew = new Test();
+		t.setName("abc");
+		System.out.println(t);	//ca.mcmaster.chapter.one.Test@2a8b83e3
+		tnew.setName("111");
+		t = tnew;
+		System.out.println(t);	//ca.mcmaster.chapter.one.Test@2d7fc1e7
+	}
+	public static void main(String[] args) {		
+		//Java pass value test
+		Test t = new Test();
+		System.out.println(t);	//ca.mcmaster.chapter.one.Test@2a8b83e3
+		call(t);
+		System.out.println(t);	//ca.mcmaster.chapter.one.Test@2a8b83e3
+	}
+	1.基本数据类型都是值传递。
+	2.引用类型传递是引用的拷贝，既不是引用本身，更不是对象。
+		***因为java本身不存在地址，传参时相当于复制了当前地址的引用，并将复制的引用进行传递。
+		***所谓的值传递：
+			1.基本数据类型，传递的是值，所以作为形参传递的基本数据类型可以被读取，但是无法修改原值。
+			2.引用类型
+			->传递的是复制出来的引用。引用指向的是一块内存区域，所以可以修改该内存区域内部的值，说明原对象的只可以被改变。
+			->无法改变原始的引用，就是说line34，并没有改变obj对2a8b83e3的引用。
+			3.数组也是对象。
+		
+5. 二分法查找：
+	1.查找的数组是顺序的。
+	2.通过递归的方法不断调用，传入需要比较的上界和下界。
+	3.比较中间位置的值和查找值的大小，相同结束回归，不相同修改上界和下界。
+	实现：ca.mcmaster.chapter.one.Recursive.rank(int, int[])
+	
+6. 判断回文：
+	实现：ca.mcmaster.chapter.one.MyString.isPalindrome(String)
+	
+7. 判断字符串数组是否已经排序：
+	错误实例：
+	public static Boolean isSorted(String[] s){
+		for(int i = 1; i < s.length; i++){
+			String pre = s[i];
+			String next = s[i++];			//在此处从1开始遍历，不应该用i=i+1，而且i++此处将迭代器增加了，跳过了一些元素
+			//i++仍然取了i原值，在取完以后再++
+			System.out.println("pre is: " + pre + "; next is: " + next);
+			if(pre.compareTo(next) > 0)
+				return false;
+		}
+		return true;
+	}
+	错误结果：
+	System.out.println(isSorted(new String[]{"a","e","c","d","e","f"}));
+	pre is: e; next is: e
+	pre is: d; next is: d
+	pre is: f; next is: f
+	true
+	
+	实现：ca.mcmaster.chapter.one.MyString.isSorted(String[])
+	
+8. 内存管理**：
+	实例：
+	Date a = new Date(1,1,2018);
+	Date b = new Date(13,3, 2018);
+	a = b;
+	分析：
+		1.a在堆上开辟了一块空间，用于存储2018-1-1.
+		2.b在堆上开辟了一块空间，用于存储2018-3-13.
+		3.a指向b所对应的空间，此时2018-1-1对应的空间则没有任何的引用成为孤儿对象，则会被JVM的垃圾回收机制(Garbage Collection,GC)回收。
+			->垃圾回收的时间是难以预估的。
+			->没有引用的对象（或者说没有办法访问到的对象），被JVM视为孤儿对象，将会被GC回收。
+	
+9. 背包***：
+	接口：ca.mcmaster.chapter.one.bag.Bag<T>
+	1.背包无法从数据结构中删除数据。
+	2.用于帮助用例收集元素并遍历所有收集到的元素。
+	public interface Bag<T> extends Iterable<T> {
+		void add(T t);
+		Boolean isEmpty();
+		Integer size();
+	}
+	
+	->链表实现背包：
+	实现：ca.mcmaster.chapter.one.bag.ListBag<T>
+	public class ListBag<T> implements Bag<T>{
+		private Node first;
+		private Integer size = 0;
+		private class Node{
+			T t;
+			Node next;
+		}
+		public void add(T t) {
+			Node oldFirst  = first;
+			first = new Node();
+			first.t = t;
+			first.next = oldFirst;
+			size++;
+		}
+		public Boolean isEmpty() { return size.equals(0); };
+		public Integer size() { return size; }
+		public Iterator<T> iterator() {
+			return new ListIterator();
+		}
+		private class ListIterator implements Iterator<T>{
+			private Node current = first;
+			public boolean hasNext() { return current != null; }
+			public T next() {
+				if(!hasNext()) throw new IndexOutOfBoundsException();
+				T t = current.t;
+				current = current.next;
+				return t;
+			}
+			public void remove() {}
+		}				
+	}
+	
+10. FIFO队列：
+	接口：ca.mcmaster.chapter.one.FIFO.FifoQueue<T>
+	public interface FifoQueue<T> extends Iterable<T> {
+		void enqueue(T t);
+		T dequeue();
+		Boolean isEmpty();
+		Integer size();
+	}
+	
+	->FIFO队列，通过单向链表实现，新的节点从链表的尾部插入，从链表的头部移出。
+	实现：ca.mcmaster.chapter.one.FIFO.ListFIFOQueue<T>
+	public class ListFIFOQueue<T> implements FifoQueue<T> {
+		private Node first;
+		private Node last;
+		private Integer size = 0;
+		private class Node{
+			T t;
+			Node next;
+		}
+		public void enqueue(T t) {
+			Node oldLast = last;
+			last = new Node();
+			last.t = t;
+			last.next = null;
+			if(isEmpty()) first = last;
+			else oldLast.next = last;
+			size ++;
+		}
+		public T dequeue() {
+			if(isEmpty())	throw new IndexOutOfBoundsException();
+			T t = first.t;
+			first = first.next;
+			size--;
+			if(size.equals(0))	last = null;
+			return t;
+		}
+		public Boolean isEmpty() { return size.equals(0); }
+		public Integer size() { return size; }
+		public Iterator<T> iterator() {
+			return new ListFIFOQueueIterator<T>();
+		}
+		
+		private class ListFIFOQueueIterator<T> implements Iterator<T>{
+			public boolean hasNext() {	return size > 0;	}
+			public T next() {		return (T) dequeue();	}
+			public void remove() {
+			}
+		}		
+	}
+	
+11. 栈 LIFO队列：
+	接口：ca.mcmaster.chapter.one.stuck.Stack<T>
+	public interface MyStack<T>{
+		void push(T t);
+		T pop();
+		Boolean isEmpty();
+		Integer size();
+	}
+	
+	->LIFO栈 可动态调整数组大小栈：
+	实现：ca.mcmaster.chapter.one.stack.ResizingArrayStack<T>
+	public class ResizingArrayStack<T> implements MyStack<T> {
+		private T[] a;
+		private int size;
+		public ResizingArrayStack(int capacity){ a = (T[])new Object[capacity]; }	//无法泛型数组，所以创建一个Object类，再转型为泛型类。
+		public void push(T t) {
+			if(size == a.length)
+				this.resize(a.length * 2);
+			a[size++]  = t;
+		}
+		public T pop() {
+			if(size > 0 && size < a.length/4 )	this.resize(a.length / 2);
+			return (T)a[--size];
+		}
+		public Boolean isEmpty() { return size == 0;}
+		public Integer size() {	return size;}
+		public void resize(int capacity){
+			if(capacity < size) return;
+			T[] temp = (T[])new Object[capacity];
+			for(int i = 0; i < size; i++)
+				temp[i] = a[i];
+			a = temp;
+		}
+		private class ReverseArrayIterator implements Iterator<T>{
+			public boolean hasNext() { return size > 0; }
+			public T next() { return a[--size]; }
+			public void remove() {}
+		}
+		
+		public Iterator<T> iterator() {
+			return new ReverseArrayIterator();
+		}
+	}
+	*内部类：
+		->当前的ReverseArrayIterator就是一个内部类，该类拥有所有对外部类的field的操作权限，并且可以在外部类内部被调用。
+		->如果外部需要该内部类对象，可以构造一个public的访问器。
+		->**如果因为内部类和泛型的问题不知道怎么接收到参数，可以考虑使用多态，利用接口接受参数。
+	
+	->通过单向链表实现的LIFO栈：
+	实现：ca.mcmaster.chapter.one.stack.ListStack<T>
+	public class ListStack<T> implements MyStack<T> {
+		private Node first;
+		private Integer size = 0;
+		private class Node{
+			T t;
+			Node next;
+		}
+		public void push(T t) {
+			Node oldFirst  = first;
+			first = new Node();
+			first.t = t;
+			first.next = oldFirst;
+			size++;
+		}
+		public T pop() {
+			if(size.equals(0)) throw new IndexOutOfBoundsException();
+			T t = first.t;
+			first = first.next; 
+			size--;
+			return t;
+		}
+		public Boolean isEmpty() { return size.equals(0); };
+		public Integer size() { return size; }				
+	}
+	
+12. 装箱拆箱：
+	1.基本数据类型和封装数据类型之间的转换。
+	自动装箱(AutoBoxing):从基本数据类型转化成封装数据类型。int->Integer
+	自动拆箱(Unboxing):从封装数据类型转化成基本数据类型。 Integer->int
+	
+	
+13. 通过两个栈来实现简单的四则运算：
+	1.实现两个下压栈，操作数栈和运算符栈。
+	算法原则：
+		->操作数压入操作数栈。
+		->运算符压入运算符栈。
+		->忽略左括号。
+		->遇到右括号，弹出相应的操作数和操作符，并将结果加入操作数栈。
+	实现：ca.mcmaster.chapter.one.Evaluate
+	public class Evaluate {
+		public static void main(String[] args){
+			String s = "( 1 + ( ( 2 + 3 ) * ( 4 * 5 ) ) )";
+			Stack<String> ops = new Stack<String>();
+			Stack<Double> value = new Stack<Double>();
+			String[] tokens = s.split(" ");
+			
+			//Put all useful values into stack.
+			for(String t:tokens){
+				if(t.equals("(")) continue;
+				else if(t.equals("+")) ops.push(t);
+				else if(t.equals("-")) ops.push(t);
+				else if(t.equals("*")) ops.push(t);
+				else if(t.equals("/")) ops.push(t);
+				else if(t.equals(")")){
+					String op = ops.pop();
+					Double v = value.pop();
+					if(op.equals("+")) v = value.pop() + v;
+					if(op.equals("-")) v = value.pop() - v;
+					if(op.equals("*")) v = value.pop() * v;
+					if(op.equals("/")) v = value.pop() / v;
+					value.push(v);
+				}else
+					value.push(Double.parseDouble(t));
+			}
+			System.out.println(value.pop());
+		}
+	}
+	
+14.	算法分析：
+	增长数量级函数（大到小）
+	指数级别 > 立方级别 > 平方级别 || > 线性对数（NlogN）> 线性级别 > || 对数级别 > 常数级别
+	
+15. Sum问题：
+	给定一组不同数组，找其中为和为0的组合的个数：
+	->TwoSum:
+	1.BrutalTwoSum:O(N^2)
+	2.FastTwoSum:O(NlogN)
+		实现：ca.mcmaster.chapter.one.sum.SumProblems#twoSumFast(Integer[])
+		1.对数组进行排序。
+		2.对于所有元素进行遍历O(N)
+		3.通过二分法寻找相反数，如果相反数对应的位置大于当前的index则说明一对TwoSum存在。
+	->ThreeSum:
+		实现：ca.mcmaster.chapter.one.sum.SumProblems#threeSumFast(Integer[])
+		1.对数组进行排序。
+		2.对数组进行二维遍历O(N^2)。
+		3.通过二分法寻找a[i]+a[j]相反数，如果相反数对应的位置大于当前的index则说明一对ThreeSum存在。
+		
+16. Union-find 并查集
+	接口：ca.mcmaster.chapter.one.unionfind.UnionFind
+	public interface UnionFind {
+		public void union(int p,int q);				//得到了p, q两个节点，将这两个节点之间做出连接
+		public int find(int p);						//p节点所对应的分量的标识
+		public Boolean connected(int p, int q);		//判断p, q两个节点之间是否属于同一个分量
+		public int count();							//当前分量的数量
+	}
+	抽象类：ca.mcmaster.chapter.one.unionfind.UnionfindAbstract
+	
+	->QuickFind:O(n^2)
+	实现：ca.mcmaster.chapter.one.unionfind.QuickUnionFind
+	查找的速度很快
+	public class QuickUnionFind extends UnionfindAbstract {
+		public QuickUnionFind(int N) {
+			super(N);
+		}
+		public void union(int p, int q) {		
+			int pId = a[p];							//读出p, q两个节点所对应的分量的值
+			int qId = a[q];
+			if(pId == qId) return;
+			for(int i = 0; i < a.length; i++)		//如果两个节点暂时不在一个分量，将其中一个一组的所有节点修改成其中一个分量。
+				if(pId == a[i])	a[i] = qId;
+			count--;
+		}
+		public int find(int p) {
+			return a[p];
+		}	
+	}
+	
+	->QuickUnion:最坏情况仍然是O(n^2)
+	实现：ca.mcmaster.chapter.one.unionfind.QuickUnion
+	public class QuickUnion extends UnionfindAbstract{
+		public QuickUnion(int N) {
+			super(N);
+		}
+		public void union(int p, int q) {
+			int pRoot = find(p);
+			int qRoot = find(q);
+			if(qRoot == pRoot) return;
+			a[pRoot] = qRoot;
+			count--;
+		}
+		public int find(int p) {
+			while( p != a[p])	p = a[p];	//**构造了树的结构，如果当前触点的父类不是本身，则说明当前触点不是根节点
+			return p;						//**那么就挪动到上一个节点再进行分析。
+		}	
+	}
+	
+	->WeightedUnionFind 加权并查集：O(lgN)
+	实现：ca.mcmaster.chapter.one.unionfind.WeightedUnionFind
+	给每个根节点维护了一个数的大小，总体含义就是让连接更多节点的根节点作为新的根节点，减少树的深度。
+	public class WeightedUnionFind extends UnionfindAbstract {
+		private int[] size;
+		public WeightedUnionFind(int N) {
+			super(N);
+			size = new int[N];
+			for(int i = 0; i < N; i++)
+				size[i] = 1;
+		}
+		public void union(int p, int q) {
+			int pRoot = find(p);
+			int qRoot = find(q);
+			if(pRoot == qRoot) return;
+			if(size[pRoot] > size[qRoot]){		//比较根节点中，大小更大的，将小树连接到大树上。
+				a[qRoot] = pRoot;
+				size[pRoot] += size[qRoot];
+			}
+			else{
+				a[pRoot] = qRoot;
+				size[qRoot] += size[pRoot];
+			}
+			count--;
+		}
+		public int find(int p) {
+			while(p != a[p]) p = a[p];
+			return p;
+		}	
+	}
+	
+17. 树Tree：
+	1.一棵树的大小是他节点的数量。
+	2.一个节点的深度是他到根节点的连接数。
+	3.一棵树的高度是所有节点的最大深度。
+		
+		
+-------------------------------------------------------------------------------------------------------------------------
+---------------------------------------Chapter Two-----------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------		
+1. 接口中内容的定义：
+	1.JDK8.0以前的接口中：
+		->变量默认是public, static, final的。
+		->方法默认是public, abstract的。
+		public interface JDK8BeforeInterface {  
+			public static final int field1 = 0;  		  
+			int field2 = 0;  		  
+			public abstract void method1(int a) throws Exception;  		  
+			void method2(int a) throws Exception;  
+		}
+	2.JDK8.0及以后：
+		->允许我们在接口中定义static方法和default方法。
+		->静态方法，只能通过接口名调用，不可以通过实现类的类名或者实现类的对象调用
+		->default方法，只能通过接口实现类的对象来调用。
+		    public interface JDK8Interface {        
+				// static修饰符定义静态方法  
+				static void staticMethod() {  
+					System.out.println("接口中的静态方法");  
+				}  			  
+				// default修饰符定义默认方法  
+				default void defaultMethod() {  
+					System.out.println("接口中的默认方法");  
+				}  
+			}  
+		
+2. Sort的通用方法：
+	实现：ca.mcmaster.chapter.two.Sort.Sort
+	public class Sort {
+		@SuppressWarnings("rawtypes")
+		public static void selectSort(Comparable[] a){}；
+		public static Boolean less(Comparable a, Comparable b){
+			return a.compareTo(b) < 0;
+		}
+		public static void swap(Comparable[] a, int i, int j){
+			Comparable temp = a[i];
+			a[i] = a[j];
+			a[j] = temp;
+		}
+		public static void show(Comparable[] a){
+			for(int i = 0; i < a.length; i++){
+				System.out.print(a[i] + " ");
+			}
+			System.out.println();
+		}
+		public static Boolean isSorted(Comparable[] a){
+			for(int i = 1; i < a.length; i++)
+				if(less(a[i], a[i-1])) return false;
+			return true;
+		}		
+	}
+
+3. 选择排序SelectionSort：O(n^2)
+	实现：ca.mcmaster.chapter.two.Sort.Sort#selectionSort(Comparable[])
+	从数组头开始遍历数组，找到剩余数组中的最小元素，将最小元素和当前元素交换位置。
+	和输入数据的情况没有关系，数据已有的排序度对算法时间没有影响。
+	public static void selectionSort(Comparable[] a){
+		int length = a.length;
+		for(int i = 0; i < length; i++){
+			int min = i;
+			for(int j = i + 1; j < length; j++)
+				if(less(a[j], a[min])) min = j;
+			swap(a, i, min);						//交换元素的操作在集合之外，保证了对于外层遍历中的每个元素，交换只进行一次。
+		}
+	}
+	
+4. 插入排序InsertSort：O(n^2)
+	实现：ca.mcmaster.chapter.two.Sort.Sort#insertSort(Comparable[])
+	从第二个元素遍历整个数组，判断当前元素和之前所有元素的大小，插入正确的位置。
+	输入数据排序度更高，运行时间越短。
+	public static void insertSort(Comparable[] a){
+		int length = a.length;
+		for(int i = 1; i < length; i ++){						//遍历数组中的所有元素a[i]。
+			for(int j = i; j > 0 && less(a[j], a[j-1]); j--)	//从当前遍历到的位置开始，往前遍历，两个元素比较大小，如果小可以将当前a[i]向前移动。
+				swap(a, j, j-1);								//虽然看上去是在对a[j]进行遍历，实际上是如果a[i]和前一元素相比更小，就将a[i]向前移动。
+		}
+	}
+	
+5. 希尔排序ShellSort:
+	实现：ca.mcmaster.chapter.two.Sort.Sort#ShellSort(Comparable[])
+	通过保证在每个间隔h上均是有序的，再缩小h的值直到h的值为1。具体实现通过看代码注释深入理解。
+	public static void ShellSort(Comparable[] a){
+		int length = a.length;
+		int h = 1;
+		while(h < length/3)	h = 3*h + 1;								//先将数组进行三分，得到最初始的h值。
+		while(h >= 1){
+			for(int i = h; i < length; i++){							//在当前h间隔上通过InsertSort进行排序。再缩小h的值直到1。
+				for(int j = i; j >= h && less(a[j], a[j-h]); j -= h)
+					swap(a, j, j-h);
+			}
+			h /= 3;
+		}
+	}
+
+6. 并归排序MergeSort:(NlgN)
+	并归实现：ca.mcmaster.chapter.two.Sort.Sort#merge(Comparable[], int, int, int)
+	并归排序的实现是基于当前每个子列均是顺序排列。
+	public static void merge(Comparable[] a, int lo, int mid, int hi){
+		int i = lo, j = mid + 1;
+		if(less(a[mid], a[mid+1])) return;			//如果前一半的最后一个元素已经小于后一半的第一个元素，说明需要归并的两半已经是增序的。
+		for (int k = lo; k < aux.length; k++) 
+			aux[k] = a[k];
+		for(int k = lo; k < a.length; k++){
+			if(i > mid)			a[k] = aux[j++];
+			else if(j > hi) 		a[k] = aux[i++];
+			else if(less(aux[i], aux[j]))	a[k] = aux[i++];
+			else				a[k] = aux[j++];
+		}
+	}
+		
+	自顶向下并归排序实现：ca.mcmaster.chapter.two.Sort.Sort#mergeSort(Comparable[])	
+	并归排序利用了分治的思想。将大的数组拆成两个数进行归并，在对2-2进行归并，对4-4进行归并直到所有的数均被涵盖。
+	public static void mergeSort(Comparable[] a){
+		aux = new Comparable[a.length];											//因为不可避免的要进行数组的复制，所以在最外层进行复制以节约空间。
+		mergeSortIn(a, 0, a.length - 1);
+	}
+	
+	public static void mergeSortIn(Comparable[] a, int lo, int hi){
+		if(lo >= hi) return;
+		int mid = (hi - lo) / 2 + lo;
+		mergeSortIn(a, lo, mid);
+		mergeSortIn(a, mid + 1, hi);
+		merge(a, lo, mid, hi);
+	}
+	
+	自底向上并归排序实现：ca.mcmaster.chapter.two.Sort.Sort#mergeSortBU(Comparable[])
+	public static void mergeSortBU(Comparable[] a){
+		int length = a.length;
+		aux = new Comparable[length];
+		for(int sz = 1; sz < length; sz *= 2){
+			for(int lo = 0; lo < length - sz; lo += sz * 2)
+				merge(a, lo, lo+sz-1, Math.min(lo+sz+sz-1, length-1));			//要做一个取小的操作，因为数组的总量不一定是偶数。
+		}
+	}
+	
+7. 快速排序QuickSort:
+	实现：ca.mcmaster.chapter.two.Sort.Sort#quickSort(Comparable[], int, int)
+	1.随意取出数组中的一个元素(一般都取当前需要sort的第一个元素)。
+	如果取的是第一个元素：
+	2.我们从第二个元素开始向右进行遍历，再从右向左进行遍历，如果左边的数字大于该数字，右边的数字小于该数字，则两个数字换位置。
+	3.再针对左边的数字进行排序，再针对右边的数组进行排序。
+	public static void quickSort(Comparable[] a, int lo, int hi){
+		if(lo >= hi) return;
+		int j = partition(a, lo, hi);										
+		quickSort(a, lo, j-1);
+		quickSort(a, j+1, hi);
+	}
+	public static int partition(Comparable[] a, int lo, int hi){
+		int i = lo, j = hi + 1;
+		Comparable v = a[lo];
+		while(true){
+			while(less(a[++i], v)) if(i == hi) break;						//找到左边第一个小于该元素的数字。
+			while(less(v, a[--j])) if(j == lo) break;						//找到右边第一个大于该元素的数字。
+			if(i >= j) break;												//退出外部while循环的条件
+			swap(a, i, j);
+			//show(a);
+		}
+		swap(a, lo, j);														//将lo插入左右两个数组之间，使左边的均不大于lo，右边的均不小于hi。
+		return j;
+	}
+	
+	结果：
+	原数组：18,27,33,55,6,3,23,2,3,5,2,45,1,4,2,5,7,3,7,432,96,7,23,8
+	每次结果以及最终结果：
+	18 8 33 55 6 3 23 2 3 5 2 45 1 4 2 5 7 3 7 432 96 7 23 27 
+	18 8 7 55 6 3 23 2 3 5 2 45 1 4 2 5 7 3 7 432 96 33 23 27 
+	18 8 7 7 6 3 23 2 3 5 2 45 1 4 2 5 7 3 55 432 96 33 23 27 
+	18 8 7 7 6 3 3 2 3 5 2 45 1 4 2 5 7 23 55 432 96 33 23 27 
+	18 8 7 7 6 3 3 2 3 5 2 7 1 4 2 5 45 23 55 432 96 33 23 27 
+	5 2 7 7 6 3 3 2 3 5 2 7 1 4 8 18 45 23 55 432 96 33 23 27 
+	5 2 4 7 6 3 3 2 3 5 2 7 1 7 8 18 45 23 55 432 96 33 23 27 
+	5 2 4 1 6 3 3 2 3 5 2 7 7 7 8 18 45 23 55 432 96 33 23 27 
+	5 2 4 1 2 3 3 2 3 5 6 7 7 7 8 18 45 23 55 432 96 33 23 27 
+	3 2 2 1 2 3 3 4 5 5 6 7 7 7 8 18 45 23 55 432 96 33 23 27 
+	3 2 2 1 2 3 3 4 5 5 6 7 7 7 8 18 45 23 55 432 96 33 23 27 
+	2 1 2 2 3 3 3 4 5 5 6 7 7 7 8 18 45 23 55 432 96 33 23 27 
+	1 2 2 2 3 3 3 4 5 5 6 7 7 7 8 18 45 23 55 432 96 33 23 27 
+	1 2 2 2 3 3 3 4 5 5 6 7 7 7 8 18 45 23 27 432 96 33 23 55 
+	1 2 2 2 3 3 3 4 5 5 6 7 7 7 8 18 45 23 27 23 96 33 432 55 
+	1 2 2 2 3 3 3 4 5 5 6 7 7 7 8 18 45 23 27 23 33 96 432 55 
+	1 2 2 2 3 3 3 4 5 5 6 7 7 7 8 18 23 23 27 33 45 96 55 432 
+	1 2 2 2 3 3 3 4 5 5 6 7 7 7 8 18 23 23 27 33 45 55 96 432 
+	分析：
+	1.快速排序的最好情况是每次都能将数组对半分。
+	2.在切分不平衡的时候这个程序会极其低效，若果数组本身就是顺序的，每次只会提取出一个元素，相当于遍历了整个数组。
+	
+	->算法改进：
+		1.在数组大小比较小的时候，切换到插入排序，因为快速排序本身需要用到递归，即使很小的数组也要用到递归。		
+		实现：
+			public static int M = 5;
+			public static void quickSort(Comparable[] a, int lo, int hi){
+		//		if(lo >= hi) return;
+				if(lo + M >= hi)  {											//首先lo + M >= hi是lo >= hi的子集。
+					insertSort(a);											//对于小数组就使用插入排序，跳过快速排序。
+					return;
+				}
+				int j = partition(a, lo, hi);
+				quickSort(a, lo, j-1);
+				quickSort(a, j+1, hi);
+			}
+		
+		2.三取样切分：
+			->因为快速排序的最优情况是每次取出的数都是在数组的最中间，所以可以考虑中位数，但是计算中位数是额外的开销。
+			->取前几个数的中位数而不是选整个数组的中位数。
+			  
+		3.熵最优的排序：					
+			->针对于含有大量重复数据的情况，使用快速排序仍然会进行切分并进行递归调用，效率低下。我们可以维护成三取样，小于当前切分元素的部分，等于当前切分元素的部分，大于当前切分元素的部分。
+			  对于小于，大于两部分再进行递归调用。
+			->a[i]小于v,将a[lt]和a[i]交换，将lt和i加一；
+			  a[i]大于v,将a[gt]和a[i]交换，将gt减一；
+			  a[i]等于v，将i加一。			  
+			实现：ca.mcmaster.chapter.two.Sort.Sort#quickSort3Way(Comparable[], int, int)
+			public static void quickSort3Way(Comparable[] a, int lo, int hi){
+				if(lo >= hi) return;
+				int lt = lo, i = lo + 1, gt = hi;							//初始化三个指针，lt指向第一个大于等于v的数字，i是一个中间变量，指向第一个大于v的数字，gt从结束开始遍历，向前迭代，指向第一个不大于v的数字。
+				Comparable v = a[lo];
+				while(i <= gt){
+					int cmp = a[i].compareTo(v);
+					if(cmp < 0)				swap(a, lt++, i++);
+					else if(cmp > 0)		swap(a, i, gt--);
+					else							i++;
+				}
+				quickSort3Way(a, lo, lt - 1);
+				quickSort3Way(a, gt + 1, hi);
+			}
+			
+8. 优先队列(PriorityQueue):
+	1.并不需要将所有的数组排序，只需要提取出所有数组中优先级最高的元素。
+	2.优先队列最重要的操作就是删除最大元素和插入元素。
+	
+	->通过二叉堆实现优先队列：
+		1.二叉堆表示法binary heap：
+			每个中间元素都需要三个指针，指向父节点和两个子节点。
+			在一个二叉堆中，位置k的节点父结点的位置为[k/2]， 而它的两个子节点的位置分别为2k和2k+1.
+						1
+					 /	   \
+					2		3
+				 /	|		|  \
+				4	5		6	7
+			 /	|	|	\
+			8	9	10 	 11
+			一棵大小为N的完全二叉树的高度为[lgN]。
+			堆的操作会首先进行一些简单的改动，打破堆的状态，然后再遍历堆并按照要求将堆的状态恢复(reheapifying)。
+		实现：ca.mcmaster.chapter.two.queue.MaxPriorityQueueBinaryStack<T>
+		public class MaxPriorityQueueBinaryStack<T extends Comparable<T>> implements MaxPriorityQueue<T> {
+			private T[] pq;
+			private int N = 0;
+			public MaxPriorityQueueBinaryStack(int maxN){
+				pq = (T[]) new Comparable[maxN + 1];						//构建一个存储数量+1长度的数组。
+			}
+			public void insert(T t) {
+				pq[++N] = t;												//将最新的数据插入尾部，再通过上浮将数据放在正确的位置。
+				swim(N);
+			}
+			public T max() {
+				return pq[1];
+			}
+			public T delMax() {
+				T max = pq[1];												//将最上方的文件保存，作为输出值。
+				swap(1, N--);												//将最后一个值和最开头的值进行交换，再让最开始的值进行下沉，使树有序。
+				pq[N + 1] = null;
+				sink(1);
+				return max;
+			}
+			public Boolean isEmpty() {	 return N == 0;	}
+			public int size() {	return N;		}
+			private Boolean less(int i, int j){	return pq[i].compareTo(pq[j]) < 0;	}
+			private void swap(int i, int j){	T temp = pq[i]; pq[i] = pq[j]; pq[j] = temp;	}
+			private void swim(int k){										//数据上浮，当前节点和父节点进行比较，如果大于父节点则和父节点进行交换
+				while(k > 1 && less(k/2, k)){								//遍历知道首结点停止。
+					swap(k, k/2);
+					k = k/2;
+				}
+			}
+			private void sink(int k){										//数据下沉，让上部的非有序数字下沉至正确位置。
+				while(2 * k <= N){
+					int j = 2 * k;											//先将数字下沉一层
+					if(j < N && less(j, j+1))	j++;						//判断是否超过了树的总容量， 再比较a[j]和a[j++]的大小，要比大的那个数即可
+					if(!less(k, j))	break;									//如果当前值比大的那个还要大，已经可以退出循环了。
+					swap(k, j);												//如果小于下一层的大值，则和该值进行交换。
+					k = j;
+				}
+			}	
+		}
+		
+	->堆排序：
+		实现：ca.mcmaster.chapter.two.queue.HeapSort
+		public class HeapSort {
+			private static Boolean less(Comparable[] a,int i, int j){	return a[i].compareTo(a[j]) < 0;	}
+			private static void swap(Comparable[] a, int i, int j){	Comparable temp = a[i]; a[i] = a[j]; a[j] = temp;	}
+			public static void sink(Comparable[] a, int k, int length){
+				while(2 * k <= length){
+					int j = 2 * k;
+					if(j < length && less(a, j, j+1))	j++;
+					if(!less(a, k, j))	break;
+					swap(a, k, j);
+					k = j;
+				}
+			}
+			public static void heapSort(Comparable[] a){
+				int length = a.length-1;
+				for(int i = length/2; i >=0; i--)	sink(a, i, length);
+				while(length >= 1){
+					swap(a, 0, length--);
+					sink(a, 0, length);
+				}
+			}
+			
+			public static void show(Comparable[] a){
+				for(int i = 0; i < a.length; i++){
+					System.out.print(a[i] + " ");
+				}
+				System.out.println();
+			}						
+		}
+			
+-------------------------------------------------------------------------------------------------------------------------
+---------------------------------------Chapter Three---------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------			
+1. 符号表Symbol Table:
+	符号表的主要目的就是将一个键和一个值联系起来。
+	->重复的键：
+		1.每个键都对应一个值。
+		2.存入的键值对和已有的键起冲突时会覆盖旧的值。
+	->空键：
+		1.键不能为空。
+	->空值：
+		1.值不能为空。
+		2.可以通过get()方法返回值是不是null,来判断值是不是已经被删除。
+		3.put()空值用于删除。
+		
+2. 通过链表实现的符号表：
+	实现：ca.mcmaster.chapter.three.SequentialSearchST<K, V>
+	这种符号表是无序的，属于随机命中。
+	public class SequentialSearchST<K, V> {
+		private class Node{
+			K k;
+			V v;
+			Node next;
+			public Node(K k, V v, Node next){
+				this.k = k;
+				this.v = v;
+				this.next = next;
+			}
+		}
+		private Node first;
+		public V get(K k){
+			Node current = first;
+			while(current != null){
+				if(current.k.equals(k))	return current.v;
+				current = current.next;
+			}
+			return null;
+		}
+		
+		public void put(K k, V v){
+			Node current = first;
+			while(current != null){
+				if(current.k.equals(k)){
+					current.v = v;
+					return;
+				}
+				current = current.next;
+			}
+			first = new Node(k, v, first);
+		}				
+	}
+	
+3. 通过二分法实现的顺序符号表：
+	抽象类：ca.mcmaster.chapter.three.SearchSTAbstract<K, V>
+	->通过数组实现，想要顺序插入的时候从后往前遍历，将每个键值对向后移动一格。
+	->想要删除的时候从前往后遍历，每个键值对向前移动一格，将最后一个键值对置为空。
+	public abstract class SearchSTAbstract<K extends Comparable<K>, V> {
+		protected K[] keys;
+		protected V[] values;
+		protected int N;
+		public SearchSTAbstract(int capacity){
+			keys = (K[]) new Comparable[capacity];
+			values = (V[]) new Object[capacity];
+		}
+		public int size()	{	return N;		}
+		public V get(K k){
+			if(isEmpty())	return null;
+			int i = binarySearch(k);
+			if(i < N && keys[i].compareTo(k) == 0)	return values[i];
+			else									return null;
+		}
+		public void put(K k, V v){
+			int i = binarySearch(k);
+			if(i < N && keys[i].compareTo(k) == 0){
+				values[i] = v;	return;
+			}
+			for(int j = N; j > i; j--){
+				keys[j] = keys[j-1];
+				values[j] = values[j-1];
+			}
+			keys[i] = k;
+			values[i] = v;
+			N++;
+		}
+		public Boolean isEmpty()	{	return N == 0;	}
+		public abstract int binarySearch(K k);
+		public void delete(K k){
+			int i = binarySearch(k);
+			if(i < N && keys[i].compareTo(k) == 0){
+				for(int j = i; j < N; j++){
+					keys[j] = keys[j+1];
+					values[j] = values[j+1];
+				}
+				keys[N] = null;
+				values[N] = null;
+				N--;
+			}
+		}
+	}
+	
+	二分法实现类：
+	实现：ca.mcmaster.chapter.three.BinarySearchST<K, V>
+	public abstract class SearchSTAbstract<K extends Comparable<K>, V> {
+		protected K[] keys;
+		protected V[] values;
+		protected int N;
+		public SearchSTAbstract(int capacity){
+			keys = (K[]) new Comparable[capacity];
+			values = (V[]) new Object[capacity];
+		}
+		public int size()	{	return N;		}
+		public V get(K k){
+			if(isEmpty())	return null;
+			int i = binarySearch(k);
+			if(i < N && keys[i].compareTo(k) == 0)	return values[i];
+			else												return null;
+		}
+		public void put(K k, V v){
+			int i = binarySearch(k);
+			if(i < N && keys[i].compareTo(k) == 0){
+				values[i] = v;	return;
+			}
+			for(int j = N; j > i; j--){
+				keys[j] = keys[j-1];
+				values[j] = values[j-1];
+			}
+			keys[i] = k;
+			values[i] = v;
+			N++;
+		}
+		public Boolean isEmpty()	{	return N == 0;	}
+		public abstract int binarySearch(K k);
+		public void delete(K k){
+			int i = binarySearch(k);
+			if(i < N && keys[i].compareTo(k) == 0){
+				for(int j = i; j < N; j++){
+					keys[j] = keys[j+1];
+					values[j] = values[j+1];
+				}
+				keys[N] = null;
+				values[N] = null;
+				N--;
+			}
+		}
+		public K min(){	return keys[0];	}
+		public K max(){	return keys[N-1];	}
+		public K select(int k){	return 	keys[k];	}
+		public K ceiling(K k){
+			int i = binarySearch(k);
+			return keys[i];
+		}
+		public Iterable<K> keys(int lo, int hi){
+			if(lo > hi)		return null;
+			if(hi >= N	)	throw new ArrayIndexOutOfBoundsException();
+			ListFIFOQueue<K> queue = new ListFIFOQueue<>();
+			for(int i = binarySearch(keys[lo]); i < binarySearch(keys[hi]); i++){
+				queue.enqueue(keys[i]);
+				System.out.println(i);
+			}
+			if(contains(keys[hi]))	queue.enqueue(keys[hi]);
+			return queue;
+		}
+		public Boolean contains(K k){
+			int i = binarySearch(k);
+			return i < N;
+		}
+	}
+	传统二分法：
+	实现：ca.mcmaster.chapter.three.BinarySearchST#traditionalBinarySearch(K, int, int)
+	传统方法是通过递归的方法实现。
+	
+	循环二分法：
+	实现：ca.mcmaster.chapter.three.BinarySearchST#binarySearch(K)
+	退出循环的条件：
+	1. 遍历的lo已经大于hi,可以退出循环，说明没有找到该元素。
+	2. 得到当前mid值已经和所查找的key相同，当前mid元素就是要查找的值。
+	
+4. 二叉查找树(BST):lgN
+	二叉树由结点组成，结点包含的链接可以指向空或者其他结点。除了根节点以外，只能有一个父结点指向自己。
+	BST：
+	->每个结点都含有一个键，一个值，一条左链接，一条右链接和一个节点计数器。
+	->左链接指向一棵由小于该节点的所有键组成的二叉查找树。
+	->右链接指向一棵由大于该节点的所有键组成的二叉查找树。
+	->size(x) = size(x.left) + size(x.right) + 1
+	->***对于某一个结点，左边的结点小于父结点的值，右结点大于父结点的值，所以将所有的结点映射在一条线上，所有的数据是顺序排列的。
+	
+	二叉树的抽象类：
+	实现：ca.mcmaster.chapter.three.bitree.BinaryTreeSymbolTableAbstract<K, V>
+	public abstract class BinaryTreeSymbolTableAbstract<K extends Comparable<K>, V> {
+		protected class Node{
+			protected K k;
+			protected V v;
+			protected Node left, right;
+			protected int N;
+			public Node(K k, V v, int n) {
+				this.k = k;	this.v = v;	N = n;
+			}
+		}
+		protected Node root;
+		public int size(Node x){
+			if(x == null) return 0;
+			else				return x.N;
+		}
+		public int size(){	return size(root);	}
+		public abstract V get(K k);
+		public abstract void put(K k, V v);
+		public K min(){	return min(root).k;	}
+		public Node min(Node node){
+			if(node.left == null)	return node;
+			return min(node.left);
+		}
+		public K floor(K k){											//返回小于等于当前键值的最大值
+			Node node = floor(root, k);
+			if(node == null) return null;
+			return node.k;
+		}
+		public Node floor(Node node, K k){								//对于树的遍历，我们可以考虑递归调用，只需要考虑当前情况针对父结点和两个子结点
+			if(null == node) return null;
+			int cmp = k.compareTo(node.k);
+			if(cmp == 0) 	return node;								//如果当前所需要的键值和父节点的键值一样，说明当前的结点就是小于当前结点的最大结点。
+			else if(cmp < 0)		return floor(node.left, k);			//如果当前的键小于父结点，我们再递归调用左子结点，说明floor结点一定在左子树中。
+			Node temp =  floor(node.right, k);							//如果大于当前的键值，我们再针对右边的树进行floor查找
+			if(temp != null) return temp;								//如果返回的为空，那父结点即为floor结点
+			else						return node;					//不然在子节点中存在floor结点。
+		}
+		public K select(int k){
+			return select(root, k).k;
+		}
+		public Node select(Node node, int k){							//选取某个结点作为父结点，选取排名为K的值的键值，排名从0开始
+			if(node == null)		return null;
+			int t = size(node.left);									
+			if(t > k)			return select(node.left, k);			//如果要求的rank值大于左子结点
+			else if(t < k)	return select(node.right, k - t - 1);		//k(要求的rank值), t左子结点的所有节点个数， 1：父结点
+			else					return node;
+		}
+		public Integer rank(K k){	return rank(root, k);	}
+		public Integer rank(Node node, K k){
+			if(node == null)	return 0;
+			int cmp = k.compareTo(node.k);
+			if(cmp < 0)				return rank(node.left, k);
+			else if(cmp > 0) 		return 1 + size(node.left) + rank(node.right, k);
+			else							return size(node.left);
+		}
+		public void delMin(){	root = delMin(root);	}				
+		public Node delMin(Node node){									//删除以当前结点为父节点中最小的结点。
+			if(node.left == null)	return node.right;					//当前结点的左子结点为空，说明当前节点就是在三个结点中最小的。将右结点返回最为新的结点。
+			node.left = delMin(node.left);								//左子结点不为空，递归调用
+			node.N = size(node.left) + size(node.right) + 1;			//更新当前节点的size
+			return node;												//返回值是更新后的新的父结点。
+		}
+		public void delete(K k){	root = delete(root,k);	}
+		public Node delete(Node node, K k){
+			if(node == null)		return null;
+			int cmp = k.compareTo(node.k);
+			if(cmp > 0)				node.right = delete(node.right, k);
+			else if(cmp < 0)		node.left =  delete(node.left, k);
+			else{
+				if(node.right == null)		return node.left;			//如果当前结点只有一个子结点，则用当前的子结点顶替原来子结点的位置。
+				if(node.left == null)		return node.right;
+				Node temp = node;										//如果有两个子结点，可以替换当前结点的新结点在右子结点及其子结点中。
+				node = min(node.right);									//找到可以替换当前结点的新的结点
+				node.left = temp.left;									//将原来的子左结点替换
+				node.right = delMin(temp.right);						//将最小值删除并且并将父结点绑定
+			}
+			node.N = size(node.left) + size(node.right) + 1;
+			return node;
+		}
+	}
+	Node是树上的某个结点，一个结点有如下的特征：
+	->K,键：用于确定该结点在树中的位置。
+	->V,值：某个结点存储的值。
+	->left, right:某个父结点所拥有的左子节点和右子结点。
+	->N：当前节点(包括当前节点)的子结点的个数。
+	
+	实现：ca.mcmaster.chapter.three.bitree.BinaryTreeSymbolTable<K, V>
+	public class BinaryTreeSymbolTable<K extends Comparable<K>, V> extends
+		BinaryTreeSymbolTableAbstract<K, V> {
+		public V get(K k) {		return get(root, k);	}
+		public V get(Node node, K k){									//以当前结点为根结点，往下遍历子结点找到键值并返回对应的value
+			if(node == null) return null;								//对于每一次的结点遍历，只比较当前结点，左子结点，右子结点。
+			int cmp = k.compareTo(node.k);								//比较键的大小，如果小于该键开始遍历左子结点，右子结点。
+			if(cmp > 0)	return get(node.right, k);
+			else if(cmp < 0) return get(node.left, k);
+			else 	return node.v;
+		}
+		public void put(K k, V v) {
+			root = put(root, k, v);
+		}
+		public Node put(Node node, K k, V v){							//将某一个键值对放入树中。
+			if(node == null)	return new Node(k, v, 1);				//如果已经遍历到了树的底部，创建一个新的结点并返回
+			int cmp = k.compareTo(node.k);
+			if(cmp < 0)	node.left = put(node.left, k, v);				//如果键小于左边，将左子键当作父结点，递归调用。
+			else if(cmp > 0) node.right = put(node.right, k, v);		//如果键小于右边，将右子键当作父结点，递归调用。
+			else	node.v = v;
+			node.N = size(node.left) + size(node.right) + 1;
+			return node;
+		}		
+	}
+	
+	如果二叉树是平衡的，即每个结点都有左子结点和右子结点，这个二叉树是平衡二叉树，算法的复杂度为lgN.
+	**二叉树越不平衡，算法复杂度越高。
+	
+5. 范围查找：
+	将二叉树中的所有的键按照顺序打印出来。
+	->中序遍历：
+		1.我们应该先打印出根结点的左子树中的所有键。
+		2.打印根结点的键。
+		3.打印出右结点的键。
+	实现：ca.mcmaster.chapter.three.bitree.BinaryTreeSymbolTable#keys()
+	public Iterable<K> keys(){	return keys(min(), max());	}				
+	public Iterable<K> keys(K lo, K hi){									//返回键在下限和上限之间的键所组成的队列。(包括边界)
+		ListFIFOQueue<K> queue = new ListFIFOQueue<>();						//创建一个先入先出的队列
+		keys(root, queue, lo, hi);
+		return queue;
+	}
+	public void keys(Node node, ListFIFOQueue<K> queue, K lo, K hi){
+		if(null == node) 		return;
+		int cmplo = lo.compareTo(node.k);							
+		int cmphi = hi.compareTo(node.k);
+		if(cmplo < 0)	keys(node.left, queue, lo, hi);						//从当前结点开始向左遍历，直到接触到lo对应的结点，加入队列。[lo-current]
+		if(cmplo <= 0 && cmphi >= 0)		queue.enqueue(node.k);
+		if(cmphi > 0)	keys(node.right, queue, lo, hi);					//从当前结点开始向右遍历，直到接触到hi对应的结点，将所有之间的结点加入队列。[current-hi]
+	}
+	
+	->性能分析：
+		1.树的高度决定了树中和有序性相关的操作。
+		2.在一个二叉查找树中，所有操作在最坏情况下所需的时间和树的高度成正比。
+		
+6. 2-3查找树：
+	2-结点：含有一个键和两条链接，类似于二叉树，左边链接的值小于键值，右边链接的键值大于键值。
+			2
+		  /	   \
+		1		3
+	
+	3-结点：含有两个键和三条链接，左边链接的键值小于左键值,中间链接的键值在左键值和右键值之间，右链接的键值大于右键值。
+				4 7
+		   /	 |	  \
+		1 2		 5		8 9
+		
+	->查找结点get：
+		通过比较键值递归查找，如果找到则返回该节点，直到遍历为空，退出循环，返回空值，说明没有该结点。
+	->放置结点put：
+		添加新的结点之前需要通过get方法查找键，如果找到了，直接修改值，如果不为空，分为以下几种条件：
+		1.向2-结点中添加新键。
+		2.向一个父结点为2-结点的3-结点添加新键。
+		3.向一个父结点为3-结点的3-结点添加新键：需要一直遍历到根节点判断是不是2-结点，其中有一个是2-结点，则归纳到1的情况。
+			分解根节点：如果根结点为一个4-结点，继续将中间的键向上移添加一个新的结点。
+			
+7. 红黑二叉查找树 ref:https://blog.csdn.net/sun_tttt/article/details/65445754：
+	性质：
+	->性质一：节点是红色或者是黑色；
+	->性质二：根节点是黑色；
+	->性质三：每个叶节点（NIL或空节点）是黑色；
+	->性质四：每个红色节点的两个子节点都是黑色的（也就是说不存在两个连续的红色节点）；
+	->**性质五：从任一节点到其每个叶节点的所有路径都包含相同数目的黑色节点;
+	1.红黑二叉查找树是一种2-3查找树的实现。	
+	2.我们将树中的链接分为两种类型：
+		->红链接：将两个2-结点连接起来构成一个3-结点。
+		->黑链接：2-3树中的普通链接。
+	3.替换3-结点：
+		通过红链接将来通过二叉树来表示2-3链接。
+		将原来的3-结点转化成2-结点，并且将原来3-结点中的两个键通过红链接表示。
+		我们将这种方式表示的2-3树的二叉查找树成为红黑二叉查找树（红黑树）。
+		->红链接均为左链接。
+		->没有任何一个结点同时和两条红链接相连。
+		->该树是完美黑色平衡的，即任意空链接到根结点的路径上的黑链接数量相同。
+	实现：ca.mcmaster.chapter.three.rbtree.RedBlackBST<K, V>
+	public class RedBlackBST<K extends Comparable<K>, V> {
+		private Node root;
+		public static final Boolean RED = true;
+		public static final Boolean BLACK = false;
+		private class Node{
+			K k;
+			V v;
+			Node left, right;
+			int N;
+			Boolean color;
+			public Node(K k, V v, int n, Boolean color) {
+				this.k = k;
+				this.v = v;
+				N = n;
+				this.color = color;
+			}
+		}
+		
+		private Boolean isRed(Node node){
+			if(null == node) 		return false;
+			return 						node.color == RED;
+		}
+		
+		public Node rotateLeft(Node node){
+			Node temp = node.right;
+			node.right = temp.left;
+			temp.left = node;
+			temp.color = node.color;
+			node.color = RED;
+			temp.N = node.N;
+			node.N = 1 + size(node.left) + size(node.right);
+			return temp;
+		}
+		public Node rotateRight(Node node){
+			Node temp = node.left;
+			node.left = temp.right;
+			temp.right = node;
+			temp.color = node.color;
+			temp.N = size(node);
+			node.N = 1 + size(node.left) + size(node.right);
+			return temp;
+		}
+		public int size()	{	return size(root);	}
+		public int size(Node node){
+			if(null == node)		return 0;
+			return 						node.N;
+		}
+		public void filpColor(Node node){
+			node.color = RED;
+			node.left.color = BLACK;
+			node.right.color = BLACK;
+		}
+		public void put(K k, V v){
+			root = put(root, k, v);
+			root.color = BLACK;
+		}
+		public Node put(Node node, K k, V v){
+			if(node == null){		return new Node(k, v, 1, RED)	;	}
+			int cmp = k.compareTo(node.k);
+			if(cmp < 0)				return put(node.left, k, v);
+			else if(cmp > 0)		return put(node.right, k, v);
+			else							node.v = v;
+			if(isRed(node.right) && !isRed(node.left))		node = rotateLeft(node);
+			if(isRed(node.left) && isRed(node.left.left))	node = rotateRight(node);
+			if(isRed(node.left) && isRed(node.left.left))	filpColor(node);
+			node.N = size(node.left) + size(node.right) + 1;
+			return node;
+		}
+	}
+	
+	4.颜色转换：
+		->两个子链接都是红链接，那么我们可以将父结点向上的链接变成红链接，将两个子链接变成黑链接。
+		实现：ca.mcmaster.chapter.three.rbtree.RedBlackBST#filpColor(Node)
+		->根节点总是黑色的，根据上一条，我们总是会将根节点设置为红链接，但是我们要将父结点设置成黑链接，每次由红色变成黑色树的黑链接高度增加1.
+	
+	5.将红链接在树中向上传递：
+		->如果右结点是红色而左子结点是黑色，进行左旋转。
+		->如果左子结点是红色而且他的左子结点也是红色的，进行右旋转。
+		->如果左右子结点均是红色，颜色转换。
+		public Node put(Node node, K k, V v){
+			if(node == null){		return new Node(k, v, 1, RED)	;	}
+			int cmp = k.compareTo(node.k);													//对键向左右子结点进行比较，向左向右递归调用，直到找到了合适的结点。
+			if(cmp < 0)				return put(node.left, k, v);
+			else if(cmp > 0)		return put(node.right, k, v);
+			else					node.v = v;
+			if(isRed(node.right) && !isRed(node.left))		node = rotateLeft(node);		//如果右结点是红色而左子结点是黑色，进行左旋转。
+			if(isRed(node.left) && isRed(node.left.left))	node = rotateRight(node);		//如果左子结点是红色而且他的左子结点也是红色的，进行右旋转。
+			if(isRed(node.left) && isRed(node.left.left))	filpColor(node);				//如果左右子结点均是红色，颜色转换。
+			node.N = size(node.left) + size(node.right) + 1;
+			return node;
+		}
+		
+	6.自顶向下2-3-4树：
+		->将4-结点表示为由三个2-结点树组成的一棵平衡树。将根节点和两个子结点用红链接相连。
+		->在向下的过程分解所有的4-结点并进行颜色转换。
+		->和插入操作一样，在向上的过程中用旋转将4-结点平衡。
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
