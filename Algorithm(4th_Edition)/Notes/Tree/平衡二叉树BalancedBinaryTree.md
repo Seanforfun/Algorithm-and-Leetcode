@@ -87,6 +87,7 @@
 	}
 ```
 
+## 插入
 * 插入结点
 ```Java
 	public void insert(V v){
@@ -137,6 +138,66 @@
 			;
 		}
 		node.height = Math.max(height(node.left), height(node.right)) + 1;
+		return node;
+	}
+```
+
+## 删除节点
+```Java
+	/**
+	 * @Description: Find the smallest sub-node of given node.
+	 * @param node
+	 * @return
+	 */
+	private AVLNode min(AVLNode node){
+		if(node.left == null) return node;
+		return min(node.left);
+	}
+	public void delete(V v){
+		root = delete(root, v);
+	}
+	private AVLNode delete(AVLNode node, V v){
+		if(null == node) return null;
+		int cmp = v.compareTo(node.v);
+		if(cmp < 0){
+			//要删除的结点小于当前结点，继续从左结点删除。
+			node.left = delete(node.left, v);
+			//从子结点中删除，右子树的高度此时一定大于等于左子树。
+			//R
+			if(height(node.right) - height(node.left) == 2){
+				AVLNode cur = node.right;
+				if(height(cur.right) > height(cur.left)){
+					//RR
+					node = singleRotateLeft(node);
+				}else{
+					//RL
+					node = doubleRotateRL(node);
+				}
+			}
+		}else if(cmp > 0){
+			//要删除的结点大于当前结点，继续从右结点删除。
+			node.right = delete(node.right, v);
+			//L
+			if(height(node.left) - height(node.right) == 2){
+				AVLNode cur = node.left;
+				if(height(cur.left) > height(cur.right)){
+					//LL
+					node = singleRotateRight(node);
+				}else{
+					//LR
+					node = doubleRotateLR(node);
+				}
+			}
+		}else if(node.left != null && node.right != null){
+			//已经找到要删除的结点并且当前结点不为叶结点。
+			//替换要删除结点的值。
+			node.v = min(node.right).v;
+			node.right = delete(node.right, node.v);
+		}else{
+			//已找到要删除的结点，只有一棵子树。
+			node = (node.left != null) ? node.left:node.right;
+		}
+		if(node != null)	node.height = Math.max(height(node.left), height(node.right)) + 1;
 		return node;
 	}
 ```
