@@ -1,5 +1,6 @@
 # Queue Conclusion
-
+* Queue家族的继承关系：
+![Queue hierarchy](https://i.imgur.com/SrKTwOh.png)
 ### Queue interface
 > `boolean add(E e);`	Add and offer are used to add element into the queue.
 >
@@ -9,7 +10,7 @@
 > 
 > `E poll();`
 > 
-> `E element();`		Retrieves, but does not remove, the head of this queue.
+> `E element();`		Retrieves, but does not remove the head of this queue.
 > 
 > `E peek();`
 
