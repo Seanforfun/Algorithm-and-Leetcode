@@ -134,3 +134,70 @@
         }
     }
 ```
+
+## Test
+* Producer
+Producer continuously put data into queue.
+```Java
+public class ArrayBlockingQueueProducer implements Runnable {
+	private ArrayBlockingQueue<Integer> queue;
+	public ArrayBlockingQueueProducer(ArrayBlockingQueue<Integer> queue) {
+		super();
+		this.queue = queue;
+	}
+	private volatile AtomicInteger ai = new AtomicInteger(0);
+	@Override
+	public void run() {
+		while(true){
+			try {
+				queue.put(ai.getAndIncrement());
+				System.out.println("Producer: put " + ai.get() + " into queue...");
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}
+```
+
+* Consumer
+Consumer get take data from queue 100 times
+```Java
+public class ArrayBlockingQueueConsumer implements Runnable {
+	private ArrayBlockingQueue<Integer> queue;
+	public ArrayBlockingQueueConsumer(ArrayBlockingQueue<Integer> queue) {
+		super();
+		this.queue = queue;
+	}
+	@Override
+	public void run() {
+		try {
+			for(int i = 0; i < 100; i++){
+				Thread.currentThread().join(10);
+				System.out.println("Consumer: get " + queue.take() + " from queue...");
+				Thread.sleep(10);
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void main(String[] args) throws InterruptedException {
+		ArrayBlockingQueue<Integer> queue = new ArrayBlockingQueue<>(10);
+		new Thread(new ArrayBlockingQueueConsumer(queue)).start();
+		new Thread(new ArrayBlockingQueueProducer(queue)).start();
+		Thread.currentThread().join();
+		System.out.println("Finish...");
+	}
+}
+```
+* Result
+>...
+Producer: put 108 into queue...
+Consumer: get 98 from queue...
+Producer: put 109 into queue...
+Consumer: get 99 from queue...
+Producer: put 110 into queue...
+
+We can find that Producer is **blocked**.
