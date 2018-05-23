@@ -18,6 +18,7 @@ I started learning the data struture systematically, I will list my notes in the
 1. [Priority Blocking Queue](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Queue/PriorityBlockingQueue.md)
 2. [Linked Blocking Queue](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Queue/LinkedBlockingQueue.md)
 3. [Priority Blocking Queue](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Queue/PriorityBlockingQueue.md)
+4. [Delay Queue](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Queue/DelayQueue.md)
 
 ## LeetCode
 This part I listed my [leetcode solutions](https://github.com/Seanforfun/Algorithm/tree/master/leetcode).
