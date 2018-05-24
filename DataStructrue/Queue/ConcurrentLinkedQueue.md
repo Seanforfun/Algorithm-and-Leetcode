@@ -112,7 +112,7 @@ public final boolean compareAndSet(long expect, long update) {
 
 ### 出队列
 ![cdl](https://i.imgur.com/G5Irgel.jpg)
-* poll()
+* poll() 出队列不会阻塞，如果队列为空则返回null。
 ```Java
     public E poll() {
         restartFromHead:
@@ -142,4 +142,75 @@ public final boolean compareAndSet(long expect, long update) {
             }
         }
     }
+```
+
+### 其他方法
+* size() 检查队列大小，O（n），为了保证并发性不得不每次都遍历链表。
+```Java
+    public int size() {	//返回检查队列的大小
+        int count = 0;
+        for (Node<E> p = first(); p != null; p = succ(p))
+            if (p.item != null)
+                // Collection.size() spec says to max out
+                if (++count == Integer.MAX_VALUE)
+                    break;
+        return count;
+    }
+```
+
+* isEmpty() 判断链表非空，O(1)级别
+
+### Test
+* 生产者
+```Java
+public class ConcurrentLinkQueueProducer implements Runnable{
+	private ConcurrentLinkedQueue<Integer> q;
+	public ConcurrentLinkQueueProducer(ConcurrentLinkedQueue<Integer> q) {
+		super();
+		this.q = q;
+	}
+	@Override
+	public void run() {
+		AtomicInteger al = new AtomicInteger(0);//通过AtomicInteger保证原子性，避免锁。
+		while(true){
+			q.offer(al.get());
+			System.out.println("Producer: put " + al.getAndIncrement() + " into queue...");
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}
+```
+
+* 消费者
+```Java
+public class ConcurrentLinkedQueueConsumer implements Runnable {
+	private ConcurrentLinkedQueue<Integer> q;
+	public ConcurrentLinkedQueueConsumer(ConcurrentLinkedQueue<Integer> q) {
+		super();
+		this.q = q;
+	}
+	@Override
+	public void run() {
+		try {
+			while(true){
+				System.out.println("Consumer: get " + q.poll() + " from queue...");
+				Thread.sleep(10);
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void main(String[] args) throws InterruptedException {
+		ConcurrentLinkedQueue<Integer> q = new ConcurrentLinkedQueue<>();
+		Thread producer = new Thread(new ConcurrentLinkQueueProducer(q));
+		producer.start();
+		producer.join(100);
+		new Thread(new ConcurrentLinkedQueueConsumer(q)).start();
+	}
+}
 ```
