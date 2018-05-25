@@ -1,5 +1,6 @@
 # ConcurrentHashMap
-> ConcurrentHashMap是HashMap的线程安全实现，相比于Hashtable每次锁住整张表的情况，concurrentHashMap使用了分段锁（降低锁粒度）
+> JDK1.6/JDK1.7 ConcurrentHashMap是HashMap的线程安全实现，相比于Hashtable每次锁住整张表的情况，concurrentHashMap使用了分段锁（降低锁粒度），每次只锁住一个结点。
+> JDK1.8中已经摒弃了分段所，采取CAS替代了分段锁实现了无锁操作。
 
 ### Node
 >和HashMap的内部结点一致，定义了Node结点。
@@ -53,6 +54,8 @@
         }
     }
 ```
+
+## JDK 1.8 CAS实现无锁操作。
 ### 插入
 * put() 调用了putVal方法
 ```Java
@@ -129,7 +132,7 @@
                 }
             }
         }
-        addCount(1L, binCount);
+        addCount(1L, binCount);//check and rehash
         return null;
     }
 ```
@@ -166,3 +169,11 @@
     }
 ```
 
+* transfer() 扩容
+
+* get()
+
+## JDK1.6/1.7 分段锁实现
+
+### Segment
+>继承自ReentrantLock
