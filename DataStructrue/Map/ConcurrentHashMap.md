@@ -234,11 +234,11 @@
                 advance = casTabAt(tab, i, null, fwd);
             else if ((fh = f.hash) == MOVED)	//遍历到了一个已经被转移了的结点
                 advance = true; // already processed
-            else {	//添加分段锁机制
+            else {	//添加分段锁机制，锁住bucket，开始扩容
                 synchronized (f) {
-                    if (tabAt(tab, i) == f) {
+                    if (tabAt(tab, i) == f) {//保证了在上锁之前值未被更改（宏观的原子性保证）
                         Node<K,V> ln, hn;
-                        if (fh >= 0) {
+                        if (fh >= 0) {//拷贝链表的值
                             int runBit = fh & n;
                             Node<K,V> lastRun = f;
                             for (Node<K,V> p = f.next; p != null; p = p.next) {
@@ -268,7 +268,7 @@
                             setTabAt(tab, i, fwd);
                             advance = true;
                         }
-                        else if (f instanceof TreeBin) {
+                        else if (f instanceof TreeBin) {//拷贝树
                             TreeBin<K,V> t = (TreeBin<K,V>)f;
                             TreeNode<K,V> lo = null, loTail = null;
                             TreeNode<K,V> hi = null, hiTail = null;
@@ -310,13 +310,51 @@
     }
 ```
 
-* get()
+* get() 哈希表的查询是O(1)级别的（没有哈希冲突的情况下）
+```Java
+    public V get(Object key) {
+        Node<K,V>[] tab; Node<K,V> e, p; int n, eh; K ek;
+        int h = spread(key.hashCode());
+        if ((tab = table) != null && (n = tab.length) > 0 &&
+            (e = tabAt(tab, (n - 1) & h)) != null) {//通过CAS读取值，原子性
+            if ((eh = e.hash) == h) {//当前bucket是单一结点，直接返回。
+                if ((ek = e.key) == key || (ek != null && key.equals(ek)))
+                    return e.val;
+            }
+            else if (eh < 0)//说明当前元素是树形结构
+                return (p = e.find(h, key)) != null ? p.val : null;
+            while ((e = e.next) != null) {//当前bucket是链表元素，通过遍历得到结果
+                if (e.hash == h &&
+                    ((ek = e.key) == key || (ek != null && key.equals(ek))))
+                    return e.val;
+            }
+        }
+        return null;
+    }
+```
 
 ## JDK1.6/1.7 分段锁实现
 
 ### Segment
 >继承自ReentrantLock
+>Hashtable之所以慢是因为在进行CRUD时通过synchronized锁住了整张表，我们要优化时应减小锁粒度，这样每次只对最小的范围进行上锁，允许了高并发的实现。
+
+```Java
+Segment<K,V> s0 = new Segment<K,V>(loadFactor, (int)(cap * loadFactor),(HashEntry<K,V>[])new HashEntry[cap]);
+```
+没有Java8中的Node结点，取代的是继承自ReentrantLock的分段锁。
+
+```Java
+ final Segment<K,V> segmentFor(int hash) { //定位锁
+     return segments[(hash >>> segmentShift) & segmentMask];
+ }
+```
+
+* get() 它的get方法里将要使用的共享变量都定义成volatile.
+* put()
+get()和put()方法相较JAVA8简单很多，均是获得Segment后上锁进行操作。
 
 
 ## Reference
 1.[ConcurrentHashMap源码解读(put/transfer/get)-jdk8](https://bentang.me/tech/2016/12/01/jdk8-concurrenthashmap-1/)
+2.[JDK7下ConcurrentHashMap源码分析](https://blog.csdn.net/jeffleo/article/details/56496255)
