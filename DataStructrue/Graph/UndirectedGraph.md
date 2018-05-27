@@ -168,7 +168,7 @@ public abstract class AbstractSearch implements Search {
 }
 ```
 
-#### 通过加权并查集实现的Seach类： UFSearch
+### 通过加权并查集实现的Seach类： UFSearch
 ```Java
 public class UFSearch extends AbstractSearch {
 	private final UF uf;
@@ -249,7 +249,7 @@ public class UFSearch extends AbstractSearch {
 >11 -> 9 12
 >12 -> 11 9
 
-#### 深度优先查找DFSearch
+### 深度优先查找DFSearch
 ```Java
 public class DeepFirstSearch extends AbstractSearch {
 	private boolean[] marked;	//A array used to mark if current node is connected to s
@@ -283,6 +283,97 @@ public class DeepFirstSearch extends AbstractSearch {
 		Search search = new DeepFirstSearch(g, 12);
 		System.out.println(search.mark(9));
 		System.out.println(search.count());
-		g.display();
+		//g.display();
 	}
 ```
+* 结果
+>true
+4
+
+### 寻找路径
+* 定义路径的接口函数
+```Java
+public interface Path {
+	/**
+	 * @Description: If there is a path from s to v
+	 * @param v
+	 * @return
+	 */
+	public boolean hasPathTo(int v);
+	/**
+	 * @Description: Return the path from s to v if it exists and return null if not existing.
+	 * @param v
+	 * @return
+	 */
+	Iterable<Integer> pathTo(int v);
+}
+```
+
+* 抽象类
+>用于定义构造函数。
+```Java
+public abstract class AbstractPath implements Path {
+	protected final Graph g;
+	protected final int s;
+	public AbstractPath(Graph g, int s) {
+		super();
+		this.g = g;
+		this.s = s;
+	};
+}
+```
+
+* 深度优先查找路径
+```Java
+public class DepthFirstPath extends AbstractPath {
+	private boolean[] marked;	//If current vertex has been accessed.
+	private int[] edgeTo;	//Record the path from that point to s.
+	public DepthFirstPath(Graph g, int s) {
+		super(g, s);
+		marked = new boolean[g.V()];
+		edgeTo = new int[g.V()];
+		dfs(g, s);
+	}
+	@Override
+	public boolean hasPathTo(int v) {
+		return marked[v];
+	}
+	@Override
+	public Iterable<Integer> pathTo(int v) {
+		if(true == hasPathTo(v)){
+			//存入的时候是逆序，读取的时候需要顺序，所以LIFO的队列最为合适，使用栈
+			MyStack<Integer> path = new ListStack<>();
+			do {
+				path.push(v);
+				v = edgeTo[v];
+			} while (v != s);
+			return path;
+		}
+		return null;
+	}
+	private void dfs(Graph g, int v){
+		marked[v] = true;
+		for(int w : g.adj(v)){	//All vertex connected to v
+			if(!marked[w]){	//If current vertex has not been accessed, we mark it and save the previous vertex to current vertex.
+				edgeTo[w] = v;
+				dfs(g, w);
+			}
+		}
+	}
+}
+```
+
+* 测试
+```Java
+	public static void main(String[] args) throws FileNotFoundException {
+		Graph g = new UndirectedGraph(new FileInputStream(new File("src/ca/mcmaster/chapter/four/graph/tinyCG.txt")));
+		Path p = new DepthFirstPath(g, 0);
+		Iterable<Integer> path = p.pathTo(1);
+		StringBuilder sb = new StringBuilder("0");
+		for(Integer pnode : path){
+			sb.append("->" + pnode);
+		}
+		System.out.println(sb.toString());
+	}
+```
+>0->2->1
