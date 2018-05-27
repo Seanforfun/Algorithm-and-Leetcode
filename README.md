@@ -15,7 +15,7 @@ I started learning the data struture systematically, I will list my notes in the
 
 ### [Queue](https://github.com/Seanforfun/Algorithm/tree/master/DataStructrue/Queue)
 * Blocking Queue
-1. [Priority Blocking Queue](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Queue/PriorityBlockingQueue.md)
+1. [Array Blocking Queue](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Queue/ArrayBlockingQueue.md)
 2. [Linked Blocking Queue](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Queue/LinkedBlockingQueue.md)
 3. [Priority Blocking Queue](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Queue/PriorityBlockingQueue.md)
 4. [Delay Queue](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Queue/DelayQueue.md)

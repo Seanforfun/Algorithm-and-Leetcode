@@ -249,7 +249,7 @@ public class UFSearch extends AbstractSearch {
 >11 -> 9 12
 >12 -> 11 9
 
-### 深度优先查找DFSearch
+### 深度优先查找DFSearch, DFPath
 ```Java
 public class DeepFirstSearch extends AbstractSearch {
 	private boolean[] marked;	//A array used to mark if current node is connected to s
@@ -377,3 +377,64 @@ public class DepthFirstPath extends AbstractPath {
 	}
 ```
 >0->2->1
+
+### 广度优先搜索
+* 广度优先用于寻找最短路径。
+* 深度优先（DFP）所寻找到的路径是通过递归调用寻找到路径，递归调用的路径返回是根据adjacency table中的链表的显示顺序。所以返回的值不一定是最短的。
+* 广度优先查找定义了相邻的所有顶点，再找到相邻两个，以此类推。
+```Java
+public class BreadthFirstPath extends AbstractPath{
+	private final boolean[] marked;
+	private final int[] edgeTo;
+	public BreadthFirstPath(Graph g, int s) {
+		super(g, s);
+		marked = new boolean[g.V()];
+		edgeTo = new int[g.V()];
+		bfs(g, s);
+	}
+
+	@Override
+	public boolean hasPathTo(int v) {
+		return marked[v];
+	}
+
+	@Override
+	public Iterable<Integer> pathTo(int v) {
+		MyStack<Integer> stack = new ListStack<>();
+		do {
+			stack.push(v);
+			v = edgeTo[v];
+		} while (v != s);
+		return stack;
+	}
+	private void bfs(Graph g, int s){
+		LinkedBlockingQueue<Integer> q = new LinkedBlockingQueue<Integer>();
+		marked[s] = true;
+		q.add(s);
+		while(!q.isEmpty()){
+			Integer v = q.poll();	//从队列中读取下一个顶点并对其遍历相邻顶点。
+			for(int w : g.adj(v)){
+				if(!marked[w]){	//Current vertex is not accessed.
+					q.add(w);	//如果相邻的顶点没有被访问过，就将它加入队列中。
+					edgeTo[w] = v;
+					marked[w] = true;
+				}
+			}
+		}
+	}
+}
+```
+
+* 测试
+```Java
+	public static void main(String[] args) throws FileNotFoundException {
+		Graph g = new UndirectedGraph(new FileInputStream(new File("src/ca/mcmaster/chapter/four/graph/tinyCG.txt")));
+		Path p = new BreadthFirstPath(g, 0);
+		Iterable<Integer> path = p.pathTo(4);
+		StringBuilder sb = new StringBuilder("0");
+		for(Integer pnode : path){
+			sb.append("->" + pnode);
+		}
+		System.out.println(sb.toString());
+	}
+```

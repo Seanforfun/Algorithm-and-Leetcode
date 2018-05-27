@@ -1,5 +1,7 @@
 package ca.mcmaster.chapter.one.stack;
 
+import java.util.Iterator;
+
 public class ListStack<T> implements MyStack<T>{
 	private Node first;
 	private Integer size = 0;
@@ -34,5 +36,22 @@ public class ListStack<T> implements MyStack<T>{
 			System.out.println(stack.pop());
 		}
 		System.out.println(stack.isEmpty());
+	}
+	@Override
+	public Iterator<T> iterator() {
+		return new Iterator<T>() {
+			private Node current = first;
+			@Override
+			public boolean hasNext() { return current != null;	}
+			@Override
+			public T next() {
+				if(!hasNext()){ return null; }
+				else{
+					Node res = current;
+					current = current.next;
+					return res.t;
+				}
+			}
+		};
 	}
 }
