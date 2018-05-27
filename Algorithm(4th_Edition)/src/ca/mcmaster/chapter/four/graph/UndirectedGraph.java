@@ -8,6 +8,7 @@ import ca.mcmaster.chapter.one.bag.ListBag;
 
 public class UndirectedGraph implements Graph {
 	private final int V; //vertex
+	@SuppressWarnings("unused")
 	private int E;	//edge
 	private Bag<Integer>[] adj;	//adjacency table.
 	@SuppressWarnings("unchecked")

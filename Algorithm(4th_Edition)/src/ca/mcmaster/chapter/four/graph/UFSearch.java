@@ -28,6 +28,7 @@ public class UFSearch extends AbstractSearch {
 		return uf.size[super.s];
 	}
 	private final class UF{
+		@SuppressWarnings("unused")
 		private final int N;
 		private final int[] a;
 		private final int[] size;
@@ -61,7 +62,8 @@ public class UFSearch extends AbstractSearch {
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		Graph g = new UndirectedGraph(new FileInputStream(new File("src/ca/mcmaster/chapter/four/graph/tinyG.txt")));
-		Search search = new UFSearch(g, 9);
-		System.out.println(search.mark(4));
+		Search search = new UFSearch(g, 3);
+		System.out.println(search.mark(7));
+		g.display();
 	}
 }

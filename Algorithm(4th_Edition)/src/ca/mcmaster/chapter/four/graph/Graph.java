@@ -86,7 +86,7 @@ public interface Graph {
 		for(int v = 0; v < vertexNum; v++){
 			StringBuilder sb = new StringBuilder(v + " -> ");
 			for(int w : adj(v))
-				sb.append(w + "");
+				sb.append(w + " ");
 			System.out.println(sb.toString());
 		}
 	}

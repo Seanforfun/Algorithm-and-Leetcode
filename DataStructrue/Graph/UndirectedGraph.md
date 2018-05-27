@@ -225,3 +225,64 @@ public class UFSearch extends AbstractSearch {
 
 }
 ```
+
+#### UFSearch测试
+```Java
+		Graph g = new UndirectedGraph(new FileInputStream(new File("src/ca/mcmaster/chapter/four/graph/tinyG.txt")));
+		Search search = new UFSearch(g, 3);
+		System.out.println(search.mark(7));
+		g.display();
+```
+* 结果
+>false
+>0 -> 6 2 1 5
+>1 -> 0
+>2 -> 0
+>3 -> 5 4
+>4 -> 5 6 3
+>5 -> 3 4 0
+>6 -> 0 4
+>7 -> 8
+>8 -> 7
+>9 -> 11 10 12
+>10 -> 9
+>11 -> 9 12
+>12 -> 11 9
+
+#### 深度优先查找DFSearch
+```Java
+public class DeepFirstSearch extends AbstractSearch {
+	private boolean[] marked;	//A array used to mark if current node is connected to s
+	private int count;	//number of vertex connected to s
+	public DeepFirstSearch(Graph g, int s) {
+		super(g, s);
+		marked = new boolean[g.V()];
+		dfs(g, s);
+	}
+	private void dfs(Graph g, int v){
+		marked[v] = true;	//It means current vertex has been accessed.
+		count++;	//update the number of vertex connected to s.
+		for(int w : g.adj(v))
+			if(!marked[w]) dfs(g, w);	//Check all point connected to v, if not accessed, access recursively.
+	}
+	@Override
+	public boolean mark(int v) {
+		return marked[v];
+	}
+	@Override
+	public int count() {
+		return this.count;
+	}
+}
+```
+
+#### 测试
+```Java
+	public static void main(String[] args) throws FileNotFoundException {
+		Graph g = new UndirectedGraph(new FileInputStream(new File("src/ca/mcmaster/chapter/four/graph/tinyG.txt")));
+		Search search = new DeepFirstSearch(g, 12);
+		System.out.println(search.mark(9));
+		System.out.println(search.count());
+		g.display();
+	}
+```
