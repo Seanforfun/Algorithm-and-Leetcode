@@ -1,7 +1,5 @@
 package ca.mcmaster.chapter.four.graph;
 
-import java.awt.DisplayMode;
-
 public interface Graph {
 	/**
 	 * @Description: Get the vertex number.
@@ -35,7 +33,7 @@ public interface Graph {
 	 */
 	static Integer degree(Graph G, int V){
 		Integer degree = new Integer(0);
-		for(int w : G.adj(V)) degree++;
+		for(@SuppressWarnings("unused") int w : G.adj(V)) degree++;
 		return degree;
 	}
 	

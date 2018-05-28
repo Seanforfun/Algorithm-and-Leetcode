@@ -626,7 +626,7 @@ public class SymbolGraphImpl implements SymbolGraph {
 
 	@Override
 	public Graph G() { return G; }
-	
+
 	public static void main(String[] args) throws FileNotFoundException {
 		SymbolGraphImpl symbolGraphImpl = new SymbolGraphImpl("src/ca/mcmaster/chapter/four/graph/movies.txt", "/");
 		Graph graph = symbolGraphImpl.G();
@@ -639,4 +639,26 @@ public class SymbolGraphImpl implements SymbolGraph {
 		}
 	}
 }
+```
+
+#### 间隔的度数
+>间隔的度数实际上就是最短路径，即两个顶点之间的最短距离。
+```Java
+	public static void main(String[] args) throws FileNotFoundException {
+		SymbolGraphImpl symbolGraphImpl = new SymbolGraphImpl("src/ca/mcmaster/chapter/four/graph/movies.txt", "/");
+		Graph graph = symbolGraphImpl.G();
+		int vertexNum = graph.V();
+		for(int v = 0; v < vertexNum; v++){
+			StringBuilder sb = new StringBuilder(symbolGraphImpl.name(v) + " -> ");
+			for(int w : graph.adj(v))
+				sb.append(symbolGraphImpl.name(w) + "|");
+		}
+		//Use BFS to find the shorted path.
+		BreadthFirstPath bfs = new BreadthFirstPath(graph, symbolGraphImpl.index("Bacon, Kevin"));
+		Iterable<Integer> pathTo = bfs.pathTo(symbolGraphImpl.index("Kidman, Nicole"));
+		System.out.println("Bacon, Kevin");
+		for(int w : pathTo){
+			System.out.println(symbolGraphImpl.name(w));
+		}
+	}
 ```

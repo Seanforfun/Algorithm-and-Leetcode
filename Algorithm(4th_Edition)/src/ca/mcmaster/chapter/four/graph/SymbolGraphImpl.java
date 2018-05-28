@@ -69,8 +69,13 @@ public class SymbolGraphImpl implements SymbolGraph {
 		for(int v = 0; v < vertexNum; v++){
 			StringBuilder sb = new StringBuilder(symbolGraphImpl.name(v) + " -> ");
 			for(int w : graph.adj(v))
-				sb.append(symbolGraphImpl.name(w) + " ");
-			System.out.println(sb.toString());
+				sb.append(symbolGraphImpl.name(w) + "|");
+		}
+		BreadthFirstPath bfs = new BreadthFirstPath(graph, symbolGraphImpl.index("Bacon, Kevin"));
+		Iterable<Integer> pathTo = bfs.pathTo(symbolGraphImpl.index("Kidman, Nicole"));
+		System.out.println("Bacon, Kevin");
+		for(int w : pathTo){
+			System.out.println(symbolGraphImpl.name(w));
 		}
 	}
 }
