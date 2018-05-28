@@ -72,7 +72,7 @@ public class SymbolGraphImpl implements SymbolGraph {
 				sb.append(symbolGraphImpl.name(w) + "|");
 		}
 		BreadthFirstPath bfs = new BreadthFirstPath(graph, symbolGraphImpl.index("Bacon, Kevin"));
-		Iterable<Integer> pathTo = bfs.pathTo(symbolGraphImpl.index("Kidman, Nicole"));
+		Iterable<Integer> pathTo = bfs.pathTo(symbolGraphImpl.index("Grant, Cary"));
 		System.out.println("Bacon, Kevin");
 		for(int w : pathTo){
 			System.out.println(symbolGraphImpl.name(w));
