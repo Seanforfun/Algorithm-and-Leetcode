@@ -134,3 +134,44 @@ public class DigraphImpl implements Digraph {
 >10: 12|
 >11: 4|12|
 >12: 9|
+
+### 有向图的可达性
+```Java
+public class DirectedDFS {
+	private final boolean[] marked;
+	public DirectedDFS(Digraph g, int s){
+		this.marked = new boolean[g.V()];
+		dfs(g, s);
+	}
+	public DirectedDFS(Digraph g, Iterable<Integer> sources){
+		marked = new boolean[g.V()];
+		for(int s : sources)
+			if(!marked[s]) dfs(g, s);
+	}
+	private void dfs(Digraph g, int s) {
+		marked[s] = true;
+		for(int w : g.adj(s))
+			if(!marked[w])	dfs(g, w);
+	}
+	public boolean mark(int v){
+		return marked[v];
+	}
+}
+```
+* 测试
+```Java
+public static void main(String[] args) throws FileNotFoundException {
+		Digraph g = new DigraphImpl(new FileInputStream(new File("src/ca/mcmaster/chapter/four/graph/tinyDG.txt")));
+		Bag<Integer> bag = new ListBag<Integer>();
+		bag.add(1);
+		bag.add(2);
+		bag.add(6);
+		DirectedDFS d = new DirectedDFS(g, bag);
+		StringBuilder sb = new StringBuilder();
+		for(int v = 0; v < g.V(); v++){
+			if(d.mark(v)) sb.append(v + " ");
+		}
+		System.out.println(sb.toString());
+	}
+```
+> 0 1 2 3 4 5 6 8 9 10 11 12
