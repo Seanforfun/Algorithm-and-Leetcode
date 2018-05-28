@@ -438,3 +438,103 @@ public class BreadthFirstPath extends AbstractPath{
 		System.out.println(sb.toString());
 	}
 ```
+
+### 连通分量 Connection Component
+>无向图G的极大连通子图称为G的连通分量( Connected Component)。任何连通图的连通分量只有一个，即是其自身，非连通的无向图有多个连通分量。
+
+* 接口
+```Java
+public interface ConnectionComponent {
+	/**
+	 * @Description: If v and w are connected.
+	 * @param v
+	 * @param w
+	 * @return
+	 */
+	public boolean connected(int v, int w);
+	/**
+	 * @Description: Number of cc in current graph.
+	 * @return
+	 */
+	public int count();
+	/**
+	 * @Description: Identification of connection component.
+	 * @param v
+	 * @return
+	 */
+	public int id(int v);
+}
+```
+
+* 抽象类
+```Java
+public abstract class AbstractCC implements ConnectionComponent {
+	protected final Graph g;
+	public AbstractCC(Graph g){
+		this.g = g;
+	}
+}
+```
+
+* 基于DFS的实现
+```Java
+public class DFSCC extends AbstractCC {
+	private boolean[] marked;
+	private int[] id;
+	private int count;
+	public DFSCC(Graph g) {
+		super(g);
+		marked = new boolean[g.V()];
+		id = new int[g.V()];
+		for(int v = 0; v < g.V(); v++)	//Traversal all of vertex if not accessed
+			if(!marked[v]){	//Current vertex is not accessed.
+				dfs(g, v);
+				count++;
+			}
+	}
+	@Override
+	public boolean connected(int v, int w) {
+		return id[w] == id[v];
+	}
+	@Override
+	public int count() {
+		return this.count;
+	}
+	@Override
+	public int id(int v) {
+		return id[v];
+	}
+	private void dfs(Graph g, int v){
+		marked[v] = true;
+		id[v] = count;	//assign current count to this vertex as id.
+		for(int w : g.adj(v))
+			if(!marked[w])
+				dfs(g, w);
+	}
+}
+```
+
+* 测试
+```Java
+	public static void main(String[] args) throws FileNotFoundException {
+		Graph g = new UndirectedGraph(new FileInputStream(new File("src/ca/mcmaster/chapter/four/graph/tinyG.txt")));
+		DFSCC cc = new DFSCC(g);
+		int ccNum = cc.count();
+		System.out.println("Number of cc: " + ccNum);
+		Bag<Integer>[] bag = new ListBag[ccNum];	//Create bag array to save all connection components.
+		for(int i = 0; i < ccNum; i++)
+			bag[i] = new ListBag<>();
+		for(int i = 0; i < g.V(); i++)
+			bag[cc.id(i)].add(i);	//Add vertex into bag.
+		for(int i = 0; i < ccNum; i++){
+			StringBuilder sb = new StringBuilder(i + ": ");
+			for(int v : bag[i])
+				sb.append(v + " ");
+			System.out.println(sb.toString());
+		}
+	}
+```
+> Number of cc: 3
+> 0: 6 5 4 3 2 1 0
+> 1: 8 7
+> 2: 12 11 10 9
