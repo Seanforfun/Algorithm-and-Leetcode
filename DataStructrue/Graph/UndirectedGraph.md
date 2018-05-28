@@ -538,3 +538,105 @@ public class DFSCC extends AbstractCC {
 > 0: 6 5 4 3 2 1 0
 > 1: 8 7
 > 2: 12 11 10 9
+
+### 符号图
+* 图中的顶点都是int型，所以我们制作一张哈希表存储符号（字符串）和值之间的关系。
+#### 符号图接口
+```Java
+public interface SymbolGraph {
+	/**
+	 * @Description: Is key a vertex.
+	 * @param key
+	 * @return
+	 */
+	public boolean contains(String key);
+	/**
+	 * @Description: Index of key.
+	 * @param key
+	 * @return
+	 */
+	public int index(String key);
+	/**
+	 * @Description: name of v in symbol table
+	 * @param v
+	 * @return
+	 */
+	public String name(int v);
+	/**
+	 * @Description: Get the anonymous graph object.
+	 * @return
+	 */
+	public Graph G();
+}
+```
+
+#### 符号图的实现
+```Java
+public class SymbolGraphImpl implements SymbolGraph {
+	private final Map<String, Integer> st;
+	private String[] keys;
+	private final Graph G;
+	public SymbolGraphImpl(String file, String sp) throws FileNotFoundException {
+		st = new HashMap<>();
+		//fulfill the symbol table
+		Scanner scanner = null;
+		try {
+			scanner = new Scanner(new File(file));	//将每个顶点都加入符号表
+			int count = 0;
+			while(scanner.hasNextLine()){
+				String[] tokens = scanner.nextLine().split(sp);
+				for(String t : tokens){
+					if(!st.containsKey(t)){	//If not contains token then put it into the st.
+						st.put(t, count++);
+					}
+				}
+			}
+		}finally{
+			scanner.close();
+		}
+		keys = new String[st.size()];	//没有办法之间用(String[])st.keySet.toArray(),只能通过遍历将每一个顶点的符号复制。
+		for(String name : st.keySet()){
+			keys[st.get(name)] = name;
+		}
+		// Create graph
+		G = new UndirectedGraph(st.size());
+		//Add edges
+		Scanner scanner2 = null;
+		try{
+			scanner2 = new Scanner(new File(file));
+			while(scanner2.hasNextLine()){
+				String[] tokens = scanner2.nextLine().split(sp);
+				for(int i = 1; i < tokens.length; i++){
+					int v = st.get(tokens[0]);
+					G.addEdge(v, st.get(tokens[i]));
+				}
+			}
+		}finally{
+			scanner2.close();
+		}
+	}
+	@Override
+	public boolean contains(String key) { return st.containsKey(key); }
+
+	@Override
+	public int index(String key) { return st.get(key); }
+
+	@Override
+	public String name(int v) { return keys[v]; }
+
+	@Override
+	public Graph G() { return G; }
+	
+	public static void main(String[] args) throws FileNotFoundException {
+		SymbolGraphImpl symbolGraphImpl = new SymbolGraphImpl("src/ca/mcmaster/chapter/four/graph/movies.txt", "/");
+		Graph graph = symbolGraphImpl.G();
+		int vertexNum = graph.V();
+		for(int v = 0; v < vertexNum; v++){
+			StringBuilder sb = new StringBuilder(symbolGraphImpl.name(v) + " -> ");
+			for(int w : graph.adj(v))
+				sb.append(symbolGraphImpl.name(w) + " ");
+			System.out.println(sb.toString());
+		}
+	}
+}
+```
