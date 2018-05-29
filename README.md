@@ -29,6 +29,7 @@ I started learning the data struture systematically, I will list my notes in the
 
 ### [Graph](https://github.com/Seanforfun/Algorithm/tree/master/DataStructrue/Graph)
 1. [Undirected Graph](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Graph/UndirectedGraph.md)
+2. [Directed Graph](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Graph/DirectedGraph.md)
 
 ## LeetCode
 This part I listed my [leetcode solutions](https://github.com/Seanforfun/Algorithm/tree/master/leetcode).
