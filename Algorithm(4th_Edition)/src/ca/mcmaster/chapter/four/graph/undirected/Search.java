@@ -1,4 +1,4 @@
-package ca.mcmaster.chapter.four.graph;
+package ca.mcmaster.chapter.four.graph.undirected;
 
 public interface Search {
 	/**

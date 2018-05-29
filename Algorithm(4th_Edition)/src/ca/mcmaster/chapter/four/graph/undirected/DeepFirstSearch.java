@@ -1,8 +1,10 @@
-package ca.mcmaster.chapter.four.graph;
+package ca.mcmaster.chapter.four.graph.undirected;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+
+import ca.mcmaster.chapter.four.graph.Graph;
 
 public class DeepFirstSearch extends AbstractSearch {
 	private boolean[] marked;

@@ -1,9 +1,10 @@
-package ca.mcmaster.chapter.four.graph;
+package ca.mcmaster.chapter.four.graph.undirected;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
+import ca.mcmaster.chapter.four.graph.Graph;
 import ca.mcmaster.chapter.one.bag.Bag;
 import ca.mcmaster.chapter.one.bag.ListBag;
 

@@ -1,4 +1,7 @@
-package ca.mcmaster.chapter.four.graph;
+package ca.mcmaster.chapter.four.graph.undirected;
+
+import ca.mcmaster.chapter.four.graph.Graph;
+import ca.mcmaster.chapter.four.graph.Path;
 
 public abstract class AbstractPath implements Path {
 	protected final Graph g;

@@ -1,4 +1,4 @@
-package ca.mcmaster.chapter.four.graph;
+package ca.mcmaster.chapter.four.graph.directed;
 
 import java.io.File;
 import java.io.FileInputStream;

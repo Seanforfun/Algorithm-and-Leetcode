@@ -136,6 +136,7 @@ public class DigraphImpl implements Digraph {
 >12: 9|
 
 ### 有向图的可达性
+>可达性的重要实际应用是在内存管理系统中，一个顶点表示一个对象，一条边表示一个对象的引用。
 ```Java
 public class DirectedDFS {
 	private final boolean[] marked;
@@ -175,3 +176,51 @@ public static void main(String[] args) throws FileNotFoundException {
 	}
 ```
 > 0 1 2 3 4 5 6 8 9 10 11 12
+
+### 单点有向路径
+>通过DFPath实现
+```Java
+public class DepthFirstPathDirectedGraph implements Path {
+	private final DigraphImpl g;
+	private int s;
+	private final boolean[] marked;	//Used to mark if current vertex has been accessed.
+	private final int[] edgeTo;		//Used to save the vertex ahead of current vertex.
+	public DepthFirstPathDirectedGraph(DigraphImpl g, int s){
+		this.s = s;
+		this.g = (DigraphImpl) g;
+		marked = new boolean[g.V()];
+		edgeTo = new int[g.V()];
+		dfs(g, s);
+	}
+	public DepthFirstPathDirectedGraph(String file, int s) throws FileNotFoundException{
+		g = new DigraphImpl(new FileInputStream(new File(file)));
+		this.s = s;
+		marked = new boolean[g.V()];
+		edgeTo = new int[g.V()];
+		dfs(g, s);
+	}
+	@Override
+	public boolean hasPathTo(int v) {
+		return edgeTo[v] != 0;
+	}
+	@Override
+	public Iterable<Integer> pathTo(int v) {
+		Bag<Integer> path = new ListBag<Integer>();
+		path.add(v);
+		while(edgeTo[v] != s){
+			path.add(edgeTo[v]);
+			v = edgeTo[v];
+		}
+		return path;
+	}
+	private void dfs(DigraphImpl g, int v){
+		marked[v] = true;
+		for(int w : g.adj(v)){
+			if(!marked[w]){
+				edgeTo[w] = v;
+				dfs(g, w);
+			}
+		}
+	}
+}
+```

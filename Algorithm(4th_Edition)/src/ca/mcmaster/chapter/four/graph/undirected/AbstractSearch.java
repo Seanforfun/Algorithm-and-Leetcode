@@ -1,4 +1,6 @@
-package ca.mcmaster.chapter.four.graph;
+package ca.mcmaster.chapter.four.graph.undirected;
+
+import ca.mcmaster.chapter.four.graph.Graph;
 
 public abstract class AbstractSearch implements Search {
 	protected final Graph g;

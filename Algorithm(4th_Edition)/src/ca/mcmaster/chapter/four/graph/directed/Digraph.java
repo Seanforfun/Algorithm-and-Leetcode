@@ -1,4 +1,4 @@
-package ca.mcmaster.chapter.four.graph;
+package ca.mcmaster.chapter.four.graph.directed;
 
 public interface Digraph {
 	/**
