@@ -224,3 +224,66 @@ public class DepthFirstPathDirectedGraph implements Path {
 	}
 }
 ```
+
+* 测试
+```Java
+	public static void main(String[] args) throws FileNotFoundException {
+		DigraphImpl g = new DigraphImpl(new FileInputStream(new File("src/ca/mcmaster/chapter/four/graph/tinyDG.txt")));
+		DepthFirstPathDirectedGraph p = new DepthFirstPathDirectedGraph(g, 6);
+		Iterable<Integer> pathTo = p.pathTo(0);
+		System.out.print(6 + " ");
+		for(Integer w : pathTo)	System.out.print(w + " ");
+		System.out.println();
+//		System.out.println(p.hasPathTo(10));
+	}
+```
+>6 9 11 4 3 2 0
+
+>通过BFPath实现
+```Java
+public class BreadFirstPathDirectedGraph implements Path {
+	private final Digraph g;
+	private int s;
+	private final boolean[] marked;
+	private final int[] edgeTo;
+	public BreadFirstPathDirectedGraph(Digraph g, int s) {
+		this.g = g;
+		this.s = s;
+		marked = new boolean[g.V()];
+		edgeTo = new int[g.V()];
+		bfs(g, s);
+	}
+	@Override
+	public boolean hasPathTo(int v) {
+		return marked[v];
+	}
+
+	@Override
+	public Iterable<Integer> pathTo(int v) {
+		Stack<Integer> path = new Stack<>();
+		path.push(v);
+		while(s != edgeTo[v]){
+			path.push(edgeTo[v]);
+			v= edgeTo[v];
+		}
+		return path;
+	}
+	private void bfs(Digraph g, int s){
+		LinkedBlockingQueue<Integer> q = new LinkedBlockingQueue<>();
+		marked[s] = true;
+		q.offer(s);
+		while(!q.isEmpty()){
+			int v = q.poll();
+			for(int w : g.adj(v)){
+				if(!marked[w]){
+					edgeTo[w] = v;
+					marked[w] = true;
+					q.offer(w);
+				}
+			}
+		}
+	}
+}
+```
+
+* 测试和DFS完全一致。

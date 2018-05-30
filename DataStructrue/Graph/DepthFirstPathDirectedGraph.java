@@ -50,4 +50,13 @@ public class DepthFirstPathDirectedGraph implements Path {
 			}
 		}
 	}
+	public static void main(String[] args) throws FileNotFoundException {
+		DigraphImpl g = new DigraphImpl(new FileInputStream(new File("src/ca/mcmaster/chapter/four/graph/tinyDG.txt")));
+		DepthFirstPathDirectedGraph p = new DepthFirstPathDirectedGraph(g, 6);
+		Iterable<Integer> pathTo = p.pathTo(0);
+		System.out.print(6 + " ");
+		for(Integer w : pathTo)	System.out.print(w + " ");
+		System.out.println();
+//		System.out.println(p.hasPathTo(10));
+	}
 }
