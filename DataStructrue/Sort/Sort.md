@@ -1,5 +1,7 @@
-package ca.mcmaster.chapter.two.Sort;
-
+# Sort 排序
+>一般排序所用的元素都会实现Comparable进行比较大小以确定先后顺序。
+>定义一个排序接口实现了交换元素，显示元素和比较大小等方法。
+```Java
 public interface Sort<T> {
 	/**
 	 * @Description: Sort the array in a descent order.
@@ -22,3 +24,4 @@ public interface Sort<T> {
 		System.out.println(sb.toString());
 	}
 }
+```

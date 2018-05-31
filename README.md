@@ -3,6 +3,13 @@
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
+### [Sorting](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Sort/Sort.md)
+* [Selection](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Sort/SelectionSort.md)
+* [Insertion](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Sort/InsertionSort.md)
+* [Shell]()
+* [Merge]()
+* [QuickSort]()
+* [Priority Queue]()
 
 ## Data Structure
 I started learning the data struture systematically, I will list my notes in the order that I read the book.
