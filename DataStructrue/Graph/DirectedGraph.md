@@ -346,3 +346,45 @@ public class DirectedCycle {
 	}
 ```
 > 3 4 5 3
+
+### 有向图的遍历
+* 有向图的遍历分成三种。
+1. 前序遍历
+>前序遍历就是dfs()的调用顺序，将顶点加入队列。
+2. 后序遍历
+>后序遍历，就是递归调用之后将顶点加入队列中。
+3. 逆后序遍历
+>逆后序遍历和后序遍历相似，但是是将顶点加入栈中。
+```Java
+public class DepthFirstOrder {
+	private final boolean[] marked;
+	private final Queue<Integer> pre;	//前序遍历。和dfs的顺序一致，当访问到了一个顶点，就将顶点加入队列。
+	private final Queue<Integer> post;	//后序遍历，顶点遍历完成的顺序。从递归的最内部开始加入遍历，相当于完成后立刻加入队列之中。
+	private final Stack<Integer> reversePost;
+	public DepthFirstOrder(Digraph g){
+		pre = new LinkedBlockingQueue<Integer>();
+		post = new LinkedBlockingQueue<>();
+		reversePost = new Stack<>();
+		marked = new boolean[g.V()];
+		for(int v = 0; v < g.V(); v++)
+			if(!marked[v]) dfs(g, v);
+	}
+	private void dfs(Digraph g, int v){
+		pre.offer(v);	//前序：一访问到某个顶点就立刻加入队列。
+		marked[v] = true;
+		for(int w : g.adj(v))
+			if(!marked[w])	dfs(g, w);
+		post.offer(v);	//后序：完成后，将顶点加入队列。从递归的最内部加入队列。
+		reversePost.push(v);	//逆后序：加入栈
+	}
+	public Iterable<Integer> pre(){
+		return this.pre;
+	}
+	public Iterable<Integer> post(){
+		return this.post();
+	}
+	public Iterable<Integer> reversePost(){
+		return this.reversePost;
+	}
+}
+```
