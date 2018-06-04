@@ -388,3 +388,25 @@ public class DepthFirstOrder {
 	}
 }
 ```
+
+### 拓扑排序
+>给定一张有向图，将所有的顶点排序，使得所有的有向边均从排在前面的元素指向排在后面的元素。
+>有环图画不出拓扑图，因为有环图无法确定环上定点的顺序。
+```Java
+public class Topological {
+	private Iterable<Integer> order;
+	public Topological(Digraph g){
+		DirectedCycle dc = new DirectedCycle(g);
+		if(!dc.hasCycle()){
+			DepthFirstOrder dfo = new DepthFirstOrder(g);
+			order = dfo.reversePost();	//depth first order的逆后序就是拓扑图的顺序。
+		}
+	}
+	public Iterable<Integer> order(){
+		return order;
+	}
+	public boolean isDAG(){
+		return order != null;
+	}
+}
+```
