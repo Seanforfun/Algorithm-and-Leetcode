@@ -392,6 +392,7 @@ public class DepthFirstOrder {
 ### 拓扑排序
 >给定一张有向图，将所有的顶点排序，使得所有的有向边均从排在前面的元素指向排在后面的元素。
 >有环图画不出拓扑图，因为有环图无法确定环上定点的顺序。
+>一幅有向无环图的拓扑顺序即为所有顶点的逆后序排列。
 ```Java
 public class Topological {
 	private Iterable<Integer> order;
@@ -410,3 +411,76 @@ public class Topological {
 	}
 }
 ```
+
+### 强连通分量
+![强连通分量](https://i.imgur.com/PvMOVvr.jpg)
+> 通过对强连通分量的研究可以将不同的对象进行分类，将具有相似性质的对象统一处理。
+
+* 接口
+```Java
+public interface SCC {
+	/**
+	 * @Description: Check if v and w are connected.
+	 * @param v
+	 * @param w
+	 * @return
+	 */
+	public boolean strongConnected(int v, int w);
+	/**
+	 * @Description: The number of strong connected component.
+	 * @return
+	 */
+	public int count();
+	/**
+	 * @Description: Which of the strong component belongs to.
+	 * @param v
+	 * @return
+	 */
+	int id(int v);
+}
+```
+* Kosaraju算法计算强连通分量
+```Java
+public class StrongCircleComponent implements SCC {
+	private boolean[] marked;
+	private int[] id;
+	private int count;
+	public StrongCircleComponent(Digraph g) {
+		marked = new boolean[g.V()];
+		id = new int[g.V()];
+		DepthFirstOrder order = new DepthFirstOrder(g.reverse());//获得g的反转图
+		for(int s : order.reversePost()){	//按照逆后序读取元素（拓扑图顺序）
+			if(!marked[s]){
+				dfs(g, s); count++;
+			}
+		}
+	}
+	private void dfs(Digraph g, int v){
+		marked[v] = true;
+		id[v] = count;
+		for(int w : g.adj(v))
+			if(!marked[w])
+				dfs(g, w);
+	}
+	@Override
+	public boolean strongConnected(int v, int w) {
+		return id[v] == id[w];
+	}
+	@Override
+	public int count() {
+		return count;
+	}
+	@Override
+	public int id(int v) {
+		return id[v];
+	}
+}
+```
+* Kosaraju证明
+1. 每次和s强连通的顶点都会在构造函数调用dfs(g, s)时被访问到。
+>反证法：
+>假设有一个和s强连通的顶点v不会被访问到，说明v曾经被访问过。
+>如果v曾经被访问过,s和v为强连通分量，s应被访问过。
+>s当前正在被访问，矛盾。
+2. 构造函数dfs(G,s)所到达的任意顶点v都必然是和s强连通的。
+>A和B强连通充要条件：A和B在图中连通，B和A在反向图中也连通。
