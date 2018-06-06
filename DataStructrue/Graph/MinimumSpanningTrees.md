@@ -119,3 +119,73 @@ public class EdgeWeightedGraph {
 	}
 }
 ```
+
+### 生成最小树
+* 最小生成树接口
+```Java
+public interface MST {
+	/**
+	 * @Description: Find the edges on the minimum spanning tree.
+	 * @return
+	 */
+	public Iterable<Edge> edges();
+	/**
+	 * @Description: Return the total weight of the tree.
+	 * @return
+	 */
+	public double weight();
+}
+```
+
+#### Prim算法
+![Prim轨迹](https://i.imgur.com/mURZUQo.jpg)
+
+* Prim实现类
+```Java
+public class LazyPrimMST implements MST {
+	private final EdgeWeightedGraph g;
+	private PriorityQueue<Edge> pq;
+	private Queue<Edge> mst;	//minimum spanning tree
+	private final boolean[] marked;	//If current vertex is in the tree
+	public LazyPrimMST(EdgeWeightedGraph g){
+		this.g = g;
+		marked = new boolean[g.V()];
+		pq = new PriorityQueue<>();
+		mst = new LinkedList<Edge>();
+		visit(g, 0);
+		while(!pq.isEmpty()){
+			Edge edge = pq.poll();	//get the smallest edge from the graph
+			int v = edge.either(); int w = edge.other(v);
+			if(marked[v] && marked[w]) continue;	//两个顶点都已经在最小树中，说明这些边已经失效了。
+			mst.offer(edge);
+			if(!marked[v]) visit(g, v);
+			if(!marked[w]) visit(g, w);
+		}
+	}
+	@Override
+	public Iterable<Edge> edges() {
+		return mst;
+	}
+	@Override
+	public double weight() {
+		double res = 0d;
+		for(Edge e : mst)
+			res += e.weight();
+		return res;
+	}
+	private void visit(EdgeWeightedGraph g, int v){	//访问图上的某个顶点，将这个顶点加入最小生成树中，并将这个顶点的邻接边加入优先队列，如果两个顶点都在树中，就不用加入了。
+		marked[v] = true;
+		for(Edge e : g.adj(v))
+			if(!marked[e.other(v)]) pq.add(e);
+	}
+	public static void main(String[] args) throws FileNotFoundException {
+		FileInputStream is = new FileInputStream(new File("src/ca/mcmaster/chapter/four/graph/mstree/mediumEWG.txt"));
+		EdgeWeightedGraph graph = new EdgeWeightedGraph(is);
+		LazyPrimMST mst = new LazyPrimMST(graph);
+		Iterable<Edge> edges = mst.edges();
+		for(Edge e : edges)
+			System.out.println(e.toString());
+		System.out.println("Weight: " + mst.weight());
+	}
+}
+```

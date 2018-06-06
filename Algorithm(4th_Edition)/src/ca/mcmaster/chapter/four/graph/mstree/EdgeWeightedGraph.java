@@ -61,7 +61,7 @@ public class EdgeWeightedGraph {
 		return res;
 	}
 	public static void main(String[] args) throws FileNotFoundException {
-		FileInputStream is = new FileInputStream(new File("src/ca/mcmaster/chapter/four/graph/mstree/tinyEWG.txt"));
+		FileInputStream is = new FileInputStream(new File("src/ca/mcmaster/chapter/four/graph/mstree/mediumEWG.txt"));
 		EdgeWeightedGraph graph = new EdgeWeightedGraph(is);
 		Iterable<Edge> edges = graph.edges();
 		for(Edge e : edges)
