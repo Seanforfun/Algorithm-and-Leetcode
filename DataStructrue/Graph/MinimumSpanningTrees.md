@@ -57,11 +57,65 @@ public class Edge implements Comparable<Edge> {
 	}
 	public int other(int v){
 		if(v == this.v) return w;
-		else return v;
+		else return this.v;
 	}
 	@Override
 	public String toString() {
 		return String.format("%d-%d %.2f", v, w, weight);
+	}
+}
+```
+
+### 加权无向图
+```Java
+public class EdgeWeightedGraph {
+	private final int V;	//Number of vertex
+	private int E; //Number of edge
+	private final Bag<Edge>[] adj; //Create bag for saving edges of vertex
+	@SuppressWarnings("unchecked")
+	public EdgeWeightedGraph(int V){
+		this.V = V;
+		this.E = 0;
+		adj = new Bag[V];
+		for(int v = 0; v < V ; v++)	adj[v] = new ListBag<>();
+	}
+	@SuppressWarnings("unchecked")
+	public EdgeWeightedGraph(FileInputStream in){
+		Scanner scanner = null;
+		try {
+			scanner = new Scanner(in);
+			V = scanner.nextInt();
+			E = 0;
+			int edgeNum = scanner.nextInt();
+			adj = new Bag[V];
+			for(int v = 0; v < V ; v++)	adj[v] = new ListBag<>();
+			for(int e = 0; e < edgeNum; e++)	addEdge(new Edge(scanner.nextInt(), scanner.nextInt(), scanner.nextDouble()));
+		} finally{
+			scanner.close();
+		}
+	}
+	private void addEdge(Edge e){
+		int v = e.either();
+		int w = e.other(v);
+		adj[v].add(e);
+		adj[w].add(e);
+		E++;
+	}
+	public int V(){
+		return this.V;
+	}
+	public int E(){
+		return this.E;
+	}
+	public Iterable<Edge> adj(int v){
+		return adj[v];
+	}
+	public Iterable<Edge> edges(){
+		List<Edge> res = new ArrayList<Edge>();
+		for(int v = 0; v < V; v++)
+			for(Edge e : adj[v])
+				if(v > e.other(v)) res.add(e);	//每条边均会被遍历两次，通过一次判断避免重复性。
+		return res;
 	}
 }
 ```

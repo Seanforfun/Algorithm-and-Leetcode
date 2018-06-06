@@ -22,8 +22,9 @@ public class Edge implements Comparable<Edge> {
 		return v;
 	}
 	public int other(int v){
-		if(v == this.v) return w;
-		else return v;
+		if(v == this.v) return this.w;
+		else
+			return this.v;
 	}
 	@Override
 	public String toString() {
