@@ -225,3 +225,48 @@ public class PrimMst implements MST {
 	}
 }
 ```
+
+#### Kruskal算法
+1. 将所有的边加入优先队列，comparable实现权重的比较。最终所有边按照从小到大排序。
+2. 从上到下将所有的边加入最小树中，如果会生成环则当前边失效。通过并查集的方法判断两个顶点是否已经connected，如果是添加一条新的边链接这两个顶点将会构成环。
+```Java
+public class KruskalMST implements MST {
+	private List<Edge> mst;	//Queue used to save the minimum spanning tree
+	public KruskalMST(EdgeWeightedGraph g) {
+		mst = new LinkedList<>();
+		PriorityQueue<Edge> pq = new PriorityQueue<>();
+		for(Edge e : g.edges())
+			pq.add(e);
+		UnionFind uf = new WeightedUnionFind(g.V());	//通过创建一个并查集来判断两个顶点是否相连。
+		while(!pq.isEmpty() && mst.size() < g.V() - 1){
+			Edge edge = pq.poll();
+			int v = edge.either(); int w = edge.other(v);
+			if(uf.connected(v, w)) continue;	//如果v和w已经连接的，在两个顶点之间加一条边一定会构成一个环。
+			else{	////将边加入最小树中并将顶点加入并查集。
+				mst.add(edge);
+				uf.union(v, w);
+			}
+		}
+	}
+	@Override
+	public Iterable<Edge> edges() {
+		return mst;
+	}
+	@Override
+	public double weight() {
+		double res = 0d;
+		for(Edge e : mst)
+			res += e.weight();
+		return res;
+	}
+	public static void main(String[] args) throws FileNotFoundException {
+		FileInputStream is = new FileInputStream(new File("src/ca/mcmaster/chapter/four/graph/mstree/mediumEWG.txt"));
+		EdgeWeightedGraph graph = new EdgeWeightedGraph(is);
+		MST mst = new KruskalMST(graph);
+		Iterable<Edge> edges = mst.edges();
+		for(Edge e : edges)
+			System.out.println(e.toString());
+		System.out.println("Weight: " + mst.weight());
+	}
+}
+```
