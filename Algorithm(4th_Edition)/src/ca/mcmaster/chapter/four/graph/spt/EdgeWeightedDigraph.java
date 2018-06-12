@@ -1,6 +1,8 @@
 package ca.mcmaster.chapter.four.graph.spt;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import ca.mcmaster.chapter.one.bag.Bag;
@@ -21,25 +23,27 @@ public class EdgeWeightedDigraph {
 	@SuppressWarnings("unchecked")
 	public EdgeWeightedDigraph(FileInputStream in) {
 		Scanner s = null;
-		s = new Scanner(in);
-		this.V = s.nextInt();
-		this.E = s.nextInt();
-		adj = (Bag<DirectedEdge>[])new Bag[V];
-		for (int i = 0; i < V; i++)
-			adj[i] = new ListBag<DirectedEdge>(); 
-		for(int i = 0; i < E; i ++){
-			int v = s.nextInt();
-			int w = s.nextInt();
-			double weight = s.nextDouble();
-			addEdge(v, w, weight);
+		try{
+			s = new Scanner(in);
+			this.V = s.nextInt();
+			this.adj = (Bag<DirectedEdge>[])new Bag[V];
+			for (int i = 0; i < V; i++)
+				adj[i] = new ListBag<DirectedEdge>(); 
+			E = s.nextInt();
+			for(int i = 0; i < E; i ++){
+				int v = s.nextInt();
+				int w = s.nextInt();
+				double weight = s.nextDouble();
+				addEdge(v, w, weight);
+			}
+		}finally{
+			s.close();
 		}
-		s.close();
 	}
 	public int V() {	return this.V;	}
 	public int E() {	return this.E;	}
 	public void addEdge(int v, int w, double weight) {
-		adj[v].add(new DirectedEdge(v, w, weight));
-		this.E ++;
+		this.adj[v].add(new DirectedEdge(v, w, weight));
 	}
 	public Iterable<DirectedEdge> adj(int v) {
 		return adj[v];
@@ -52,5 +56,10 @@ public class EdgeWeightedDigraph {
 			}
 			System.out.println(sb.toString());
 		}
+	}
+	public static void main(String[] args) throws FileNotFoundException {
+		FileInputStream is = new FileInputStream(new File("src/ca/mcmaster/chapter/four/graph/spt/tinyEWD.txt"));
+		EdgeWeightedDigraph g = new EdgeWeightedDigraph(is);
+		g.display();
 	}
 }

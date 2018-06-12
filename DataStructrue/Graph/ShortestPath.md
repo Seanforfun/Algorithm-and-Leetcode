@@ -52,25 +52,27 @@ public class EdgeWeightedDigraph {
 	@SuppressWarnings("unchecked")
 	public EdgeWeightedDigraph(FileInputStream in) {
 		Scanner s = null;
-		s = new Scanner(in);
-		this.V = s.nextInt();
-		this.E = s.nextInt();
-		adj = (Bag<DirectedEdge>[])new Bag[V];
-		for (int i = 0; i < V; i++)
-			adj[i] = new ListBag<DirectedEdge>(); 
-		for(int i = 0; i < E; i ++){
-			int v = s.nextInt();
-			int w = s.nextInt();
-			double weight = s.nextDouble();
-			addEdge(v, w, weight);
+		try{
+			s = new Scanner(in);
+			this.V = s.nextInt();
+			this.adj = (Bag<DirectedEdge>[])new Bag[V];
+			for (int i = 0; i < V; i++)
+				adj[i] = new ListBag<DirectedEdge>(); 
+			E = s.nextInt();
+			for(int i = 0; i < E; i ++){
+				int v = s.nextInt();
+				int w = s.nextInt();
+				double weight = s.nextDouble();
+				addEdge(v, w, weight);
+			}
+		}finally{
+			s.close();
 		}
-		s.close();
 	}
 	public int V() {	return this.V;	}
 	public int E() {	return this.E;	}
 	public void addEdge(int v, int w, double weight) {
-		adj[v].add(new DirectedEdge(v, w, weight));
-		this.E ++;
+		this.adj[v].add(new DirectedEdge(v, w, weight));
 	}
 	public Iterable<DirectedEdge> adj(int v) {
 		return adj[v];
@@ -83,6 +85,117 @@ public class EdgeWeightedDigraph {
 			}
 			System.out.println(sb.toString());
 		}
+	}
+	public static void main(String[] args) throws FileNotFoundException {
+		FileInputStream is = new FileInputStream(new File("src/ca/mcmaster/chapter/four/graph/spt/tinyEWD.txt"));
+		EdgeWeightedDigraph g = new EdgeWeightedDigraph(is);
+		g.display();
+	}
+}
+```
+
+#### Shortest Path最短路径
+```Java
+public interface SP {
+	/**
+	 * @Description: The distance between w and v, if not connected, dist is infinity.
+	 * @param v
+	 * @return
+	 */
+	public double distTo(int v);
+	/**
+	 * @Description: If there is a path from s to v.
+	 * @param v
+	 * @return
+	 */
+	public boolean hasPathTo(int v);
+	/**
+	 * @Description: Path from s to v.
+	 * @param v
+	 * @return
+	 */
+	public Iterable<DirectedEdge> pathTo(int v);
+}
+```
+
+### Dijkstra算法计算最短路径。
+> 放松边v到w意味着检查从s到w的最短路径是否先从s到v，再由v到w。
+```Java
+public class DijkstraSP implements SP {
+	private DirectedEdge[] edgeTo;
+	private double[] distTo;
+	private IndexMinPQ<Double> pq;	//优先级队列，存储了到每个顶点的dist
+	public DijkstraSP(EdgeWeightedDigraph g, int s) {
+		edgeTo = new DirectedEdge[g.V()];
+		distTo = new double[g.V()];
+		pq = new IndexMinPQ<>(g.V());
+		for(int v = 0; v < g.V(); v++)
+			distTo[v] = Double.POSITIVE_INFINITY;	//在还没有开始时存入最大值，如果最后仍然是最大值则说明没有连通性。
+		distTo[s] = 0D;
+		pq.insert(s, 0D);
+		while(!pq.isEmpty())
+			relax(g, pq.delMin());
+	}
+	@Override
+	public double distTo(int v) {
+		return distTo[v];
+	}
+	@Override
+	public boolean hasPathTo(int v) {
+		return distTo[v] < Double.POSITIVE_INFINITY;
+	}
+	@Override
+	public Iterable<DirectedEdge> pathTo(int v) {
+		if(!hasPathTo(v)) return null;
+		Stack<DirectedEdge> stack = new Stack<>();
+		while(edgeTo[v] != null){
+			DirectedEdge e = edgeTo[v];
+			stack.push(e);
+			v = e.from();
+		}
+		return stack;
+	}
+	/**
+	 * @Description: Relax the edge e.
+	 * @param e
+	 */
+	@SuppressWarnings("unused")
+	private void relax(DirectedEdge e){
+		int v = e.from(); int w = e.to();
+		if(distTo(w) > distTo(v) + e.weight()){
+			distTo[w] = distTo[v] + e.weight();
+			edgeTo[w] = e;
+		}
+	}
+	/**
+	 * @Description: G is digraph and v is a vertex.
+	 * @param g
+	 * @param v
+	 */
+	private void relax(EdgeWeightedDigraph g, int v){	//顶点的松弛。
+		for(DirectedEdge e:g.adj(v)){	//对于某一个顶点，从它指出的所有的有向边。
+			int w = e.to();		//e is from v to w，与v相邻的所有边
+			if(distTo[w] > distTo[v] + e.weight()){	//如果从s到w的距离大于从s到v加上v-w的距离，则进行更新。
+				distTo[w] = distTo[v] + e.weight();
+				edgeTo[w] = e;
+				if(pq.contains(w)) pq.changeKey(w, distTo[w]);	//更新或是添加距离值到优先队列中。
+				else pq.insert(w, distTo[w]);
+			}
+		}
+	}
+	public static void main(String[] args) throws FileNotFoundException {
+		FileInputStream is = new FileInputStream(new File("src/ca/mcmaster/chapter/four/graph/spt/tinyEWD.txt"));
+		EdgeWeightedDigraph g = new EdgeWeightedDigraph(is);
+		DijkstraSP dijkstraSP = new DijkstraSP(g, 0);
+		Stack<DirectedEdge> pathTo = (Stack<DirectedEdge>) dijkstraSP.pathTo(6);
+		StringBuilder sb = new StringBuilder();
+		DirectedEdge edge = pathTo.pop();
+		sb.append(edge.from() + "->");
+		sb.append(edge.to() + "->");
+		while(!pathTo.empty()){
+			sb.append(pathTo.pop().to() + "->");
+		}
+		System.out.println(sb.toString());
 	}
 }
 ```
