@@ -23,6 +23,6 @@ public class Question4_2 {
 		OfferGraph.connect(v3, v2);
 		OfferGraph.connect(v8, v4);
 		OfferGraph.connect(v2, v4);
-		System.out.println(v2.isConnect(v6));
+		System.out.println(v4.isConnectBFS(v8));
 	}
 }
