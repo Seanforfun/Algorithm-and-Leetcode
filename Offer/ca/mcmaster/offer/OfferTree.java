@@ -1,9 +1,15 @@
 package ca.mcmaster.offer;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+import sun.reflect.generics.tree.Tree;
+import ca.mcmaster.chapter.four.graph.Path;
+import ca.mcmaster.offer.OfferTree.TreeNode;
+
+import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
 import com.sun.javafx.geom.AreaOp.AddOp;
 
 import edu.princeton.cs.algs4.Queue;
@@ -118,5 +124,102 @@ public class OfferTree {
 			return current;
 		}
 		return getMostLeft(node.right);
+	}
+	public static boolean hasChild(TreeNode root, TreeNode node){
+		if(root == null) return false;
+		if(root == node) return true;
+		return hasChild(root.left, node) || hasChild(root.right, node);
+	}
+	private static TreeNode closestSameNode(TreeNode root, TreeNode p, TreeNode q){
+		if(root == null) return null;
+		boolean findp = hasChild(root, p);
+		boolean findq = hasChild(root, q);
+		if(findp && findq){
+			TreeNode resultLeft = closestSameNode(root.left, p, q);
+			 TreeNode resultRight = closestSameNode(root.right, p, q);
+			 if(resultLeft == null && resultRight == null)
+				 return root;
+			 else if (resultLeft == null && resultRight != null)
+				return resultRight;
+			else{
+				return resultLeft;
+			}
+		}else {
+			return null;
+		}
+	}
+	public static TreeNode commonAncester(TreeNode root, TreeNode p, TreeNode q){
+		if(!hasChild(root, p) && hasChild(root, q)) return null;
+		return closestSameNode(root, p, q);
+	}
+	public static void preOrder(TreeNode node, StringBuilder sb){
+		if(node == null) return;
+		sb.append(node.v);
+		preOrder(node.left, sb);
+		preOrder(node.right, sb);
+	}
+	public static boolean isSubTree(TreeNode root, TreeNode node){
+		StringBuilder sbRoot = new StringBuilder();
+		preOrder(root, sbRoot);
+		StringBuilder sbNode = new StringBuilder();
+		preOrder(node, sbNode);
+		return sbRoot.toString().contains(sbNode.toString());
+	}
+	public static boolean matchTree(TreeNode node1, TreeNode node2){
+		boolean result = true;
+		if(node1 == null && node2 == null)	return true;
+		if(node1 != node2)
+			result = false;
+		return result && matchTree(node1.left, node2.left) && 
+				matchTree(node1.right, node2.right);
+	}
+	public static boolean checkSubtree(TreeNode root, TreeNode node){
+		if(root == null || node == null) return false;
+		boolean mid = matchTree(root, node);
+		boolean left = checkSubtree(root.left, node);
+		boolean right = checkSubtree(root.right, node);
+		return mid || left || right;
+	}
+	public static void getPathList(TreeNode root, LinkedList<PathResult> list, PathResult ps) throws CloneNotSupportedException{
+		if(null == root)	return;
+		PathResult currentResult = (PathResult) ps.clone();
+		currentResult.path.add(root);
+		currentResult.count += root.v;
+		list.add(currentResult);
+		getPathList(root.left, list, currentResult);
+		getPathList(root.right, list, currentResult);
+	}
+	public static void createPathTable(TreeNode root, List<LinkedList<PathResult>> lists) throws CloneNotSupportedException{
+		if(root == null) return;
+		LinkedList<PathResult> list = new LinkedList<>();
+		getPathList(root, list, new PathResult());
+		if(list.size() != 0)
+			lists.add(list);
+		createPathTable(root.left, lists);
+		createPathTable(root.right, lists);
+	}
+	public static List<PathResult> getPathWithCount(TreeNode root, int count) throws CloneNotSupportedException{
+		List<PathResult> results = new ArrayList<>();
+		List<LinkedList<PathResult>> lists = new ArrayList<>();
+		createPathTable(root, lists);
+		for(LinkedList<PathResult> list : lists){
+			for(PathResult pr : list){
+				if(pr.count == count)
+					results.add(pr);
+			}
+		}
+		return results;
+	}
+}
+class PathResult implements Cloneable{
+	public LinkedList<TreeNode> path = new LinkedList<>();
+	public int count = 0;
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		PathResult newPr = new PathResult();
+		for(TreeNode node : this.path)
+			newPr.path.add(node);
+		newPr.count = this.count;
+		return newPr;
 	}
 }
