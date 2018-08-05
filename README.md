@@ -43,3 +43,10 @@ I started learning the data struture systematically, I will list my notes in the
 ## LeetCode
 This part I listed my [leetcode solutions](https://github.com/Seanforfun/Algorithm/tree/master/leetcode).
 
+## [Cracking the code interview](https://github.com/Seanforfun/Algorithm/tree/master/leetcode/Offer)
+1. Array and String. (Question1_*)
+2. List. (Question2_*)
+3. Stack and Queue. (Question3_*)
+4. Tree and Graph. (Question4_*)
+5. Bit Operations. (Question5_*)
+9. Recursive and Dynamic programming. (Question9_*)
