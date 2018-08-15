@@ -7,7 +7,7 @@ All java realization codes are placed in different packages.
 * [Selection](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Sort/SelectionSort.md)
 * [Insertion](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Sort/InsertionSort.md)
 * [Shell]()
-* [Merge]((https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Sort/MergeSort.md))
+* [Merge](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Sort/MergeSort.md)
 * [QuickSort]()
 * [Priority Queue]()
 
