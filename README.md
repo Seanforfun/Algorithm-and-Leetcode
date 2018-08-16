@@ -40,6 +40,8 @@ I started learning the data struture systematically, I will list my notes in the
 3. [Minimun Spanning Trees](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Graph/MinimumSpanningTrees.md)
 4. [Shortest Path](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Graph/ShortestPath.md)
 
+### [Union-find](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Graph/UnionFind.md)
+
 ## LeetCode
 This part I listed my [leetcode solutions](https://github.com/Seanforfun/Algorithm/tree/master/leetcode).
 
