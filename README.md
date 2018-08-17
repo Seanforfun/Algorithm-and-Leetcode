@@ -11,6 +11,9 @@ All java realization codes are placed in different packages.
 * [QuickSort]()
 * [Priority Queue]()
 
+### Search
+* [BinarySearch](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Search/BinarySearch.md)
+
 ## Data Structure
 I started learning the data struture systematically, I will list my notes in the order that I read the book.
 ### [Tree](https://github.com/Seanforfun/Algorithm/tree/master/DataStructrue/Tree)
