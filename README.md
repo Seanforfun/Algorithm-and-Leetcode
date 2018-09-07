@@ -45,6 +45,10 @@ I started learning the data struture systematically, I will list my notes in the
 
 ### [Union-find](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Graph/UnionFind.md)
 
+### [String](https://github.com/Seanforfun/Algorithm/tree/master/DataStructrue/String)
+1. [Trie Tree](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/String/TrieTree.md)
+2. [KMP](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/String/kmp.md)
+
 ## LeetCode
 This part I listed my [leetcode solutions](https://github.com/Seanforfun/Algorithm/tree/master/leetcode).
 
