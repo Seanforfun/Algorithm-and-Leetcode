@@ -1,5 +1,8 @@
 # Algorithm Learning
 
+## LeetCode
+This part I listed my [leetcode solutions](https://github.com/Seanforfun/Algorithm/tree/master/leetcode).
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
@@ -48,9 +51,6 @@ I started learning the data struture systematically, I will list my notes in the
 ### [String](https://github.com/Seanforfun/Algorithm/tree/master/DataStructrue/String)
 1. [Trie Tree](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/String/TrieTree.md)
 2. [KMP](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/String/kmp.md)
-
-## LeetCode
-This part I listed my [leetcode solutions](https://github.com/Seanforfun/Algorithm/tree/master/leetcode).
 
 ## [Cracking the code interview](https://github.com/Seanforfun/Algorithm/tree/master/leetcode/Offer)
 1. Array and String. (Question1_*)
