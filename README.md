@@ -13,6 +13,7 @@ All java realization codes are placed in different packages.
 * [Merge](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Sort/MergeSort.md)
 * [QuickSort]()
 * [Priority Queue]()
+* [BucketSort](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Sort/BucketSort.md)
 
 ### Search
 * [BinarySearch](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Search/BinarySearch.md)
