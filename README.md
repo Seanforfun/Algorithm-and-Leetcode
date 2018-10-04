@@ -1,7 +1,10 @@
 # Algorithm Learning
 
 ## LeetCode
-This part I listed my [leetcode solutions](https://github.com/Seanforfun/Algorithm/tree/master/leetcode).
+[1.Two Sum](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/1.Two%20Sum.md)
+[2.Add Two Numbers](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/2.%20Add%20Two%20Numbers.md)
+[3.Longest Substring Without Repeating Characters](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/3.%20Longest%20Substring%20Without%20Repeating%20Characters.md)
+[4.Median of Two Sorted Arrays]()
 
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
