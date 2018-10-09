@@ -2,9 +2,22 @@
 
 ## LeetCode
 [1.Two Sum](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/1.Two%20Sum.md)
+
 [2.Add Two Numbers](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/2.%20Add%20Two%20Numbers.md)
+
 [3.Longest Substring Without Repeating Characters](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/3.%20Longest%20Substring%20Without%20Repeating%20Characters.md)
-[4.Median of Two Sorted Arrays]()
+
+[4.Median of Two Sorted Arrays](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/4.%20Median%20of%20Two%20Sorted%20Arrays.md)
+
+[5. Longest Palindromic Substring](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/5.%20Longest%20Palindromic%20Substring.md)
+
+[6. ZigZag Conversion](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/6.%20ZigZag%20Conversion.md)
+
+[7. Reverse Integer](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/7.%20Reverse%20Integer.md)
+
+[8. String to Integer (atoi)](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/8.%20String%20to%20Integer%20(atoi).md)
+
+[9. Palindrome Number](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/9.%20Palindrome%20Number.md)
 
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
