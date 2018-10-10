@@ -21,6 +21,18 @@
 
 [10. Regular Expression Matching](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/10.%20Regular%20Expression%20Matching.md)
 
+[11. Container With Most Water](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/11.%20Container%20With%20Most%20Water.md)
+
+[12. Integer to Roman](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/12.%20Integer%20to%20Roman.md)
+
+[13. Roman to Integer](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/13.%20Roman%20to%20Integer.md)
+
+[14.LongestCommonPrefix](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/14.LongestCommonPrefix.md)
+
+[15. 3Sum](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/15.%203Sum.md)
+
+[16. 3Sum Closest](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/16.%203Sum%20Closest.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
