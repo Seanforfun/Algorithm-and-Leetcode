@@ -35,6 +35,20 @@
 
 [17. Letter Combinations of a Phone Number](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/17.%20Letter%20Combinations%20of%20a%20Phone%20Number.md)
 
+[18. 4Sum](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/18.%204Sum.md)
+
+[19. Remove Nth Node From End of List](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/19.%20Remove%20Nth%20Node%20From%20End%20of%20List.md)
+
+[20. Valid Parentheses](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/20.%20Valid%20Parentheses.md)
+
+[21. Merge Two Sorted Lists](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/21.%20Merge%20Two%20Sorted%20Lists.md)
+
+[22. Generate Parentheses](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/22.%20Generate%20Parentheses.md)
+
+[23. Merge k Sorted Lists](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/23.%20Merge%20k%20Sorted%20Lists.md)
+
+[24. Swap Nodes in Pairs](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/24.%20Swap%20Nodes%20in%20Pairs.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
