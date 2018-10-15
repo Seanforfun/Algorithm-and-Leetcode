@@ -49,6 +49,14 @@
 
 [24. Swap Nodes in Pairs](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/24.%20Swap%20Nodes%20in%20Pairs.md)
 
+[25. Reverse Nodes in k-Group](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/25.%20Reverse%20Nodes%20in%20k-Group.md)
+
+[26. Remove Duplicates from Sorted Array](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/26.%20Remove%20Duplicates%20from%20Sorted%20Array.md)
+
+[27. Remove Element](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/27.%20Remove%20Element.md)
+
+[28. Implement strStr()](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/28.%20Implement%20strStr().md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
