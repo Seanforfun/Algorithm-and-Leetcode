@@ -57,6 +57,16 @@
 
 [28. Implement strStr()](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/28.%20Implement%20strStr().md)
 
+[29. Divide Two Integers](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/29.%20Divide20Two20Integers.md)
+
+[30. Substring with Concatenation of All Words](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/30.%20Substring%20with%20Concatenation%20of%20All%20Words.md)
+
+[31. Next Permutation](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/31.%20Next%20Permutation.md)
+
+[32. Longest Valid Parentheses](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/32.%20Longest%20Valid%20Parentheses.md)
+
+[33. Search in Rotated Sorted Array](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/33.%20Search%20in%20Rotated%20Sorted%20Array.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
