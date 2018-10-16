@@ -67,6 +67,14 @@
 
 [33. Search in Rotated Sorted Array](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/33.%20Search%20in%20Rotated%20Sorted%20Array.md)
 
+[34. Find First and Last Position of Element in Sorted Array](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/34.%20Find%20First%20and%20Last%20Position%20of%20Element%20in%20Sorted%20Array.md)
+
+[35. Search Insert Position](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/35.%20Search%20Insert%20Position.md)
+
+[36. Valid Sudoku](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/36.%20Valid%20Sudoku.md)
+
+[37. Sudoku Solver](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/37.%20Sudoku%20Solver.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
