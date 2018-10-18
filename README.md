@@ -75,6 +75,12 @@
 
 [37. Sudoku Solver](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/37.%20Sudoku%20Solver.md)
 
+[38. Count and Say](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/38.%20Count%20and%20Say.md)
+
+[39. Combination Sum](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/39.%20Combination%20Sum.md)
+
+[40. Combination Sum II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/40.%20Combination%20Sum%20II.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
