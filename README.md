@@ -81,6 +81,12 @@
 
 [40. Combination Sum II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/40.%20Combination%20Sum%20II.md)
 
+[41. First Missing Positive](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/41.%20First%20Missing%20Positive.md)
+
+[42. Trapping Rain Water](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/42.%20Trapping%20Rain%20Water.md)
+
+[43. Multiply Strings](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/43.%20Multiply%20Strings.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
