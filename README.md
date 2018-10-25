@@ -101,6 +101,10 @@
 
 [50. Pow(x, n)](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/50.%20Pow(x,%20n).md)
 
+[51. N-Queens](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/51.%20N-Queens.md)
+
+[52. N-Queens II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/52.%20N-Queens%20II.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
