@@ -95,6 +95,12 @@
 
 [47. Permutations II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/47.%20Permutations%20II.md)
 
+[48. Rotate Image](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/48.%20Rotate%20Image.md)
+
+[49. Group Anagrams](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/49.%20Group%20Anagrams.md)
+
+[50. Pow(x, n)](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/50.%20Pow(x,%20n).md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
