@@ -87,9 +87,13 @@
 
 [43. Multiply Strings](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/43.%20Multiply%20Strings.md)
 
-(44. Wildcard Matching)(https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/44.%20Wildcard%20Matching.md)
+[44. Wildcard Matching](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/44.%20Wildcard%20Matching.md)
 
 [45. Jump Game II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/45.%20Jump%20Game%20II.md)
+
+[46. Permutations](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/46.%20Permutations.md)
+
+[47. Permutations II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/47.%20Permutations%20II.md)
 
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
