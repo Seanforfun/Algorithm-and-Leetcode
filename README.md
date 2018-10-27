@@ -129,6 +129,12 @@
 
 [64. Minimum Path Sum](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/64.%20Minimum%20Path%20Sum.md)
 
+[65. Valid Number](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/65.%20Valid%20Number.md)
+
+[66. Plus One](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/66.%20Plus%20One.md)
+
+[67. Add Binary](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/67.%20Add%20Binary.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
