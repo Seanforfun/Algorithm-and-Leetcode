@@ -105,6 +105,14 @@
 
 [52. N-Queens II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/52.%20N-Queens%20II.md)
 
+[53. Maximum Subarray](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/53.%20Maximum%20Subarray.md)
+
+[54. Spiral Matrix](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/54.%20Spiral%20Matrix.md)
+
+[55. Jump Game](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/55.%20Jump%20Game.md)
+
+[56. Merge Intervals](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/56.%20Merge%20Intervals.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
