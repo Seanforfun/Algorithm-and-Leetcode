@@ -113,6 +113,14 @@
 
 [56. Merge Intervals](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/56.%20Merge%20Intervals.md)
 
+[57. Insert Interval](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/57.%20Insert%20Interval.md)
+
+[58. Length of Last Word](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/58.%20Length%20of%20Last%20Word.md)
+
+[59. Spiral Matrix II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/59.%20Spiral%20Matrix%20II.md)
+
+[60. Permutation Sequence](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/60.%20Permutation%20Sequence.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
