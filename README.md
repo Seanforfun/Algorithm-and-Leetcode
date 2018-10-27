@@ -121,6 +121,14 @@
 
 [60. Permutation Sequence](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/60.%20Permutation%20Sequence.md)
 
+[61. Rotate List](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/61.%20Rotate%20List.md)
+
+[62. Unique Paths](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/62.%20Unique%20Paths.md)
+
+[63. Unique Paths II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/63.%20Unique%20Paths%20II.md)
+
+[64. Minimum Path Sum](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/64.%20Minimum%20Path%20Sum.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
