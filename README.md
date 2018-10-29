@@ -135,6 +135,12 @@
 
 [67. Add Binary](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/67.%20Add%20Binary.md)
 
+[69. Sqrt(x)](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/69.%20Sqrt(x).md)
+
+[70. Climbing Stairs](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/70.%20Climbing%20Stairs.md)
+
+[71. Simplify Path](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/71.%20Simplify%20Path.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
