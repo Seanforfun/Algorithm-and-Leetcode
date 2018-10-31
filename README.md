@@ -141,6 +141,15 @@
 
 [71. Simplify Path](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/71.%20Simplify%20Path.md)
 
+<<<<<<< HEAD
+[72. Edit Distance](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/72.%20Edit%20Distance.md)
+
+[73. Set Matrix Zeroes](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/73.%20Set%20Matrix%20Zeroes.md)
+
+[74. Search a 2D Matrix](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/74.%20Search%20a%202D%20Matrix.md)
+
+=======
+>>>>>>> 5ddac4c8fb078caea256a647f91903353b2ab074
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
