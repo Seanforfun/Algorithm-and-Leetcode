@@ -147,6 +147,14 @@
 
 [74. Search a 2D Matrix](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/74.%20Search%20a%202D%20Matrix.md)
 
+[75. Sort Colors](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/75.%20Sort%20Colors.md)
+
+[76. Minimum Window Substring](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/76.%20Minimum%20Window%20Substring.md)
+
+[77. Combinations](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/77.%20Combinations.md)
+
+[78. Subsets](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/78.%20Subsets.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
