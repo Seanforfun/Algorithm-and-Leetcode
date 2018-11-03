@@ -155,6 +155,10 @@
 
 [78. Subsets](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/78.%20Subsets.md)
 
+[79. Word Search](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/79.%20Word%20Search.md)
+
+[80. Remove Duplicates from Sorted Array II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/80.%20Remove%20Duplicates%20from%20Sorted%20Array%20II.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
