@@ -159,6 +159,12 @@
 
 [80. Remove Duplicates from Sorted Array II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/80.%20Remove%20Duplicates%20from%20Sorted%20Array%20II.md)
 
+[81. Search in Rotated Sorted Array II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/81.%20Search%20in%20Rotated%20Sorted%20Array%20II.md)
+
+[82. Remove Duplicates from Sorted List II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/82.%20Remove%20Duplicates%20from%20Sorted%20List%20II.md)
+
+[83. Remove Duplicates from Sorted List](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/83.%20Remove%20Duplicates%20from%20Sorted%20List.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
