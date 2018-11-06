@@ -165,6 +165,12 @@
 
 [83. Remove Duplicates from Sorted List](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/83.%20Remove%20Duplicates%20from%20Sorted%20List.md)
 
+[84. Largest Rectangle in Histogram](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/84.%20Largest%20Rectangle%20in%20Histogram.md)
+
+[86. Partition List](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/86.%20Partition%20List.md)
+
+[88. Merge Sorted Array](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/88.%20Merge%20Sorted%20Array.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
