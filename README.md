@@ -171,6 +171,24 @@
 
 [88. Merge Sorted Array](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/88.%20Merge%20Sorted%20Array.md)
 
+[89. Gray Code](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/89.%20Gray%20Code.md)
+
+[90. Subsets II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/90.%20Subsets%20II.md)
+
+[91. Decode Ways](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/91.%20Decode20Ways.md)
+
+[92. Reverse Linked List II.md](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/92.%20Reverse%20Linked%20List%20II.md)
+
+[94. Binary Tree Inorder Traversal](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/94.%20Binary%20Tree%20Inorder%20Traversal.md)
+
+[95. Unique Binary Search Trees II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/95.%20Unique%20Binary%20Search%20Trees%20II.md)
+
+[96. Unique Binary Search Trees](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/96.%20Unique%20Binary%20Search%20Trees.md)
+
+[98. Validate Binary Search Tree](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/98.%20Validate%20Binary%20Search%20Tree.md)
+
+[100. Same Tree](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/100.%20Same%20Tree.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
