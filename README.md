@@ -189,6 +189,12 @@
 
 [100. Same Tree](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/100.%20Same%20Tree.md)
 
+[101. Symmetric Tree](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/101.%20Symmetric%20Tree.md)
+
+[102. Binary Tree Level Order Traversal](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/102.%20Binary%20Tree%20Level%20Order%20Traversal.md)
+
+[103. Binary Tree Zigzag Level Order Traversal](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/103.%20Binary%20Tree%20Zigzag%20Level%20Order%20Traversal.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
