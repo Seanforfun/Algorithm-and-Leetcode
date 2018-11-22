@@ -225,6 +225,10 @@
 
 [118. Pascal's Triangle](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/118.%20Pascal's%20Triangle.md)
 
+[119. Pascal's Triangle II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/118.%20Pascal's%20Triangle%20II.md)
+
+[120. Triangle](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/120.%20Triangle.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
