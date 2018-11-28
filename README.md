@@ -229,6 +229,22 @@
 
 [120. Triangle](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/120.%20Triangle.md)
 
+[121. Best Time to Buy and Sell Stock](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/121.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock.md)
+
+[122. Best Time to Buy and Sell Stock II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/122.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock%20II.md)
+
+[123. Best Time to Buy and Sell Stock III](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/123.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock%20III.md)
+
+[124. Binary Tree Maximum Path Sum](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/124.%20Binary%20Tree%20Maximum%20Path%20Sum.md)
+
+[125. Valid Palindrome](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/125.%20Valid%20Palindrome.md)
+
+[127. Word Ladder](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/127.%20Word%20Ladder.md)
+
+[128. Longest Consecutive Sequence](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/128.%20Longest%20Consecutive%20Sequence.md)
+
+[129. Sum Root to Leaf Numbers](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/129.%20Sum%20Root%20to%20Leaf%20Numbers.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
