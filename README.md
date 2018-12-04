@@ -251,6 +251,14 @@
 
 [132. Palindrome Partitioning II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/132.%20Palindrome%20Partitioning%20II.md)
 
+[133. Clone Graph](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/133.%20Clone%20Graph.md)
+
+[134. Gas Station](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/134.%20Gas%20Station.md)
+
+[136. Single Number](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/136.%20Single%20Number.md)
+
+[137. Single Number II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/137.%20Single%20Number%20II.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
