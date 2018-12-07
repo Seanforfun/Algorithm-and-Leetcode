@@ -259,6 +259,12 @@
 
 [137. Single Number II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/137.%20Single%20Number%20II.md)
 
+[138. Copy List with Random Pointer](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/138.%20Copy%20List%20with%20Random%20Pointer.md)
+
+[139. Word Break](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/139.%20Word%20Break.md)
+
+[140. Word Break II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/140.%20Word%20Break%20II.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
