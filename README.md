@@ -265,6 +265,16 @@
 
 [140. Word Break II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/140.%20Word%20Break%20II.md)
 
+[141. Linked List Cycle](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/141.%20Linked%20List%20Cycle.md)
+
+[142. Linked List Cycle II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/142.%20Linked%20List%20Cycle%20II.md)
+
+[143. Reorder List](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/143.%20Reorder%20List.md)
+
+[144. Binary Tree Preorder Traversal](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/144.%20Binary%20Tree%20Preorder%20Traversal.md)
+
+[145. Binary Tree Postorder Traversal](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/145.%20Binary%20Tree%20Postorder%20Traversal.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
