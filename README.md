@@ -277,6 +277,10 @@
 
 [147. Insertion Sort List](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/147.%20Insertion%20Sort%20List.md)
 
+[148. Sort List](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/148.%20Sort%20List.md)
+
+[150. Evaluate Reverse Polish Notation](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/150.%20Evaluate%20Reverse%20Polish%20Notation.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
