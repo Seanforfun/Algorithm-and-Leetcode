@@ -281,6 +281,10 @@
 
 [150. Evaluate Reverse Polish Notation](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/150.%20Evaluate%20Reverse%20Polish%20Notation.md)
 
+[152. Maximum Product Subarray](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/152.%20Maximum%20Product%20Subarray.md)
+
+[153. Find Minimum in Rotated Sorted Array](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/153.%20Find%20Minimum%20in%20Rotated%20Sorted%20Array.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
