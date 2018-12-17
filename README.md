@@ -287,6 +287,10 @@
 
 [154. Find Minimum in Rotated Sorted Array II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/154.%20Find%20Minimum%20in%20Rotated%20Sorted%20Array%20II.md)
 
+[155. Min Stack](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/155.%20Min%20Stack.md)
+
+[160. Intersection of Two Linked Lists](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/160.%20Intersection%20of%20Two%20Linked%20Lists.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
