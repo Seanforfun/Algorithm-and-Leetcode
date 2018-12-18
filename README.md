@@ -291,6 +291,8 @@
 
 [160. Intersection of Two Linked Lists](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/160.%20Intersection%20of%20Two%20Linked%20Lists.md)
 
+[162. Find Peak Element]((https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/162.%20Find%20Peak%20Element.md))
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
