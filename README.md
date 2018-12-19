@@ -291,7 +291,11 @@
 
 [160. Intersection of Two Linked Lists](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/160.%20Intersection%20of%20Two%20Linked%20Lists.md)
 
-[162. Find Peak Element]((https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/162.%20Find%20Peak%20Element.md))
+[162. Find Peak Element](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/162.%20Find%20Peak%20Element.md)
+
+[164. Maximum Gap](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/164.%20Maximum%20Gap.md)
+
+[165. Compare Version Numbers](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/165.%20Compare%20Version%20Numbers.md)
 
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
@@ -299,10 +303,9 @@ All java realization codes are placed in different packages.
 ### [Sorting](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Sort/Sort.md)
 * [Selection](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Sort/SelectionSort.md)
 * [Insertion](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Sort/InsertionSort.md)
-* [Shell]()
 * [Merge](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Sort/MergeSort.md)
 * [QuickSort](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Sort/QuickSort.md)
-* [Priority Queue]()
+* [CountSort](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Sort/CountSort.md)
 * [BucketSort](https://github.com/Seanforfun/Algorithm/blob/master/DataStructrue/Sort/BucketSort.md)
 
 ### Search
