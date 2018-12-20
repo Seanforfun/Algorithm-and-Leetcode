@@ -297,6 +297,12 @@
 
 [165. Compare Version Numbers](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/165.%20Compare%20Version%20Numbers.md)
 
+[166. Fraction to Recurring Decimal](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/166.%20Fraction%20to%20Recurring%20Decimal.md)
+
+[167. Two Sum II - Input array is sorted](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/167.%20Two%20Sum%20II%20-%20Input%20array%20is%20sorted.md)
+
+[168. Excel Sheet Column Title](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/168.%20Excel%20Sheet%20Column%20Title.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
