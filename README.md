@@ -303,6 +303,12 @@
 
 [168. Excel Sheet Column Title](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/168.%20Excel%20Sheet%20Column%20Title.md)
 
+[169. Majority Element](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/169.%20Majority%20Element.md)
+
+[171. Excel Sheet Column Number](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/171.%20Excel%20Sheet%20Column%20Number.md)
+
+[172. Factorial Trailing Zeroes](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/172.%20Factorial%20Trailing%20Zeroes.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
