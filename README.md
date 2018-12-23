@@ -313,6 +313,12 @@
 
 [175. Combine Two Tables](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/175.%20Combine%20Two%20Tables.md)
 
+[176. Second Highest Salary](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/176.%20Second%20Highest%20Salary.md)
+
+[177. Nth Highest Salary](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/177.%20Nth%20Highest%20Salary.md)
+
+[178. Rank Scores](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/178.%20Rank%20Scores.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
