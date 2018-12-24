@@ -319,6 +319,10 @@
 
 [178. Rank Scores](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/178.%20Rank%20Scores.md)
 
+[179. Largest Number](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/179.%20Largest%20Number.md)
+
+[180. Consecutive Numbers](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/180.%20Consecutive%20Numbers.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
