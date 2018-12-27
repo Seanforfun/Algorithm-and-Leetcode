@@ -323,6 +323,10 @@
 
 [180. Consecutive Numbers](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/180.%20Consecutive%20Numbers.md)
 
+[181. Employees Earning More Than Their Managers](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/181.%20EmployeesVEarning%20More%20Than%20Their%20Managers.md)
+
+[182. Duplicate Emails](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/182.%20Duplicate%20Emails.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
