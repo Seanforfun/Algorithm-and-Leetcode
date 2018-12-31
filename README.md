@@ -329,6 +329,10 @@
 
 [183. Customers Who Never Order](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/183.%20Customers%20Who%20Never%20Order.md)
 
+[184. Department Highest Salary](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/184.%20Department%20Highest%20Salary.md)
+
+[185. Department Top Three Salaries](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/185.%20Department%20Top%20Three%20Salaries.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
