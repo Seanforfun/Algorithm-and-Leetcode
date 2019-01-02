@@ -333,6 +333,8 @@
 
 [185. Department Top Three Salaries](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/185.%20Department%20Top%20Three%20Salaries.md)
 
+[187. Repeated DNA Sequences](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/187.%20Repeated%20DNA%20Sequences.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
