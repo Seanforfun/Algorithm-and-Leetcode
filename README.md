@@ -335,6 +335,12 @@
 
 [187. Repeated DNA Sequences](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/187.%20Repeated%20DNA%20Sequences.md)
 
+[189. Rotate Array](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/189.%20Rotate%20Array.md)
+
+[190. Reverse Bits](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/190.%20Reverse%20Bits.md)
+
+[191. Number of 1 Bits](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/191.%20Number%20of%201%20Bits.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
