@@ -347,6 +347,12 @@
 
 [200. Number of Islands](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/200.%20Number%20of%20Islands.md)
 
+[201. Bitwise AND of Numbers Range](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/201.%20Bitwise%20AND%20ofvNumbers%20Range.md)
+
+[202. Happy Number](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/202.%20Happy%20Number.md)
+
+[203. Remove Linked List Elements](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/203.%20Remove%20Linked%20List%20Elements.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
