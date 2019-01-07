@@ -341,6 +341,12 @@
 
 [191. Number of 1 Bits](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/191.%20Number%20of%201%20Bits.md)
 
+[198. House Robber](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/198.%20House%20Robber.md)
+
+[199. Binary Tree Right Side View](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/199.%20Binary%20Tree%20Right%20Side%20View.md)
+
+[200. Number of Islands](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/200.%20Number%20of%20Islands.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
