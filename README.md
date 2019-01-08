@@ -353,6 +353,12 @@
 
 [203. Remove Linked List Elements](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/203.%20Remove%20Linked%20List%20Elements.md)
 
+[204. Count Primes](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/204.%20Count%20Primes.md)
+
+[205. Isomorphic Strings](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/205.%20Isomorphic%20Strings.md)
+
+[206. Reverse Linked List](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/206.%20Reverse%20Linked%20List.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
