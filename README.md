@@ -361,6 +361,12 @@
 
 [207. Course Schedule](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/207.%20Course%20Schedule.md)
 
+[208. Implement Trie (Prefix Tree)](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/208.%20Implement%20Trie%20(Prefix%20Tree).md)
+
+[209. Minimum Size Subarray Sum](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/209.%20Minimum%20Size%20Subarray%20Sum.md)
+
+[210. Course Schedule II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/210.%20Course%20Schedule%20II.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
