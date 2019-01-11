@@ -367,6 +367,10 @@
 
 [210. Course Schedule II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/210.%20Course%20Schedule%20II.md)
 
+[211. Add and Search Word - Data structure design](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/211.%20Add%20and%20Search%20Word%20-%20Data%20structure%20design.md)
+
+[212. Word Search II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/212.%20Word%20Search%20II.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
