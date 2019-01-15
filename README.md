@@ -371,6 +371,16 @@
 
 [212. Word Search II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/212.%20Word%20Search%20II.md)
 
+[213. House Robber II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/213.%20House%20Robber%20II.md)
+
+[214. Shortest Palindrome](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/214.%20Shortest%20Palindrome.md)
+
+[215. Kth Largest Element in an Array](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/215.%20Kth%20Largest%20Element%20in%20an%20Array.md)
+
+[216. Combination Sum III](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/216.%20Combination%20Sum%20III.md)
+
+[217. Contains Duplicate](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/217.%20Contains%20Duplicate.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
