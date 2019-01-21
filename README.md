@@ -383,6 +383,8 @@
 
 [219. Contains Duplicate II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/219.%20Contains%20Duplicate%20II.md)
 
+[220. Contains Duplicate III](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/220.%20Contains%20Duplicate%20III.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
