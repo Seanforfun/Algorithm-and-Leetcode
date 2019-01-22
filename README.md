@@ -385,6 +385,12 @@
 
 [220. Contains Duplicate III](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/220.%20Contains%20Duplicate%20III.md)
 
+[221. Maximal Square](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/221.%20Maximal%20Square.md)
+
+[222. Count Complete Tree Nodes](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/222.%20Count%20Complete%20Tree%20Nodes.md)
+
+[223. Rectangle Area](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/223.%20Rectangle%20Area.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
