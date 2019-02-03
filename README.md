@@ -391,6 +391,10 @@
 
 [223. Rectangle Area](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/223.%20Rectangle%20Area.md)
 
+[224. Basic Calculator](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/224.%20Basic%20Calculator.md)
+
+[225. Implement Stack using Queues](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/225.%20Implement%20Stack%20using%20Queues.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
