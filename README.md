@@ -395,6 +395,12 @@
 
 [225. Implement Stack using Queues](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/225.%20Implement%20Stack%20using%20Queues.md)
 
+[226. Invert Binary Tree](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/226.%20Invert%20Binary%20Tree.md)
+
+[227. Basic Calculator II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/227.%20Basic%20Calculator%20II.md)
+
+[228. Summary Ranges](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/228.%20Summary%20Ranges.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
