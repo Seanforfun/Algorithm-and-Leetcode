@@ -401,6 +401,12 @@
 
 [228. Summary Ranges](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/228.%20Summary%20Ranges.md)
 
+[229. Majority Element II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/229.%20Majority%20Element%20II.md)
+
+[230. Kth Smallest Element in a BST](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/230.%20Kth%20Smallest%20Element%20in%20a%20BST.md)
+
+[231. Power of Two](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/231.%20Power%20of%20Two.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
