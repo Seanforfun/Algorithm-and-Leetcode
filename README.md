@@ -407,6 +407,10 @@
 
 [231. Power of Two](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/231.%20Power%20of%20Two.md)
 
+[232. Implement Queue using Stacks](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/232.%20Implement%20Queue%20using%20Stacks.md)
+
+[234. Palindrome Linked List](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/234.%20Palindrome%20Linked%20List.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
