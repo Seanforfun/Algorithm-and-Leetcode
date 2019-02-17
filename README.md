@@ -421,6 +421,12 @@
 
 [239. Sliding Window Maximum](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/239.%20Sliding%20Window%20Maximum.md)
 
+[240. Search a 2D Matrix II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/240.%20Search%20a%202D%20Matrix%20II.md)
+
+[241. Different Ways to Add Parentheses](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/241.%20Different%20Ways%20to%20Add%20Parentheses.md)
+
+[242. Valid Anagram](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/242.%20Valid%20Anagram.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
