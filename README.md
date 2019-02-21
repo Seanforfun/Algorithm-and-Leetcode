@@ -431,6 +431,13 @@
 
 [258. Add Digits](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/258.%20Add%20Digits.md)
 
+[263. Ugly Number](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/263.%20Ugly%20Number.md)
+
+[264. Ugly Number II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/264.%20Ugly%20Number%20II.md)
+
+[268. Missing Number](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/268.%20Missing%20Number.md)
+
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
