@@ -437,6 +437,14 @@
 
 [268. Missing Number](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/268.%20Missing%20Number.md)
 
+[274. H-Index](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/274.%20H-Index.md)
+
+[275. H-Index II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/275.%20H-Index%20II.md)
+
+[276. Paint Fence](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/276.%20Paint%20Fence.md)
+
+[278. First Bad Version](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/278.%20First%20Bad%20Version.md)
+
 
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
