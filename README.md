@@ -445,6 +445,12 @@
 
 [278. First Bad Version](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/278.%20First%20Bad%20Version.md)
 
+[279. Perfect Squares](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/279.%20Perfect%20Squares.md)
+
+[282. Expression Add Operators](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/282.%20Expression%20Add%20Operators.md)
+
+[283. Move Zeroes](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/283.%20Move%20Zeroes.md)
+
 
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
