@@ -451,6 +451,10 @@
 
 [283. Move Zeroes](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/283.%20Move%20Zeroes.md)
 
+[284. Peeking Iterator](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/284.%20Peeking%20Iterator.md)
+
+[287. Find the Duplicate Number](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/287.%20Find%20the%20Duplicate%20Number.md)
+
 
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
