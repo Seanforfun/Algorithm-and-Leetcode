@@ -455,6 +455,14 @@
 
 [287. Find the Duplicate Number](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/287.%20Find%20the%20Duplicate%20Number.md)
 
+[289. Game of Life](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/289.%20Game%20of%20Life.md)
+
+[290. Word Pattern](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/290.%20Word%20Pattern.md)
+
+[292. Nim Game](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/292.%20Nim%20Game.md)
+
+[295.Find Median from Data Stream](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/295.Find%20Median%20from%20Data%20Stream.md)
+
 
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
