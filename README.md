@@ -463,6 +463,12 @@
 
 [295.Find Median from Data Stream](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/295.Find%20Median%20from%20Data%20Stream.md)
 
+[297. Serialize and Deserialize Binary Tree](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/297.%20Serialize%20and%20Deserialize%20Binary%20Tree.md)
+
+[299. Bulls and Cows](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/299.%20Bulls%20and%20Cows.md)
+
+[300. Longest Increasing Subsequence](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/300.%20Longest%20Increasing%20Subsequence.md)
+
 
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
