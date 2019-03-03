@@ -469,6 +469,12 @@
 
 [300. Longest Increasing Subsequence](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/300.%20Longest%20Increasing%20Subsequence.md)
 
+[301. Remove Invalid Parentheses](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/301.%20Remove%20Invalid%20Parentheses.md)
+
+[303. Range Sum Query - Immutable](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/303.%20Range%20Sum%20Query%20-%20Immutable.md)
+
+[304. Range Sum Query 2D - Immutable](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/304.%20Range%20Sum%20Query%202D%20-%20Immutable.md)
+
 
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
