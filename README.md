@@ -475,6 +475,12 @@
 
 [304. Range Sum Query 2D - Immutable](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/304.%20Range%20Sum%20Query%202D%20-%20Immutable.md)
 
+[305. Number Of Island II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/305.%20Number%20Of%20Island%20II.md)
+
+[306. Additive Number](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/306.%20Additive%20Number.md)
+
+[307. Range Sum Query - Mutable](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/307.%20Range%20Sum%20Query%20-%20Mutable.md)
+
 
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
