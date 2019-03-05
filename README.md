@@ -167,6 +167,8 @@
 
 [84. Largest Rectangle in Histogram](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/84.%20Largest%20Rectangle%20in%20Histogram.md)
 
+[85. Maximal Rectangle](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/85.%20Maximal%20Rectangle.md)
+
 [86. Partition List](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/86.%20Partition%20List.md)
 
 [88. Merge Sorted Array](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/88.%20Merge%20Sorted%20Array.md)
@@ -184,6 +186,8 @@
 [95. Unique Binary Search Trees II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/95.%20Unique%20Binary%20Search%20Trees%20II.md)
 
 [96. Unique Binary Search Trees](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/96.%20Unique%20Binary%20Search%20Trees.md)
+
+[97. Interleaving String](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/97.%20Interleaving%20String.md)
 
 [98. Validate Binary Search Tree](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/98.%20Validate%20Binary%20Search%20Tree.md)
 
@@ -482,6 +486,8 @@
 [307. Range Sum Query - Mutable](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/307.%20Range%20Sum%20Query%20-%20Mutable.md)
 
 [309. Best Time to Buy and Sell Stock with Cooldown](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/309.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Cooldown.md)
+
+[310. Minimum Height Trees](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/310.%20Minimum%20Height%20Trees.md)
 
 
 ## Algorithm(4th_Edition)
