@@ -489,6 +489,12 @@
 
 [310. Minimum Height Trees](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/310.%20Minimum%20Height%20Trees.md)
 
+[312. Burst Balloons](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/312.%20Burst%20Balloons.md)
+
+[313. Super Ugly Number](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/313.%20Super%20Ugly%20Number.md)
+
+[315. Count of Smaller Numbers After Self](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/315.%20Count%20of%20Smaller%20Numbers%20After%20Self.md)
+
 
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
