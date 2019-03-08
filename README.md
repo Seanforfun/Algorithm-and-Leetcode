@@ -496,6 +496,20 @@
 [315. Count of Smaller Numbers After Self](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/315.%20Count%20of%20Smaller%20Numbers%20After%20Self.md)
 
 
+## LeetCode by Tag:
+1. [Tag table from huahua](https://docs.google.com/spreadsheets/d/1SbpY-04Cz8EWw3A_LBUmDEXKUMO31DBjfeMoA0dlfIA/edit#gid=126913158)
+
+### Advance
+#### [Trie Tree]()
+* [208. Implement Trie (Prefix Tree)](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/208.%20Implement%20Trie%20(Prefix%20Tree).md)
+* [648. Replace Words](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/648.%20Replace%20Words.md)
+* [676. Implement Magic Dictionary](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/676.%20Implement%20Magic%20Dictionary.md)
+* [677. Map Sum Pairs](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/677.%20Map%20Sum%20Pairs.md)
+* [720. Longest Word in Dictionary](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/720.%20Longest%20Word%20in%20Dictionary.md)
+* [745. Prefix and Suffix Search](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/745.%20Prefix%20and%20Suffix%20Search.md)
+* Conclusion: [Data structure | Trie Tree 字典树](https://seanforfun.github.io/datastructure/2018/11/07/TrieTree.html)
+
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
