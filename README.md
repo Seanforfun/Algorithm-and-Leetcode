@@ -500,7 +500,7 @@
 1. [Tag table from huahua](https://docs.google.com/spreadsheets/d/1SbpY-04Cz8EWw3A_LBUmDEXKUMO31DBjfeMoA0dlfIA/edit#gid=126913158)
 
 ### Advance
-#### [Trie Tree]()
+#### Trie Tree
 * [208. Implement Trie (Prefix Tree)](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/208.%20Implement%20Trie%20(Prefix%20Tree).md)
 * [648. Replace Words](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/648.%20Replace%20Words.md)
 * [676. Implement Magic Dictionary](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/676.%20Implement%20Magic%20Dictionary.md)
@@ -508,6 +508,28 @@
 * [720. Longest Word in Dictionary](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/720.%20Longest%20Word%20in%20Dictionary.md)
 * [745. Prefix and Suffix Search](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/745.%20Prefix%20and%20Suffix%20Search.md)
 * Conclusion: [Data structure | Trie Tree 字典树](https://seanforfun.github.io/datastructure/2018/11/07/TrieTree.html)
+
+#### BIT / Segment tree
+* [307. Range Sum Query - Mutable](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/307.%20Range%20Sum%20Query%20-%20Mutable.md)
+* Conclusion: [Data structure | Binary Index Tree](https://seanforfun.github.io/datastructure/2018/03/03/BinaryIndexTree.html)
+* Conclusion: [Data structure | Segment Tree](https://seanforfun.github.io/datastructure/2018/03/04/SegmentTree.html)
+
+#### Monotic stack
+* [84. Largest Rectangle in Histogram](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/84.%20Largest%20Rectangle%20in%20Histogram.md)
+* [85. Maximal Rectangle](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/85.%20Maximal%20Rectangle.md)
+* [901. Online Stock Span](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/901.%20Online%20Stock%20Span.md)
+* [907. Sum of Subarray Minimums](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/907.%20Sum%20of%20Subarray%20Minimums.md)
+
+### Search
+#### Combination
+* [17. Letter Combinations of a Phone Number](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/17.%20Letter%20Combinations%20of%20a%20Phone%20Number.md)
+* [39. Combination Sum](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/39.%20Combination%20Sum.md)
+* [40. Combination Sum II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/40.%20Combination%20Sum%20II.md)
+* [77. Combinations](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/77.%20Combinations.md)
+* [79. Word Search](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/79.%20Word%20Search.md)
+* [90. Subsets II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/90.%20Subsets%20II.md)
+* [216. Combination Sum III](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/216.%20Combination%20Sum%20III.md)
+* Conclusion: We can speed up the recursion using an index and if we want all elements used once, we need to sort first and in the for loop, we need to remove duplicate values.
 
 
 ## Algorithm(4th_Edition)
