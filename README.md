@@ -531,6 +531,12 @@
 * [216. Combination Sum III](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/216.%20Combination%20Sum%20III.md)
 * Conclusion: We can speed up the recursion using an index and if we want all elements used once, we need to sort first and in the for loop, we need to remove duplicate values.
 
+#### Permutation
+* [46. Permutations](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/46.%20Permutations.md)
+* [47. Permutations II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/47.%20Permutations%20II.md)
+* [784. Letter Case Permutation](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/784.%20Letter%20Case%20Permutation.md)
+* [943. Find the Shortest Superstring](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/943.%20Find%20the%20Shortest%20Superstring.md)
+* [996. Number of Squareful Arrays](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/996.%20Number%20of%20Squareful%20Arrays.md)
 
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
