@@ -538,6 +538,15 @@
 * [943. Find the Shortest Superstring](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/943.%20Find%20the%20Shortest%20Superstring.md)
 * [996. Number of Squareful Arrays](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/996.%20Number%20of%20Squareful%20Arrays.md)
 
+#### DFS
+* [22. Generate Parentheses](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/22.%20Generate%20Parentheses.md)
+* [301. Remove Invalid Parentheses](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/301.%20Remove%20Invalid%20Parentheses.md)
+* [37. Sudoku Solver](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/37.%20Sudoku%20Solver.md)
+* [51. N-Queens](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/51.%20N-Queens.md)
+* [52. N-Queens II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/52.%20N-Queens%20II.md)
+* [79. Word Search](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/79.%20Word%20Search.md)
+* [[212. Word Search II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/212.%20Word%20Search%20II.md)]
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
