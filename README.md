@@ -243,6 +243,8 @@
 
 [125. Valid Palindrome](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/125.%20Valid%20Palindrome.md)
 
+[126. Word Ladder II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/126.%20Word%20Ladder%20II.md)
+
 [127. Word Ladder](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/127.%20Word%20Ladder.md)
 
 [128. Longest Consecutive Sequence](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/128.%20Longest%20Consecutive%20Sequence.md)
@@ -545,7 +547,15 @@
 * [51. N-Queens](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/51.%20N-Queens.md)
 * [52. N-Queens II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/52.%20N-Queens%20II.md)
 * [79. Word Search](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/79.%20Word%20Search.md)
-* [[212. Word Search II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/212.%20Word%20Search%20II.md)]
+* [212. Word Search II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/212.%20Word%20Search%20II.md)
+
+#### BFS
+* [127. Word Ladder](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/127.%20Word%20Ladder.md)
+* [126. Word Ladder II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/126.%20Word%20Ladder%20II.md)
+* [752. Open the Lock](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/752.%20Open%20the%20Lock.md)
+* [542. 01 Matrix](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/542.%200120Matrix.md)
+* [695. Max Area of Island](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/695.%20Max%20Area%20of%20Island.md)
+* [934. Shortest Bridge](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/934.%20Shortest%20Bridge.md)
 
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
