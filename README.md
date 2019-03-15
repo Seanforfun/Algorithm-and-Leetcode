@@ -181,6 +181,8 @@
 
 [92. Reverse Linked List II.md](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/92.%20Reverse%20Linked%20List%20II.md)
 
+[93. Restore IP Addresses](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/93.%20Restore%20IP%20Addresses.md)
+
 [94. Binary Tree Inorder Traversal](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/94.%20Binary%20Tree%20Inorder%20Traversal.md)
 
 [95. Unique Binary Search Trees II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/95.%20Unique%20Binary%20Search%20Trees%20II.md)
@@ -556,6 +558,14 @@
 * [542. 01 Matrix](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/542.%200120Matrix.md)
 * [695. Max Area of Island](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/695.%20Max%20Area%20of%20Island.md)
 * [934. Shortest Bridge](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/934.%20Shortest%20Bridge.md)
+
+#### Partition
+* [698. Partition to K Equal Sum Subsets](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/698.%20Partition%20to%20K%20Equal%20Sum%20Subsets.md)
+* [93. Restore IP Addresses](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/93.%20Restore%20IP%20Addresses.md)
+* [131. Palindrome Partitioning](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/131.%20Palindrome%20Partitioning.md)
+* [241. Different Ways to Add Parentheses](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/241.%20Different%20Ways%20to%20Add%20Parentheses.md)
+* [282. Expression Add Operators](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/282.%20Expression%20Add%20Operators.md)
+* [842. Split Array into Fibonacci Sequence](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/842.%20Split%20Array%20into%20Fibonacci%20Sequence.md)
 
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
