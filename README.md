@@ -567,6 +567,19 @@
 * [282. Expression Add Operators](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/282.%20Expression%20Add%20Operators.md)
 * [842. Split Array into Fibonacci Sequence](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/842.%20Split%20Array%20into%20Fibonacci%20Sequence.md)
 
+#### Dynamic Programming
+* [70. Climbing Stairs](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/70.%20Climbing%20Stairs.md)
+* [746. Min Cost Climbing Stairs](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/746.%20Min%20Cost%20Climbing%20Stairs.md)
+* [303. Range Sum Query - Immutable](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/303.%20Range%20Sum%20Query%20-%20Immutable.md)
+* [53. Maximum Subarray](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/53.%20Maximum%20Subarray.md)
+* [121. Best Time to Buy and Sell Stock](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/121.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock.md)
+* [198. House Robber](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/198.%20House%20Robber.md)
+* [213. House Robber II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/213.%20House%20Robber%20II.md)
+* [309. Best Time to Buy and Sell Stock with Cooldown](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/309.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Cooldown.md)
+* [740. Delete and Earn](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/740.%20Delete%20and%20Earn.md)
+* [790. Domino and Tromino Tiling](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/790.%20Domino%20and%20Tromino%20Tiling.md)
+* [801. Minimum Swaps To Make Sequences Increasing](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/801.%20Minimum%20Swaps%20To%20Make%20Sequences%20Increasing.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
