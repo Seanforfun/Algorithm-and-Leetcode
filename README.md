@@ -579,6 +579,21 @@
 * [740. Delete and Earn](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/740.%20Delete%20and%20Earn.md)
 * [790. Domino and Tromino Tiling](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/790.%20Domino%20and%20Tromino%20Tiling.md)
 * [801. Minimum Swaps To Make Sequences Increasing](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/801.%20Minimum%20Swaps%20To%20Make%20Sequences%20Increasing.md)
+* [139. Word Break](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/139.%20Word%20Break.md)
+* [140. Word Break II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/140.%20Word%20Break%20II.md)
+* [818. Race Car](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/818.%20Race%20Car.md)
+* [300. Longest Increasing Subsequence](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/300.%20Longest%20Increasing%20Subsequence.md)
+* [673. Number of Longest Increasing Subsequence](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/673.%20Number%20of%20Longest%20Increasing%20Subsequence.md)
+* [72. Edit Distance](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/72.%20Edit%20Distance.md)
+* [10. Regular Expression Matching](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/10.%20Regular%20Expression%20Matching.md)
+* [44. Wildcard Matching](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/44.%20Wildcard%20Matching.md)
+* [97. Interleaving String](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/97.%20Interleaving%20String.md)
+* [115. Distinct Subsequences](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/115.%20Distinct%20Subsequences.md)
+* [583. Delete Operation for Two Strings](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/583.%20Delete%20Operation%20for%20Two%20Strings.md)
+* [712. Minimum ASCII Delete Sum for Two Strings](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/712.%20Minimum%20ASCII%20Delete%20Sum%20for%20Two%20Strings.md)
+* [322. Coin Change](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/322.%20Coin%20Change.md)
+* [377. Combination Sum IV](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/377.%20Combination%20Sum%20IV.md)
+
 
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
