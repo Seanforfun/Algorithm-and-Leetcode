@@ -593,6 +593,12 @@
 * [712. Minimum ASCII Delete Sum for Two Strings](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/712.%20Minimum%20ASCII%20Delete%20Sum%20for%20Two%20Strings.md)
 * [322. Coin Change](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/322.%20Coin%20Change.md)
 * [377. Combination Sum IV](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/377.%20Combination%20Sum%20IV.md)
+* [416. Partition Equal Subset Sum](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/416.%20Partition%20Equal%20Subset%20Sum.md)
+* [494. Target Sum](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/494.%20Target%20Sum.md)
+* [813. Largest Sum of Averages](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/813.%20Largest%20Sum%20of%20Averages.md)
+* [312. Burst Balloons](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/312.%20Burst%20Balloons.md)
+* [664. Strange Printer](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/664.%20Strange%20Printer.md)
+* [741. Cherry Pickup](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/741.%20Cherry%20Pickup.md)
 
 
 ## Algorithm(4th_Edition)
