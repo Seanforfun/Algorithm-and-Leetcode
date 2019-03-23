@@ -319,6 +319,8 @@
 
 [173. Binary Search Tree Iterator](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/173.%20Binary%20Search%20Tree%20Iterator.md)
 
+[174. Dungeon Game](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/174.%20Dungeon20Game.md)
+
 [175. Combine Two Tables](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/175.%20Combine%20Two%20Tables.md)
 
 [176. Second Highest Salary](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/176.%20Second%20Highest%20Salary.md)
@@ -599,7 +601,22 @@
 * [312. Burst Balloons](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/312.%20Burst%20Balloons.md)
 * [664. Strange Printer](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/664.%20Strange%20Printer.md)
 * [741. Cherry Pickup](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/741.%20Cherry%20Pickup.md)
-
+* [546. Remove Boxes](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/546.%20Remove%20Boxes.md)
+* [943. Find the Shortest Superstring](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/943.%20Find%20the%20Shortest%20Superstring.md)
+* [980. Unique Paths III](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/980.%20Unique%20Paths%20III.md)
+* [996. Number of Squareful Arrays](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/996.%20Number%20of%20Squareful%20Arrays.md)
+* [62. Unique Paths](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/62.%20Unique%20Paths.md)
+* [63. Unique Paths II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/63.%20Unique%20Paths%20II.md)
+* [64. Minimum Path Sum](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/64.%20Minimum%20Path%20Sum.md)
+* [120. Triangle](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/120.%20Triangle.md)
+* [174. Dungeon Game](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/174.%20Dungeon20Game.md)
+* [931. Minimum Falling Path Sum](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/931.%20Minimum%20Falling%20Path%20Sum.md)
+* [85. Maximal Rectangle](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/85.%20Maximal%20Rectangle.md)
+* [221. Maximal Square](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/221.%20Maximal%20Square.md)
+* [304. Range Sum Query 2D - Immutable](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/304.%20Range%20Sum%20Query%202D%20-%20Immutable.md)
+* [688. Knight Probability in Chessboard](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/688.%20Knight%20Probability%20in%20Chessboard.md)
+* [576. Out of Boundary Paths](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/576.%20Out%20of%20Boundary%20Paths.md)
+* [935. Knight Dialer](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/935.%20Knight%20Dialer.md)
 
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
