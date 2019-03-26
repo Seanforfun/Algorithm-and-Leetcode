@@ -618,7 +618,7 @@
 * [576. Out of Boundary Paths](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/576.%20Out%20of%20Boundary%20Paths.md)
 * [935. Knight Dialer](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/935.%20Knight%20Dialer.md)
 
-#### Graph
+### Graph
 * [133. Clone Graph](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/133.%20Clone%20Graph.md)
 * [138. Copy List with Random Pointer](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/138.%20Copy%20List%20with%20Random%20Pointer.md)
 * [200. Number of Islands](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/200.%20Number%20of%20Islands.md)
