@@ -619,12 +619,29 @@
 * [935. Knight Dialer](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/935.%20Knight%20Dialer.md)
 
 ### Graph
+#### Clone graph: hashtable + dfs
 * [133. Clone Graph](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/133.%20Clone%20Graph.md)
 * [138. Copy List with Random Pointer](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/138.%20Copy%20List%20with%20Random%20Pointer.md)
+#### Grid + Connected Component
 * [200. Number of Islands](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/200.%20Number%20of%20Islands.md)
 * [547. Friend Circles](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/547.%20Friend%20Circles.md)
 * [695. Max Area of Island](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/695.%20Max%20Area%20of%20Island.md)
 * [733. Flood Fill](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/733.%20Flood%20Fill.md)
+* [827. Making A Large Island](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/827.%20Making%20A%20Large%20Island.md)
+* [841. Keys and Rooms](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/841.%20Keys%20and%20Rooms.md)
+#### Topological Sort
+* [207. Course Schedule](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/207.%20Course%20Schedule.md)
+* [210. Course Schedule II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/210.%20Course%20Schedule%20II.md)
+* [802. Find Eventual Safe States](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/802.%20Find%20Eventual%20Safe%20States.md)
+#### Union Find Set / Disjoint Set
+* [399. Evaluate Division](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/399.%20Evaluate%20Division.md)
+* [839. Similar String Groups](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/839.%20Similar%20String%20Groups.md)
+* [952. Largest Component Size by Common Factor](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/952.%20Largest%20Component%20Size%20by%20Common%20Factor.md)
+* [990. Satisfiability of Equality Equations](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/990.%20Satisfiability%20of%20Equality%20Equations.md)
+* [721. Accounts Merge](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/721.%20Accounts%20Merge.md)
+#### Bipartite
+* [785. Is Graph Bipartite?](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/785.%20Is%20Graph%20Bipartite?.md)
+* [886. Possible Bipartition](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/886.%20Possible%20Bipartition.md)
 
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
