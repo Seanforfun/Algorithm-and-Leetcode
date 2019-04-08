@@ -642,6 +642,48 @@
 #### Bipartite
 * [785. Is Graph Bipartite?](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/785.%20Is%20Graph%20Bipartite?.md)
 * [886. Possible Bipartition](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/886.%20Possible%20Bipartition.md)
+#### Cycle+Union-find
+* [684. Redundant Connection](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/684.%20Redundant%20Connection.md)
+* [685. Redundant Connection II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/685.%20Redundant%20Connection%20II.md)
+* [787. Cheapest Flights Within K Stops](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/787.%20Cheapest%20Flights%20Within%20K%20Stops.md)
+#### Shortest Path
+* [743. Network Delay Time](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/743.%20Network%20Delay%20Time.md)
+#### BFS
+* [847. Shortest Path Visiting All Nodes](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/847.%20Shortest%20Path%20Visiting%20All%20Nodes.md)
+* [815. Bus Routes](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/815.%20Bus%20Routes.md)
+* [864. Shortest Path to Get All Keys](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/864.%20Shortest%20Path%20to%20Get%20All%20Keys.md)
+* [924. Minimize Malware Spread](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/924.%20Minimize%20Malware%20Spread.md)
+#### Hamilton Path / DP
+* [943. Find the Shortest Superstring](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/943.%20Find%20the%20Shortest%20Superstring.md)
+* [980. Unique Paths III](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/980.%20Unique%20Paths%20III.md)
+* [996. Number of Squareful Arrays](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/996.%20Number%20of%20Squareful%20Arrays.md)
+#### Union-find + connected component
+* [959. Regions Cut By Slashes](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/959.%20Regions%20Cut%20By%20Slashes.md)
+
+### Tree
+#### Traversal
+* [94. Binary Tree Inorder Traversal](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/94.%20Binary%20Tree%20Inorder%20Traversal.md)
+* [589. N-ary Tree Preorder Traversal](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/589.%20N-ary%20Tree%20Preorder%20Traversal.md)
+* [590. N-ary Tree Postorder Traversal](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/590.%20N-ary%20Tree%20Postorder%20Traversal.md)
+* [100. Same Tree](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/100.%20Same%20Tree.md)
+* [101. Symmetric Tree](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/101.%20Symmetric%20Tree.md)
+* [104. Maximum Depth of Binary Tree](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/104.%20Maximum%20Depth%20of%20Binary%20Tree.md)
+* [110. Balanced Binary Tree](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/110.%20Balanced%20Binary%20Tree.md)
+* [111. Minimum Depth of Binary Tree](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/111.%20Minimum%20Depth%20of%20Binary%20Tree.md)
+* [572. Subtree of Another Tree](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/572.%20Subtree%20of%20Another%20Tree.md)
+* [965. Univalued Binary Tree](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/965.%20Univalued%20Binary%20Tree.md)
+#### Collecting Node
+* [102. Binary Tree Level Order Traversal](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/102.%20Binary%20Tree%20Level%20Order%20Traversal.md)
+* [107. Binary Tree Level Order Traversal II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/107.%20Binary%20Tree%20Level%20Order%20Traversal%20II.md)
+* [429. N-ary Tree Level Order Traversal](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/429.%20N-ary%20Tree%20Level%20Order%20Traversal.md)
+* [987. Vertical Order Traversal of a Binary Tree](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/987.%20Vertical%20Order%20Traversal%20of%20a%20Binary%20Tree.md)
+* [814. Binary Tree Pruning](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/814.%20Binary%20Tree%20Pruning.md)
+* [669. Trim a Binary Search Tree](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/669.%20Trim%20a%20Binary%20Search%20Tree.md)
+* [112. Path Sum](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/112.%20Path%20Sum.md)
+* [113. Path Sum II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/113.%20Path%20Sum%20II.md)
+* [437. Path Sum III](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/437.%20Path%20Sum%20III.md)
+
+
 
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
