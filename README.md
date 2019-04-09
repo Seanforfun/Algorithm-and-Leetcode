@@ -682,8 +682,20 @@
 * [112. Path Sum](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/112.%20Path%20Sum.md)
 * [113. Path Sum II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/113.%20Path%20Sum%20II.md)
 * [437. Path Sum III](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/437.%20Path%20Sum%20III.md)
-
-
+#### Use both nodes, return one.
+* [124. Binary Tree Maximum Path Sum](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/124.%20Binary%20Tree%20Maximum%20Path%20Sum.md)
+* [543. Diameter of Binary Tree](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/543.%20Diameter%20of%20Binary%20Tree.md)
+* [687. Longest Univalue Path](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/687.%20Longest%20Univalue%20Path.md)
+* [129. Sum Root to Leaf Numbers](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/129.%20Sum%20Root%20to%20Leaf%20Numbers.md)
+* [257. Binary Tree Paths](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/257.%20Binary%20Tree%20Paths.md)
+* [235. Lowest Common Ancestor of a Binary Search Tree](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/235.%20Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree.md)
+* [236. Lowest Common Ancestor of a Binary Tree](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/236.%20Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree.md)
+* [297. Serialize and Deserialize Binary Tree](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/297.%20Serialize%20and%20Deserialize%20Binary%20Tree.md)
+* [449. Serialize and Deserialize BST](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/449.%20Serialize%20and%20Deserialize%20BST.md)
+* [508. Most Frequent Subtree Sum](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/508.%20Most%20Frequent%20Subtree%20Sum.md)
+* [968. Binary Tree Cameras](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/968.%20Binary%20Tree%20Cameras.md)
+* [337. House Robber III](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/337.%20House%20Robber%20III.md)
+* [979. Distribute Coins in Binary Tree](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/979.%20Distribute%20Coins%20in%20Binary%20Tree.md)
 
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
