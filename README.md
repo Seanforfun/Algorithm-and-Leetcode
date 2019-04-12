@@ -697,6 +697,28 @@
 * [337. House Robber III](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/337.%20House%20Robber%20III.md)
 * [979. Distribute Coins in Binary Tree](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/979.%20Distribute%20Coins%20in%20Binary%20Tree.md)
 
+### Binary Search
+* [34. Find First and Last Position of Element in Sorted Array](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/34.%20Find%20First%20and%20Last%20Position%20of%20Element%20in%20Sorted%20Array.md)
+* [35. Search Insert Position](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/35.%20Search%20Insert%20Position.md)
+* [704. Binary Search](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/704.%20Binary%20Search.md)
+* [981. Time Based Key-Value Store](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/981.%20Time%20Based%20Key-Value%20Store.md)
+* [33. Search in Rotated Sorted Array](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/33.%20Search%20in%20Rotated%20Sorted%20Array.md)
+* [81. Search in Rotated Sorted Array II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/81.%20Search%20in%20Rotated%20Sorted%20Array%20II.md)
+* [153. Find Minimum in Rotated Sorted Array](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/153.%20Find%20Minimum%20in%20Rotated%20Sorted%20Array.md)
+* [154. Find Minimum in Rotated Sorted Array II](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/154.%20Find%20Minimum%20in%20Rotated%20Sorted%20Array%20II.md)
+* [162. Find Peak Element](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/162.%20Find%20Peak%20Element.md)
+* [852. Peak Index in a Mountain Array](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/852.%20Peak%20Index%20in%20a%20Mountain%20Array.md)
+* [69. Sqrt(x)](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/69.%20Sqrt(x).md)
+* [74. Search a 2D Matrix](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/74.%20Search%20a%202D%20Matrix.md)
+* [378. Kth Smallest Element in a Sorted Matrix](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/378.%20Kth%20Smallest%20Element%20in%20a%20Sorted%20Matrix.md)
+* [668. Kth Smallest Number in Multiplication Table](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/668.%20Kth%20Smallest%20Number%20in%20Multiplication%20Table.md)
+* [778. Swim in Rising Water](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/778.%20Swim%20in%20Rising%20Water.md)
+* [174. Dungeon Game](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/174.%20Dungeon%20Game.md)
+* [875. Koko Eating Bananas](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/875.%20Koko%20Eating%20Bananas.md)
+* [4.Median of Two Sorted Arrays](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/4.%20Median%20of%20Two%20Sorted%20Arrays.md)
+* [719. Find K-th Smallest Pair Distance](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/719.%20Find%20K-th%20Smallest%20Pair%20Distance.md)
+* [786. K-th Smallest Prime Fraction](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/786.%20K-th%20Smallest%20Prime%20Fraction.md)
+
 ## Algorithm(4th_Edition)
 Reading notes of book Algorithm(4th Algorithm),ISBN: 9787115293800.
 All java realization codes are placed in different packages.
