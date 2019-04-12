@@ -319,7 +319,7 @@
 
 [173. Binary Search Tree Iterator](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/173.%20Binary%20Search%20Tree%20Iterator.md)
 
-[174. Dungeon Game](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/174.%20Dungeon20Game.md)
+[174. Dungeon Game](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/174.%20Dungeon%20Game.md)
 
 [175. Combine Two Tables](https://github.com/Seanforfun/Algorithm-and-Leetcode/blob/master/leetcode/175.%20Combine%20Two%20Tables.md)
 
